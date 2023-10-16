@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/bvi.css') }}">
   @yield('style')
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+  @vite(['resources/sass/main.scss'])
   <title>@yield('title', config('app.name') )</title>
 </head>
 <body>
@@ -500,7 +500,7 @@
 
   @yield('script')
   <script src="{{ asset('js/bvi.min.js') }}"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
+  @vite(['resources/js/main.js'])
   
 </body>
 </html>
