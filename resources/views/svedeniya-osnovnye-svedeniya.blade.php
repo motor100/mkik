@@ -1,4 +1,4 @@
-<?php $page_title = "Основные сведения"; ?>
+@section('title', 'Основные сведения')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page osnovnye-svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Основные сведения</div>
       </div>
       <div class="text">
         {!! $text !!}

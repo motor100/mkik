@@ -1,11 +1,11 @@
-<?php $page_title = "Издания"; ?>
+@section('title', 'Издания')
 
 @extends('layouts.main')
 
 @section('content')
   <div class="page izdaniya-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Издания</div>
       @foreach($izdaniya as $zdn)
         <div class="konkursy-wrapper">
           <div class="item">

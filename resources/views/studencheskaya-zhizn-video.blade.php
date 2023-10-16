@@ -1,4 +1,4 @@
-<?php $page_title = "Видео"; ?>
+@section('title', 'Видео')
 
 @extends('layouts.main')
 
@@ -8,7 +8,7 @@
 @section('content')
   <div class="page video-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Видео</div>
       <div class="videos-wrapper">
         @foreach($videos as $vd)
           <div class="item">

@@ -1,4 +1,4 @@
-<?php $page_title = "Газета Pizzicato"; ?>
+@section('title', 'Газета Pizzicato')
 
 @extends('layouts.main')
 
@@ -8,7 +8,7 @@
 @section('content')
   <div class="page gazeta-pizzicato-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">{{ Газета Pizzicato }}</div>
 
       <div class="newspapers">
         @foreach($newspapers as $nwpr)

@@ -12,9 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css/bvi.css') }}">
   @yield('style')
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <title>
-    <?= isset($page_title) ? $page_title : "Миасский государственный колледж искусства и культуры"; ?>
-  </title>
+  <title>@yield('title', config('app.name') )</title>
 </head>
 <body>
   <header class="header">

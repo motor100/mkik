@@ -1,4 +1,4 @@
-<?php $page_title = $single_napravlenie->title; ?>
+@section('title', $single_napravlenie->title)
 
 @extends('layouts.main')
 
@@ -12,7 +12,7 @@
     <div class="single-news-content">
       <div class="container">
         <div class="page-title-wrapper">
-          <div class="page-title"><?php echo $page_title; ?></div>
+          <div class="page-title">{{ $single_napravlenie->title }}</div>
           <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
         </div>
         <div class="gallery">

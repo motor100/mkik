@@ -1,4 +1,4 @@
-<?php $page_title = "Политика конфиденциальности"; ?>
+@section('title', 'Политика конфиденциальности')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page politika-konfidencialnosti-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Политика конфиденциальности</div>
         <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
       </div>
       <div class="documents">

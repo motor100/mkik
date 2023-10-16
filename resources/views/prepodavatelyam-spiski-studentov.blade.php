@@ -1,4 +1,4 @@
-<?php $page_title = "Списки студентов"; ?>
+@section('title', 'Списки студентов')
 
 @extends('layouts.main')
 
@@ -8,7 +8,7 @@
 @section('content')
   <div class="page spiski-studentov-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Списки студентов</div>
       <div class="select-course">
         <div class="item course-active">
           <span class="number">1</span> курс

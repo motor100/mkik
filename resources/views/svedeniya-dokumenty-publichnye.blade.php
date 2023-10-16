@@ -1,4 +1,4 @@
-<?php $page_title = "Публичные"; ?>
+@section('title', 'Публичные')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-pdf-list svedeniya-dokumenty-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Публичные</div>
       </div>
       <div class="documents">
         <div class="list-item">

@@ -1,4 +1,4 @@
-<?php $page_title = "53.02.03 Фортепиано"; ?>
+@section('title', '53.02.03 Фортепиано')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">53.02.03 Фортепиано</div>
       </div>
       <div class="documents">
         <div class="list-item">

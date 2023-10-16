@@ -1,4 +1,4 @@
-<?php $page_title = $single_afisha->title; ?>
+@section('title', $single_afisha->title)
 
 @extends('layouts.main')
 
@@ -7,7 +7,7 @@
     <div class="single-afisha-content">
       <div class="container">
         <div class="page-title-wrapper">
-          <div class="page-title"><?php echo $page_title; ?></div>
+          <div class="page-title">{{ $single_afisha->title }}</div>
           <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
         </div>
         <div class="info">

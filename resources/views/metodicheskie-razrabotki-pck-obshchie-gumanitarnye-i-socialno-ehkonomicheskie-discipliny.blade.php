@@ -1,4 +1,4 @@
-<?php $page_title = "ПЦК Общие гуманитарные и социально-экономические дисциплины"; ?>
+@section('title', 'ПЦК Общие гуманитарные и социально-экономические дисциплины')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">ПЦК Общие гуманитарные и социально-экономические дисциплины</div>
       </div>
       <div class="documents">
         <div class="list-item">

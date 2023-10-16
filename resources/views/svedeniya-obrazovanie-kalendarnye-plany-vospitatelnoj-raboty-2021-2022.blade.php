@@ -1,4 +1,4 @@
-<?php $page_title = "Календарные планы воспитательной работы 2021-2022"; ?>
+@section('title', 'Календарные планы воспитательной работы 2021-2022')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-pdf-list svedeniya-dokumenty-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Календарные планы воспитательной работы 2021-2022</div>
       </div>
       <div class="documents">
         <div class="list-item">

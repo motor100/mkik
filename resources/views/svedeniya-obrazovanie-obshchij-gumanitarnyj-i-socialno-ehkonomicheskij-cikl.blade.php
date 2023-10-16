@@ -1,4 +1,4 @@
-<?php $page_title = "Общий гуманитарный и социально-экономический цикл"; ?>
+@section('title', 'Общий гуманитарный и социально-экономический цикл')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Общий гуманитарный и социально-экономический цикл</div>
       </div>
       <div class="svedeniya-links">
         <div class="item">

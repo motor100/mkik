@@ -1,4 +1,4 @@
-<?php $page_title = "Результаты освоения образовательной программы"; ?>
+@section('title', 'Результаты освоения образовательной программы')
 
 @extends('layouts.main')
 
@@ -9,7 +9,7 @@
 @section('content')
 <div class="page eios-table-page rezultaty-osvoeniya-obrazovatelnoj-programmy-page">
   <div class="container">
-    <div class="page-title"><?php echo $page_title; ?></div>
+    <div class="page-title">Результаты освоения образовательной программы</div>
       <div class="course-wrapper">
         <div class="item">
           <span class="course-number">1</span>

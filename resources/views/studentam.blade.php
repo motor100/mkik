@@ -1,4 +1,4 @@
-<?php $page_title = "Студентам"; ?>
+@section('title', 'Студентам')
 
 @extends('layouts.main')
 
@@ -8,7 +8,7 @@
 @section('content')
   <div class="page istoriya-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Студентам</div>
 
       <div class="item">
         <a href="/studentam/raspisanie">Расписание</a>

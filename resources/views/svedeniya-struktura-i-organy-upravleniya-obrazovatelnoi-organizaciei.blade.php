@@ -1,4 +1,4 @@
-<?php $page_title = "Структура и органы управления образовательной организацией"; ?>
+@section('title', 'Структура и органы управления образовательной организацией')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page struktura-i-organy-upravleniya-obrazovatelnoj-organizaciej-page svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Структура и органы управления образовательной организацией</div>
       </div>
       <div class="text">
         {!! $text !!}

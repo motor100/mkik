@@ -1,4 +1,4 @@
-<?php $page_title = "Аннотации к программам ППССЗ"; ?>
+@section('title', 'Аннотации к программам ППССЗ')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-pdf-list">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Аннотации к программам ППССЗ</div>
       </div>
       <div class="text">
         {!! $text !!}

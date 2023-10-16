@@ -1,11 +1,11 @@
-<?php $page_title = "Информационные электронные образовательные ресурсы"; ?>
+@section('title', 'Информационные электронные образовательные ресурсы')
 
 @extends('layouts.main')
 
 @section('content')
 <div class="page eios-list-page informacionnye-ehlektronnye-obrazovatelnye-resursy-page">
   <div class="container">
-    <div class="page-title"><?php echo $page_title; ?></div>
+    <div class="page-title">Информационные электронные образовательные ресурсы</div>
     
     @if(count($resources) > 0)
       <div class="documents">

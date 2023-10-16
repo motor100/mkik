@@ -1,4 +1,4 @@
-<?php $page_title = "Методические материалы и программы"; ?>
+@section('title', 'Методические материалы и программы')
 
 @extends('layouts.main')
 
@@ -9,7 +9,7 @@
 @section('content')
 <div class="page eios-page metodicheskie-materialy-programmy-page">
   <div class="container">
-    <div class="page-title"><?php echo $page_title; ?></div>
+    <div class="page-title">Методические материалы и программы</div>
 
     <div class="title-wrapper">
       <div class="title">Студентам</div>

@@ -1,4 +1,4 @@
-<?php $page_title = "Портфолио"; ?>
+@section('title', 'Портфолио')
 
 @extends('layouts.main')
 
@@ -9,7 +9,7 @@
 @section('content')
 <div class="page eios-table-page portfolio-page">
   <div class="container">
-    <div class="page-title"><?php echo $page_title; ?></div>
+    <div class="page-title">Портфолио</div>
 
     @if(count($portfolios) > 0)
       <div class="column-title">

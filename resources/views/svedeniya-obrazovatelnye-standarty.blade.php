@@ -1,4 +1,4 @@
-<?php $page_title = "Образовательные стандарты"; ?>
+@section('title', 'Образовательные стандарты')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Образовательные стандарты</div>
       </div>
       <div class="text">
         {!! $text !!}

@@ -1,11 +1,11 @@
-<?php $page_title = "Педагогический состав"; ?>
+@section('title', 'Педагогический состав')
 
 @extends('layouts.main')
 
 @section('content')
   <div class="page o-kolledzhe-pedagogicheskij-sostav-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Педагогический состав</div>
       <div class="page-subtitle">Руководство</div>
       <div class="teachers-wrapper">
         @if(count($teachers) > 0)

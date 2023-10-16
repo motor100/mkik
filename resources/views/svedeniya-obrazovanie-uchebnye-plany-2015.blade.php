@@ -1,4 +1,4 @@
-<?php $page_title = "Учебные планы 2015"; ?>
+@section('title', 'Учебные планы 2015')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page svedeniya-pdf-list svedeniya-dokumenty-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Учебные планы 2015</div>
       </div>
       <div class="documents">
         <div class="list-item">

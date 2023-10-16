@@ -1,11 +1,11 @@
-<?php $page_title = "Контакты"; ?>
+@section('title', 'Контакты')
 
 @extends('layouts.main')
 
 @section('content')
   <div class="page o-kolledzhe-kontakty-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Контакты</div>
       <div class="contacts-wrapper">
         <div class="row">
           <div class="col-md-7 col-lg-4">

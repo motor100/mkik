@@ -1,4 +1,4 @@
-<?php $page_title = "Методические рекомендации"; ?>
+@section('title', 'Методические рекомендации')
 
 @extends('layouts.main')
 
@@ -8,7 +8,7 @@
 @section('content')
   <div class="page prepodavatelyam-metodicheskie-rekomendacii-page dokumenty-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Методические рекомендации</div>
       <div class="documents">
         @foreach($documents as $doc)
           <div class="list-item">

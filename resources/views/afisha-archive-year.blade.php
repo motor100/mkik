@@ -1,4 +1,4 @@
-<?php $page_title = "Афиша " . $year; ?>
+@section('title', 'Афиша')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page afisha-archive-year-page archive-year-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Афиша</div>
         <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
       </div>
       <div class="cnt">

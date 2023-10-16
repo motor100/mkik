@@ -1,4 +1,4 @@
-<?php $page_title = "Материально-техническое обеспечение и оснащенность образовательного процесса"; ?>
+@section('title', 'Материально-техническое обеспечение и оснащенность образовательного процесса')
 
 @extends('layouts.main')
 
@@ -6,7 +6,7 @@
   <div class="page materialno-tekhnicheskoe-obespechenie-page">
     <div class="container">
       <div class="page-title-wrapper">
-        <div class="page-title"><?php echo $page_title; ?></div>
+        <div class="page-title">Материально-техническое обеспечение и оснащенность образовательного процесса</div>
       </div>
       <div class="text">
         {!! $text !!}

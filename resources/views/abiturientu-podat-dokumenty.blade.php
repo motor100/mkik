@@ -1,4 +1,4 @@
-<?php $page_title = "Подать документы"; ?>
+@section('title', 'Подать документы')
 
 @extends('layouts.main')
 
@@ -9,7 +9,7 @@
 @section('content')
   <div class="page podat-dokumenty-page">
     <div class="container">
-      <div class="page-title"><?php echo $page_title; ?></div>
+      <div class="page-title">Подать документы</div>
       <div class="required-text">Все поля обязательны для заполнения*</div>
 
       @if($errors->any())

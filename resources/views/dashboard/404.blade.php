@@ -1,8 +1,4 @@
-<?php $page_title = "404"; ?>
-
-@section('title')
-404
-@endsection
+@section('title', '404')
 
 @extends('dashboard.layout')
 
