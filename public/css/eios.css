@@ -1,0 +1,105 @@
+/* Главная страница ЭИОС */
+.eios-page .logout {
+  text-align: right;
+  margin: 0 0 30px 0;
+}
+.eios-page .logout a {
+  font-family: 'pt-sans-bold';
+  color: #000;
+}
+.eios-page .item {
+  position: relative;
+  height: 200px;
+  margin: 0 0 25px 0;
+  padding: 15px;
+  border: 1px solid #5C0605;
+}
+.eios-page .item .title {
+  font-family: 'pt-sans-bold';
+  font-size: 24px;
+}
+.eios-page .item .btn {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 11px 20px;
+  background-color: #5C0605;
+  font-family: 'pt-sans-bold';
+  color: #fff;
+}
+
+/* Страница с таблицей */
+.eios-table-page .column-title {
+  display: flex;
+  justify-content: space-between;
+}
+.eios-table-page .column-title {
+  margin: 0 0 25px 0;
+}
+.eios-table-page .column-title .column {
+  font-family: 'pt-sans-bold';
+  font-size: 24px;
+  color: #5C0605;
+  text-align: center;
+}
+.eios-table-page .table-wrapper .item {
+  display: flex;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+.eios-table-page .column {
+  padding: 0 5px;
+}
+.eios-table-page .title {
+  width: 20%;
+  flex-shrink: 0;
+}
+.eios-table-page .text {
+  width: 45%;
+  flex-shrink: 0;
+}
+.eios-table-page .course {
+  width: 10%;
+  flex-shrink: 0;
+}
+.eios-table-page .file {
+  width: 25%;
+  flex-shrink: 0;
+}
+.eios-table-page .course-wrapper {
+  display: flex;
+}
+.eios-table-page .course-wrapper .item {
+  width: 25%;
+  text-align: center;
+  flex-shrink: 0;
+}
+.eios-table-page .documents-wrapper {
+  display: flex;
+}
+.eios-table-page .documents-wrapper .item {
+  width: 25%;
+  margin: 0 0 15px 0;
+  padding: 0 5px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.eios-page .title-wrapper {
+  display: flex;
+  margin: 0 0 25px 0;
+  justify-content: space-between;
+}
+.eios-page .title-wrapper .title {
+  width: 50%;
+  font-family: 'pt-sans-bold';
+  font-size: 24px;
+  color: #5C0605;
+  text-align: center;
+  text-transform: uppercase;
+}
+.eios-page .materialy-wrapper {
+ display: flex;
+}
+.eios-page .materialy-wrapper .column {
+  width: 50%;
+}

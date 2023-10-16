@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'pt-sans-regular';
+  src: url(../fonts/pt-sans-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'pt-sans-bold';
+  src: url(../fonts/pt-sans-bold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  min-width: 320px;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #E8E2D4;
+  font-family: "pt-sans-regular", sans-serif;
+  color: #000;
+}
+
+.logo {
+  width: 100px;
+}
+
+.min-h-screen {
+  background-color: #E8E2D4;
+}
+
+.w-full {
+  max-width: 380px !important;
+  background-color: #E8E2D4;
+  border: 1px solid #5C0605;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+label {
+  font-family: 'pt-sans-bold';
+  font-size: 16px !important;
+  color: #000 !important;
+  text-align: center;
+}
+
+form div {
+  max-width: 350px;
+}
+
+input {
+  max-width: 350px;
+  background-color: #fff !important;
+}
+
+input:focus {
+  border: 1px solid #000 !important;
+}
+
+button {
+  width: 83px;
+  height: 43px;
+  margin: 0 auto !important;
+  background-color: #5C0605 !important;
+  border-radius: 0 !important;
+}
+
