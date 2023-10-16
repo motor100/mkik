@@ -1,6 +1,6 @@
 <?php $page_title = "Противодействие коррупции"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page protivodejstvie-korrupcii-page">

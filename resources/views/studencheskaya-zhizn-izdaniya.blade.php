@@ -1,6 +1,6 @@
 <?php $page_title = "Издания"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page izdaniya-page">

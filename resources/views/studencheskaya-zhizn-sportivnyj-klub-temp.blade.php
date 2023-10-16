@@ -1,6 +1,6 @@
 <?php $page_title = "Спортивный клуб Темп"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page sportivnyj-klub-temp-page">

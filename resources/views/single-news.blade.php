@@ -1,6 +1,6 @@
 <?php $page_title = $single_news->title; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('css/photoswipe.css') }}">

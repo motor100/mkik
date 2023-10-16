@@ -1,6 +1,6 @@
 <?php $page_title = "Образование"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('style')
 @endsection

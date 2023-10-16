@@ -1,6 +1,6 @@
 <?php $page_title = "Календарные планы воспитательной работы 2021-2022"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page svedeniya-pdf-list svedeniya-dokumenty-page">

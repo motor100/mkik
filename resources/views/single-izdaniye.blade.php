@@ -1,6 +1,6 @@
 <?php $page_title = $single_izdaniye->title; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page single-izdaniye-page single-page">

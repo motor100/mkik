@@ -1,6 +1,6 @@
 <?php $page_title = "Документы"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('style')
 @endsection

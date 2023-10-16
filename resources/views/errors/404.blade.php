@@ -1,6 +1,6 @@
 <?php $page_title = "404"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
 <div class="page page404">

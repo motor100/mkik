@@ -1,6 +1,6 @@
 <?php $page_title = "Политика конфиденциальности"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page politika-konfidencialnosti-page">

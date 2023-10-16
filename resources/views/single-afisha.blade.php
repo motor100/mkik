@@ -1,6 +1,6 @@
 <?php $page_title = $single_afisha->title; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page single-afisha-page single-page">

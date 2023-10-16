@@ -1,6 +1,6 @@
 <?php $page_title = "Аннотации к программам ППССЗ"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page svedeniya-pdf-list">

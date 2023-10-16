@@ -1,6 +1,6 @@
 <?php $page_title = "Структура и органы управления образовательной организацией"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page struktura-i-organy-upravleniya-obrazovatelnoj-organizaciej-page svedeniya-page">

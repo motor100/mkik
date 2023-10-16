@@ -1,6 +1,6 @@
 <?php $page_title = "Центр содействия трудоустройству"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page centr-sodejstviya-trudoustrojstvu-page">

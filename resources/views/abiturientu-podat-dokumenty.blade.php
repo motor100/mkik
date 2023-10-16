@@ -1,6 +1,6 @@
 <?php $page_title = "Подать документы"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('/admin/css/air-datepicker.css') }}">

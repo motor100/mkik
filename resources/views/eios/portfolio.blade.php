@@ -1,6 +1,6 @@
 <?php $page_title = "Портфолио"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('/css/eios.css') }}">

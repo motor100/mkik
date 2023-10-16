@@ -1,6 +1,6 @@
 <?php $page_title = "ПЦК Сольное и хоровое народное пение"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page svedeniya-pdf-list svedeniya-dokumenty-page">

@@ -1,6 +1,6 @@
 <?php $page_title = "Афиша " . $year; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page afisha-archive-year-page archive-year-page">

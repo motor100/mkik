@@ -1,6 +1,6 @@
 <?php $page_title = "Медиа-центр Da Capo"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page media-centr-da-capo-page">

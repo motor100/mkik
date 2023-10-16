@@ -1,6 +1,6 @@
 <?php $page_title = "Информационные электронные образовательные ресурсы"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
 <div class="page eios-list-page informacionnye-ehlektronnye-obrazovatelnye-resursy-page">

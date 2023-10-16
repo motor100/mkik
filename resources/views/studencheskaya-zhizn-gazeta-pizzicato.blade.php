@@ -1,6 +1,6 @@
 <?php $page_title = "Газета Pizzicato"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('style')
 @endsection

@@ -1,6 +1,6 @@
 <?php $page_title = "Контакты"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page o-kolledzhe-kontakty-page">

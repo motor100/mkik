@@ -1,6 +1,6 @@
 <?php $page_title = "Руководство и педсостав"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page istoriya-page">

@@ -1,6 +1,6 @@
 <?php $page_title = "Коллективы"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page kollektivy-page">

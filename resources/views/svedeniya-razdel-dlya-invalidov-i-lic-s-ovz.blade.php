@@ -1,6 +1,6 @@
 <?php $page_title = "Раздел для ивалидов и лиц с ОВЗ"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page razdel-dlya-invalidov-i-lic-s-ovz-page">

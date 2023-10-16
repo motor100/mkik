@@ -1,6 +1,6 @@
 <?php $page_title = "Сведения об образовательной организации"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page svedeniya-list svedeniya-ob-obrazovatelnoj-organizacii-page">

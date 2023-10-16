@@ -1,6 +1,6 @@
 <?php $page_title = "53.02.00 Инстр.испол,,Хоров.дириж.,Сольн.и хоров.народ.пение,Вок.искусство"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page svedeniya-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">

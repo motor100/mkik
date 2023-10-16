@@ -1,6 +1,6 @@
 <?php $page_title = "Материально-техническое обеспечение и оснащенность образовательного процесса"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page materialno-tekhnicheskoe-obespechenie-page">

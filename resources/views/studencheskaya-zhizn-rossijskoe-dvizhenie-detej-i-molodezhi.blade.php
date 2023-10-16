@@ -1,6 +1,6 @@
 <?php $page_title = "Российское движение детей и молодежи"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page rossijskoe-dvizhenie-detej-i-molodezhi-page">

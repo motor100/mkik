@@ -1,6 +1,6 @@
 <?php $page_title = "Календарь студента"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page kalendar-studenta-archive-page archive-page">

@@ -1,6 +1,6 @@
 <?php $page_title = "Педагогический состав"; ?>
 
-@extends('layouts.page_layout')
+@extends('layouts.main')
 
 @section('content')
   <div class="page o-kolledzhe-pedagogicheskij-sostav-page">
