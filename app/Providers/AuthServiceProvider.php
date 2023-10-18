@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -18,9 +19,18 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register any authentication / authorization services.
+     * @return mixed
      */
-    public function boot(): void
+    public function boot(): mixed
     {
-        //
+        $this->registerPolicies();
+
+        Gate::define("view-dashboard", function (User $user) {
+            if ($user) {
+                return $user->name == "site_admin";
+            }
+            return false;
+        });
+        return false;
     }
 }
