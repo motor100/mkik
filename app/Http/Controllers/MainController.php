@@ -231,11 +231,11 @@ class MainController extends Controller
 
             $attestat_slug = Str::slug($surname) . "-attestat";
 
-            $attestat_file = MainController::rename_file($attestat_slug, $attestat, $folder);
+            $attestat_file = (new \App\Services\File())->rename_file($attestat_slug, $attestat, $folder);
 
             $passport_slug = Str::slug($surname) . "-passport";
 
-            $passport_file = MainController::rename_file($passport_slug, $passport, $folder);
+            $passport_file = (new \App\Services\File())->rename_file($passport_slug, $passport, $folder);
 
             $status = "В обработке";
 
@@ -1150,59 +1150,6 @@ class MainController extends Controller
         }
 
         return $text;
-    }
-
-    /*
-    * Переименование файла
-    * Обязательный агрумент $file
-    * Illuminate\Http\UploadedFile object
-    * Обязательный агрумент $slug
-    * Строка
-    */
-    public static function rename_file($slug, $file, $folder = '')
-    {   
-        if ($folder) {
-            $folder = $folder . '/';
-        }
-        
-        $mimetype = $file->getMimeType();
-        $filetype = "";
-        switch ($mimetype) {
-            case "image/jpeg":
-                $filetype = ".jpg";
-                break;
-            case "image/png":
-                $filetype = ".png";
-                break;
-            case "application/pdf":
-                $filetype = ".pdf";
-                break;
-            case "application/msword":
-                $filetype = ".doc";
-                break;
-            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-                $filetype = ".docx";
-                break;
-            case "application/vnd.ms-excel":
-                $filetype = ".xls";
-                break;
-            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
-                $filetype = ".xlsx";
-                break;
-            case "application/octet-stream":
-                if($file->getClientOriginalExtension() == "xlsx") {
-                    $filetype = ".xlsx";
-                }
-                break;
-        }
-
-        $new_filename = $slug . '-' . date('dmY') . '-' . mt_rand() . $filetype;
-        $tmppathfilename = $file->getPathname();
-        $pathname = "upload/" . $folder . $new_filename;
-        $pathnametobase = "/upload/" . $folder . $new_filename;
-        move_uploaded_file($tmppathfilename, $pathname);
-
-        return $pathnametobase;
     }
 
     /*

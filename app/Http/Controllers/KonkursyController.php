@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Konkurs;
+use App\Models\Konkurs;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Admin\AdminController;
 
 class KonkursyController extends Controller
 {
@@ -66,7 +65,7 @@ class KonkursyController extends Controller
 
         $folder = 'konkursy';
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
         DB::insert('insert into konkurs (title, image, text, slug, date_start, date_stop, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [$title, $img, $text, $slug, $date_start, $date_stop, $now, $now]);
 
@@ -140,7 +139,7 @@ class KonkursyController extends Controller
             if (File::exists(public_path() . $cr->image)) {
                 File::delete(public_path() . $cr->image);
             }
-            $img = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $image, $folder);
+            $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
         } else {
             $img = $cr->image;
         }

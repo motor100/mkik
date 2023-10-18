@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-
 class AdminController extends Controller
 {
     public function home()
@@ -61,7 +60,7 @@ class AdminController extends Controller
 
         if($gallery) {
             foreach ($gallery as $gl) {
-                $glr[] = AdminController::rename_file($slug, $gl, $folder);
+                $glr[] = (new \App\Services\File())->rename_file($slug, $gl, $folder);
             }
         }
 
@@ -69,7 +68,7 @@ class AdminController extends Controller
 
         $year = date('Y');
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
         $excerpt = Str::limit(strip_tags($text), 80, '...');
 
@@ -125,7 +124,7 @@ class AdminController extends Controller
 
         $folder = 'afisha';
 
-        $img = AdminController::rename_file($slug, $file, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into afishas (title, image, text, slug, year, date, place, address, price, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$title, $img, $text, $slug, $year, $date, $place, $address, $price, $now, $now]);
 
@@ -176,7 +175,7 @@ class AdminController extends Controller
 
         $folder = 'kalendar-studenta';
 
-        $img = AdminController::rename_file($slug, $file, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         $year = date('Y');
 
@@ -212,7 +211,7 @@ class AdminController extends Controller
 
         if ($shedule) {
             $slug = 'shedule';
-            $sdl = AdminController::rename_file($slug, $shedule, $folder);
+            $sdl = (new \App\Services\File())->rename_file($slug, $shedule, $folder);
         } else {
             $sdl = $raspisanie->shedule;
         }
@@ -221,7 +220,7 @@ class AdminController extends Controller
 
         if ($attestation) {
             $slug = 'attestation';
-            $att = AdminController::rename_file($slug, $attestation, $folder);
+            $att = (new \App\Services\File())->rename_file($slug, $attestation, $folder);
         } else {
             $att = $raspisanie->attestation;
         }
@@ -256,7 +255,7 @@ class AdminController extends Controller
 
         $folder = 'studentam';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into studentam_gias (title, file, created_at, updated_at) values (?, ?, ?, ?)', [$title, $fl, $now, $now]);
 
@@ -282,7 +281,7 @@ class AdminController extends Controller
 
         $folder = 'studentam';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into studentam_grafik_uchebnogo_processas (title, file, created_at, updated_at) values (?, ?, ?, ?)', [$title, $fl, $now, $now]);
 
@@ -308,7 +307,7 @@ class AdminController extends Controller
 
         $folder = 'studentam';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into studentam_zayavleniyas (title, file, created_at, updated_at) values (?, ?, ?, ?)', [$title, $fl, $now, $now]);
 
@@ -334,7 +333,7 @@ class AdminController extends Controller
 
         $folder = 'studentam';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into studentam_metodicheskie_rekomendaciis (title, file, created_at, updated_at) values (?, ?, ?, ?)', [$title, $fl, $now, $now]);
 
@@ -360,7 +359,7 @@ class AdminController extends Controller
 
         $folder = 'studentam';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into studentam_polozheniyas (title, file, created_at, updated_at) values (?, ?, ?, ?)', [$title, $fl, $now, $now]);
 
@@ -388,7 +387,7 @@ class AdminController extends Controller
 
         $filetype = AdminController::get_file_type($file);
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into maketys (title, file, filetype, created_at, updated_at) values (?, ?, ?, ?, ?)', [$title, $fl, $filetype, $now, $now]);
 
@@ -426,7 +425,7 @@ class AdminController extends Controller
 
         $filetype = AdminController::get_file_type($file);
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into prepodavatelyam_metodicheskie_rekomendaciis (title, file, filetype, created_at, updated_at) values (?, ?, ?, ?, ?)', [$title, $fl, $filetype, $now, $now]);
 
@@ -1039,7 +1038,7 @@ class AdminController extends Controller
 
         if ($gallery) {
             foreach ($gallery as $gl) {
-                $glr[] = AdminController::rename_file($slug, $gl, $folder);
+                $glr[] = (new \App\Services\File())->rename_file($slug, $gl, $folder);
             }
             $glr = json_encode($glr);
 
@@ -1105,7 +1104,7 @@ class AdminController extends Controller
 
         $filetype = AdminController::get_file_type($file);
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into abiturientu_dokumenties (title, file, filetype, created_at, updated_at) values (?, ?, ?, ?, ?)', [$title, $fl, $filetype, $now, $now]);
 
@@ -1180,7 +1179,7 @@ class AdminController extends Controller
 
         $folder = 'konkursy';
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
         DB::insert('insert into konkurs (title, image, text, slug, date_start, date_stop, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [$title, $img, $text, $slug, $date_start, $date_stop, $now, $now]);
 
@@ -1201,7 +1200,7 @@ class AdminController extends Controller
         $konkursy = DB::table('konkurs')
                         ->get();
 
-        $documents = \App\Konkurs_documents::orderBy('id', 'desc')->get();
+        $documents = \App\Models\Konkurs_documents::orderBy('id', 'desc')->get();
 
         return view('dashboard.konkursy-dokumenty', compact('konkursy', 'documents'));
     }
@@ -1219,7 +1218,7 @@ class AdminController extends Controller
 
         $folder = 'konkursy';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into konkurs_documents (konkurs_id, title, file, filetype, created_at, updated_at) values (?, ?, ?, ?, ?, ?)', [$konkurs_id, $title, $fl, $filetype, $now, $now]);
 
@@ -1264,9 +1263,9 @@ class AdminController extends Controller
 
         $folder = 'pizzicato';
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
-        $pdf = AdminController::rename_file($slug, $file_pdf, $folder);
+        $pdf = (new \App\Services\File())->rename_file($slug, $file_pdf, $folder);
 
         DB::insert('insert into newspapers (number, image, pdf, created_at, updated_at) values (?, ?, ?, ?, ?)', [$next_number, $img, $pdf, $now, $now]);
 
@@ -1311,7 +1310,7 @@ class AdminController extends Controller
 
         $folder = 'izdaniya';
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
         DB::insert('insert into izdaniyas (title, image, text, slug, author, category, excerpt, publishing, year, price, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$title, $img, $text, $slug, $author, $category, $excerpt, $publishing, $year, $price, $now, $now]);
 
@@ -1351,7 +1350,7 @@ class AdminController extends Controller
 
         $excerpt = NULL;
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
         DB::insert('insert into videos (title, image, date, excerpt, video, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', [$title, $img, $date, $excerpt, $video, $now, $now]);
 
@@ -1687,7 +1686,7 @@ class AdminController extends Controller
             $slug = $slug . '-' . $count_slugs;
         }
 
-        $img = AdminController::rename_file($slug, $image, $folder);
+        $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
 
         DB::insert('insert into teachers (title, image, post, phone, email, text, slug, category_id, sort, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$title, $img, $post, $phone, $email, $text, $slug, $category_id, $sort, $now, $now]);
 
@@ -1747,7 +1746,7 @@ class AdminController extends Controller
                         ->first();
 
         if ($image) {
-            $img = AdminController::rename_file($slug, $image, $folder);
+            $img = (new \App\Services\File())->rename_file($slug, $image, $folder);
         } else {
             $img = $teacher->image;
         }
@@ -1820,7 +1819,7 @@ class AdminController extends Controller
 
         $folder = "bank-studencheskih-rabot";
 
-        $filepdf = AdminController::rename_file($slug, $pdf, $folder);
+        $filepdf = (new \App\Services\File())->rename_file($slug, $pdf, $folder);
 
         DB::insert('insert into eios_bank_studencheskih_rabots (title, text, slug, course, pdf, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', [$title, $text, $slug, $course, $filepdf, $now, $now]);
 
@@ -1877,7 +1876,7 @@ class AdminController extends Controller
 
         $folder = "eios";
 
-        $fl = AdminController::rename_file($slug, $pdf, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $pdf, $folder);
 
         DB::insert('insert into eios_portfolios (title, text, slug, course, file, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', [$title, $text, $slug, $course, $fl, $now, $now]);
 
@@ -1939,7 +1938,7 @@ class AdminController extends Controller
 
         $folder = 'eios';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         DB::insert('insert into eios_rezultaty_osvoeniya_obrazovatelnoj_programmies (course, title, file, created_at, updated_at) values (?, ?, ?, ?, ?)', [$course, $title, $fl, $now, $now]);
 
@@ -1980,7 +1979,7 @@ class AdminController extends Controller
 
         $folder = 'eios';
 
-        $fl = AdminController::rename_file($slug, $file, $folder);
+        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
 
         $course = NULL;
         $code = NULL;
@@ -2115,9 +2114,9 @@ class AdminController extends Controller
 
         $fileName = "file" . "-" . date("dmY") . "-" . mt_rand() . $filetype;
 
-        $path = $request->file("file")->storeAs("uploads", $fileName, "public");
+        $path = $request->file("file")->storeAs("/uploads/files", $fileName, "public");
 
-        return response()->json(["location" => "/storage/" . $path]); 
+        return response()->json(["location" => '/storage/' . $path]);
     }
 
     public function dashboard_404()
@@ -2133,65 +2132,6 @@ class AdminController extends Controller
         } else {
             abort(404);
         }
-    }
-
-    /*
-    * Переименование файла
-    * Обязательный агрумент $file
-    * Illuminate\Http\UploadedFile object
-    * Обязательный агрумент $slug
-    * Строка
-    */
-    public static function rename_file($slug, $file, $folder = '')
-    {   
-        if ($folder) {
-            $folder = $folder . '/';
-        }
-        
-        $mimetype = $file->getMimeType();
-        $filetype = "";
-        switch ($mimetype) {
-            case "image/jpeg":
-                $filetype = ".jpg";
-                break;
-            case "image/png":
-                $filetype = ".png";
-                break;
-            case "image/gif":
-                $filetype = ".gif";
-                break;
-            case "image/webp":
-                $filetype = ".webp";
-                break;
-            case "application/pdf":
-                $filetype = ".pdf";
-                break;
-            case "application/msword":
-                $filetype = ".doc";
-                break;
-            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-                $filetype = ".docx";
-                break;
-            case "application/vnd.ms-excel":
-                $filetype = ".xls";
-                break;
-            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
-                $filetype = ".xlsx";
-                break;
-            case "application/octet-stream":
-                if($file->getClientOriginalExtension() == "xlsx") {
-                    $filetype = ".xlsx";
-                }
-                break;
-        }
-
-        $new_filename = $slug . '-' . date('dmY') . '-' . mt_rand() . $filetype;
-        $tmppathfilename = $file->getPathname();
-        $pathname = "upload/" . $folder . $new_filename;
-        $pathnametobase = "/upload/" . $folder . $new_filename;
-        move_uploaded_file($tmppathfilename, $pathname);
-
-        return $pathnametobase;
     }
 
     /*

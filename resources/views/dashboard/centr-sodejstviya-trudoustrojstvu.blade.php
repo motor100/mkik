@@ -19,7 +19,7 @@
       </div>
 
       @csrf
-      <button type="submit" class="btn btn-primary">Добавить</button>
+      <button type="submit" class="btn btn-primary">Обновить</button>
 
     </form>
 
