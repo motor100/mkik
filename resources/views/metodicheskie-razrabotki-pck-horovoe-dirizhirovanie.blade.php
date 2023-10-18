@@ -11,7 +11,7 @@
       <div class="documents">
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/metodicheskie-razrabotki-pck-horovoe-dirizhirovanie.pdf" target="_blank">ПЦК Хоровое дирижирование</a>
+          <a class="name" href="/storage/uploads/dokumenty/metodicheskie-razrabotki-pck-horovoe-dirizhirovanie.pdf" target="_blank">ПЦК Хоровое дирижирование</a>
         </div>
       </div>
     </div>

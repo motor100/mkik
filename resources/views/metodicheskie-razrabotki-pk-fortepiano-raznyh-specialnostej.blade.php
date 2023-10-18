@@ -11,7 +11,7 @@
       <div class="documents">
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/metodicheskie-razrabotki-pk-fortepiano-raznyh-specialnostej.pdf" target="_blank">ПК Фортепиано разных специальностей</a>
+          <a class="name" href="/storage/uploads/dokumenty/metodicheskie-razrabotki-pk-fortepiano-raznyh-specialnostej.pdf" target="_blank">ПК Фортепиано разных специальностей</a>
         </div>
       </div>
     </div>

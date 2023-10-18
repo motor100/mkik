@@ -12,7 +12,7 @@
         <div class="subtitle">Заявления</div>
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/metodicheskie-razrabotki-pck-instrumenty-narodnogo-orkestra.pdf" target="_blank">ПЦК Инструменты народного оркестра</a>
+          <a class="name" href="/storage/uploads/dokumenty/metodicheskie-razrabotki-pck-instrumenty-narodnogo-orkestra.pdf" target="_blank">ПЦК Инструменты народного оркестра</a>
         </div>
       </div>
     </div>

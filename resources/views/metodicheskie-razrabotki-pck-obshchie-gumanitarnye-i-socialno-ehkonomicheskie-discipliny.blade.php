@@ -11,7 +11,7 @@
       <div class="documents">
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/metodicheskie-razrabotki-pck-obshchie-gumanitarnye-i-socialno-ehkonomicheskie-discipliny.pdf" target="_blank">ПЦК Общие гуманитарные и социально-экономические дисциплины</a>
+          <a class="name" href="/storage/uploads/dokumenty/metodicheskie-razrabotki-pck-obshchie-gumanitarnye-i-socialno-ehkonomicheskie-discipliny.pdf" target="_blank">ПЦК Общие гуманитарные и социально-экономические дисциплины</a>
         </div>
       </div>
 

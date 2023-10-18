@@ -11,7 +11,7 @@
       <div class="documents">
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/metodicheskie-razrabotki-pck-solnoe-i-horovoe-narodnoe-penie.pdf" target="_blank">ПЦК Сольное и хоровое народное пение</a>
+          <a class="name" href="/storage/uploads/dokumenty/metodicheskie-razrabotki-pck-solnoe-i-horovoe-narodnoe-penie.pdf" target="_blank">ПЦК Сольное и хоровое народное пение</a>
         </div>
       </div>
     </div>

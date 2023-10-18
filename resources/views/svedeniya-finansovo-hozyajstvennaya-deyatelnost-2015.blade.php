@@ -11,7 +11,7 @@
       <div class="documents">
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/fhd-plan-finansovo-hozyajstvennoj-deyatelnosti-na-2015-god.pdf" target="_blank">План финансово-хозяйственной деятельности на 2015 год</a>
+          <a class="name" href="/storage/uploads/dokumenty/fhd-plan-finansovo-hozyajstvennoj-deyatelnosti-na-2015-god.pdf" target="_blank">План финансово-хозяйственной деятельности на 2015 год</a>
         </div>
       </div>
     </div>

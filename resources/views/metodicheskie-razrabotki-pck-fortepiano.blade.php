@@ -12,7 +12,7 @@
         <div class="subtitle">Заявления</div>
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/svedeniya/dokumenty/metodicheskie-razrabotki-pck-fortepiano.pdf" target="_blank">ПЦК Фортепиано</a>
+          <a class="name" href="/storage/uploads/dokumenty/metodicheskie-razrabotki-pck-fortepiano.pdf" target="_blank">ПЦК Фортепиано</a>
         </div>
       </div>
     </div>
