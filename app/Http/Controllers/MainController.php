@@ -1253,7 +1253,7 @@ class MainController extends Controller
     // temp
     public function mainnews_update()
     {
-        $mainnews = \App\Mainnew::all();
+        $mainnews = \App\Models\Mainnew::all();
 
         $mainnews->each(function ($item) {
             $item->image = str_replace('/upload/', 'public/uploads/', $item->image);
@@ -1265,7 +1265,7 @@ class MainController extends Controller
 
     public function afishas_update()
     {
-        $afishas = \App\Afisha::all();
+        $afishas = \App\Models\Afisha::all();
 
         $afishas->each(function ($item) {
             $item->image = str_replace('/upload/', 'public/uploads/', $item->image);
@@ -1277,7 +1277,7 @@ class MainController extends Controller
 
     public function calendar_update()
     {
-        $calendar = new \App\Calendar();
+        $calendar = new \App\Models\Calendar();
 
         $calendar->each(function ($item) {
             $item->image = str_replace('/upload/', 'public/uploads/', $item->image);
