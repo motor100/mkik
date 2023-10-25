@@ -656,5 +656,8 @@ Route::get('/temp/afishas-update', [MainController::class, 'afishas_update']);
 
 Route::get('/temp/calendar-update', [MainController::class, 'calendar_update']);
 
+// Перемещение галереи из таблицы mainnews в таблицу mainews_galleries
+Route::get('/temp/mainnews-gallery-update', [MainController::class, 'mainnews_gallery_update']);
+
 
 Route::fallback([AdminController::class, 'dashboard_404']);

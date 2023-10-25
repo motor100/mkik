@@ -868,11 +868,14 @@ class MainController extends Controller
         }
     }
 
-    public function single_news($slug)
+    /**
+     * Карточка новости
+     * @param string slug
+     * @return mixed
+     */
+    public function single_news($slug): mixed
     {
-        $single_news = DB::table('mainnews')
-                            ->where('slug', $slug)
-                            ->first();
+        $single_news = \App\Models\Mainnew::where('slug', $slug)->first();
 
         if ($single_news) {
 
@@ -901,10 +904,7 @@ class MainController extends Controller
                 $next = '#';
             }
 
-            $gallery = json_decode($single_news->gallery);
-
-        
-            return view('single-news', compact('single_news', 'gallery', 'prev', 'next'));
+            return view('single-news', compact('single_news', 'prev', 'next'));
         } else {
             return abort(404);
         }
@@ -1232,6 +1232,43 @@ class MainController extends Controller
         });
 
         return "ok";
+    }
+
+    /**
+     * Перемещение галереи из таблицы mainnews в таблицу mainews_galleries
+     */
+    public function mainnews_gallery_update()
+    {
+        // Получаю все модели у которых галерея не равна []
+        $mainnews = \App\Models\Mainnew::where('gallery', '!=', '[]')->get();
+
+        $insert_array = [];
+
+        // Перебираю все новости
+        foreach($mainnews as $item) {
+            
+            // Получаю галерею для каждой новости
+            $gallery_array = json_decode($item->gallery, true);
+            
+            // Перебираю галерею и создаю массив
+            foreach($gallery_array as $gl_item) {
+                $arr = [];
+                $gl_item = str_replace('/upload/news/', 'public/uploads/news/', $gl_item);
+                $gl_item = str_replace('/public/uploads/news/', 'public/uploads/news/', $gl_item);
+                $arr['mainnew_id'] = $item->id;
+                $arr['image'] = $gl_item;
+                $arr['created_at'] = now();
+                $arr['updated_at'] = now();
+
+                $insert_array[] = $arr;
+            }
+        }
+
+        // dd($insert_array);
+
+        $tt = \App\Models\MainnewGallery::insert($insert_array);
+
+        return ($tt);
     }
 
 }

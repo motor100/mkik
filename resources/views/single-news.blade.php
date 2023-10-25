@@ -17,14 +17,14 @@
         </div>
         <div class="gallery">
           <figure class="figure gallery-item">
-            <a href="{{ $single_news->image }}" data-size="800x600">
-              <img src="{{ $single_news->image }}" alt="">
+            <a href="{{ Storage::url($single_news->image) }}" data-size="800x600">
+              <img src="{{ Storage::url($single_news->image) }}" alt="">
             </a>
           </figure>
-          @foreach($gallery as $glr)
+          @foreach($single_news->gallery as $glr)
             <figure class="figure gallery-item">
-              <a href="{{ $glr }}" data-size="800x600">
-                <img src="{{ $glr }}" alt="">
+              <a href="{{ Storage::url($glr->image) }}" data-size="800x600">
+                <img src="{{ Storage::url($glr->image) }}" alt="">
               </a>
             </figure>
           @endforeach
