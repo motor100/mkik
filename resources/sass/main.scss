@@ -399,6 +399,19 @@ ul {
   width: 77px;
   height: 77px;
 }
+.home-page .main-section .aside .social .social-icon .img {
+  border-radius: 6px;
+  overflow: hidden;
+}
+.home-page .main-section .aside .social .social-icon .img a {
+  display: block;
+  width: 23px;
+  height: 23px;
+}
+.home-page .main-section .aside .social .social-icon .img a img {
+  display: block;
+  width: 100%;
+}
 .home-page .main-section .aside .social .social-icon .vk {
   margin: 0 0 13px 0;
 }
@@ -1170,10 +1183,17 @@ ul {
 }
 .o-kolledzhe-kontakty-page .aside .social-icon .img {
   margin: 0 28px 13px 0;
-}
-.o-kolledzhe-kontakty-page .aside .social-icon .img img {
   width: 50px;
   height: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.o-kolledzhe-kontakty-page .aside .social-icon .img a {
+  display: block;
+}
+.o-kolledzhe-kontakty-page .aside .social-icon .img img {
+  display: block;
+  width: 100%;
 }
 .o-kolledzhe-kontakty-page .aside .qr-code img {
   width: 100%;

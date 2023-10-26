@@ -108,9 +108,9 @@
                         <img src="/img/vk-icon.svg" alt="">
                       </a>                    
                     </div>
-                    <div class="img">
-                      <a href="https://wa.me/79514778645" target="_blank">
-                        <img src="/img/whatsapp-icon.svg" alt="">
+                    <div class="img sferum">
+                      <a href="#" target="_blank">
+                        <img src="/img/sferum-icon.svg" alt="">
                       </a>
                     </div>
                   </div>
