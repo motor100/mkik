@@ -18,11 +18,6 @@ class Mainnew extends Model
         'year',
         'date',
         'excerpt',
-        'cat',
-        'alb',
-        'holdit',
-        'holddate',
-        'topn',
     ];
 
     /**

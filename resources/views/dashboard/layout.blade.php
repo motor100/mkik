@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{ asset('/admin/css/adminlte.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/admin/css/overlayscrollbars.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/admin/css/air-datepicker.css') }}">
-  <link rel="stylesheet" href="{{ asset('/admin/css/dashboard.css') }}">
+  @vite(['resources/sass/dashboard.scss'])
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">

@@ -1,21 +1,15 @@
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url(../fonts/sourcesanspro.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
+@mixin font($fname, $fstyle, $fweight, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furl) format('woff2');
+  }
 }
-@font-face {
-  font-family: 'Source Sans Pro Bold';
-  src: url(../fonts/sourcesansprobold.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Source Sans Pro Light';
-  src: url(../fonts/sourcesansprolight.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+
+@include font('Source Sans Pro', normal, 400, '../../public/admin/fonts/sourcesanspro.woff2');
+@include font('Source Sans Pro Bold', normal, 400, '../../public/admin/fonts/sourcesansprobold.woff2');
+@include font('Source Sans Pro Light', normal, 400, '../../public/admin/fonts/sourcesansprolight.woff2');
 
 .hidden {
   display: none;
@@ -80,6 +74,12 @@
   width: 100px;
   height: 150px;
   object-fit: cover;
+}
+.gallery-delete {
+  width: 120px;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .footer {

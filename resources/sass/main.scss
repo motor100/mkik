@@ -120,7 +120,7 @@ ul {
 /* header */
 .header .top {
   height: 317px;
-  background: url(/img/header-bg.jpg) center no-repeat;
+  background: url(/resources/img/header-bg.jpg) center no-repeat;
   background-size: cover;
   
 }
@@ -221,7 +221,7 @@ ul {
 
 /* required-links */
 .required-links {
-  background: url(/img/main-section-bg.jpg) center no-repeat;
+  background: url(/resources/img/main-section-bg.jpg) center no-repeat;
   background-size: cover;
   /* padding: 15px 0 50px 0; */
   padding: 15px 0 15px 0;
@@ -256,16 +256,10 @@ ul {
   display: block;
 }
 
-/* .required-widget {
-  background: url(../img/main-section-bg.jpg) center no-repeat;
-  background-size: cover;
-} */
-
-
 /* home-page main-section */
 .home-page .main-section {
   position: relative;
-  background: url(/img/main-section-bg.jpg) center no-repeat;
+  background: url(/resources/img/main-section-bg.jpg) center no-repeat;
   background-size: cover;
   padding: 20px 0 130px 0;
 }
@@ -447,7 +441,7 @@ ul {
 /* home-page kalendar-studenta-section */
 .home-page .kalendar-studenta-section {
   padding: 50px 0 70px 0;
-  background: url(/img/kalendar-studenta-bg.jpg) center no-repeat;
+  background: url(/resources/img/kalendar-studenta-bg.jpg) center no-repeat;
   background-size: cover;
 }
 .home-page .kalendar-studenta-section .section-title-wrapper {
@@ -600,7 +594,7 @@ ul {
 /* footer */
 .footer {
   padding: 56px 0 20px 0;
-  background: url(/img/kalendar-studenta-bg.jpg) center no-repeat;
+  background: url(/resources/img/kalendar-studenta-bg.jpg) center no-repeat;
   background-size: cover;
 }
 .footer .top {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\KonkursyController;
 use App\Http\Controllers\EiosController;
 use App\Http\Controllers\Admin\LearningDirectionController;
+use App\Http\Controllers\Admin\MainnewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -278,7 +279,7 @@ Route::get('/news-archive', [MainController::class, 'news_archive']);
 Route::get('/news-archive-{year}', [MainController::class, 'news_archive_year']);
 // архив новостей год
 
-Route::get('/news/{slug}', [MainController::class, 'single_news']);
+Route::get('/news/{slug}', [MainController::class, 'single_news'])->name('single-news');
 // карточка новости
 
 Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
@@ -290,11 +291,19 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'home']);
 
-    Route::get('/dashboard/news', [AdminController::class, 'news']);
 
-    Route::post('/dashboard/news/add', [AdminController::class, 'news_add']);
+    Route::get('/dashboard/news', [MainnewsController::class, 'index']);
 
-    Route::get('/dashboard/news/del/{id}', [AdminController::class, 'news_del']);
+    Route::get('/dashboard/news/create', [MainnewsController::class, 'create'])->name('news-create');
+
+    Route::post('/dashboard/news/store', [MainnewsController::class, 'store'])->name('news-store');
+
+    Route::get('/dashboard/news/{id}/edit', [MainnewsController::class, 'edit'])->name('news-edit');
+
+    Route::post('/dashboard/news/{id}/update', [MainnewsController::class, 'update'])->name('news-update');
+
+    Route::get('/dashboard/news/{id}/destroy', [MainnewsController::class, 'destroy'])->name('news-destroy');
+
 
     Route::get('/dashboard/afisha', [AdminController::class, 'afisha']);
 
