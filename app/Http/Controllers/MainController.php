@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
+use Illuminate\View\View;
 
 class MainController extends Controller
 {
@@ -122,18 +122,16 @@ class MainController extends Controller
         return view('prepodavatelyam');
     }
 
-    public function prepodavatelyam_makety()
+    public function prepodavatelyam_makety(): View
     {
-        $documents = DB::table('maketys')
-                        ->get();
+        $documents = \App\Models\Prepodavatelyam_makety::all();
 
         return view('prepodavatelyam-makety', compact('documents'));
     }
 
-    public function prepodavatelyam_metodicheskie_rekomendacii()
+    public function prepodavatelyam_metodicheskie_rekomendacii(): View
     {
-        $documents = DB::table('prepodavatelyam_metodicheskie_rekomendaciis')
-                        ->get();
+        $documents = \App\Models\Prepodavatelyam_metodicheskie_rekomendacii::all();
 
         return view('prepodavatelyam-metodicheskie-rekomendacii', compact('documents'));
     }
@@ -146,9 +144,8 @@ class MainController extends Controller
         return view('prepodavatelyam-spiski-studentov', compact('content'));
     }
 
-    public function abiturientu_napravleniya_podgotovki()
+    public function abiturientu_napravleniya_podgotovki(): View
     {
-
         return view('abiturientu-napravleniya-podgotovki');
     }
 

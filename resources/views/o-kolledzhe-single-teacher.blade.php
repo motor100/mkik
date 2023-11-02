@@ -14,7 +14,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="photo">
-              <img src="{{ $single_teacher->image }}" alt="">
+              <img src="{{ Storage::url($single_teacher->image) }}" alt="">
             </div>
           </div>
           <div class="col-md-9">
@@ -24,5 +24,4 @@
       </div>
     </div>
   </div>
-
 @endsection

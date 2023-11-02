@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Abiturientu_napravleniya_podgotovki extends Model
+class Prepodavatelyam_metodicheskie_rekomendacii extends Model
 {
     use HasFactory;
 
@@ -14,5 +14,5 @@ class Abiturientu_napravleniya_podgotovki extends Model
      *
      * @var string
      */
-    protected $table = 'abiturientu_napravleniya_podgotovkis';
+    protected $table = 'prepodavatelyam_metodicheskie_rekomendaciis';
 }

@@ -14,7 +14,7 @@
               <div class="col-xl-4 col-lg-6">
                 <div class="item">
                   <div class="photo">
-                    <img src="{{ $tchr->image }}" alt="">
+                    <img src="{{ Storage::url($tchr->image) }}" alt="">
                   </div>
                   <div class="content">
                     <div class="name">

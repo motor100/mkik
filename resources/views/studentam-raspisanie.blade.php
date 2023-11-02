@@ -2,9 +2,6 @@
 
 @extends('layouts.main')
 
-@section('style')
-@endsection
-
 @section('content')
   <div class="page studentam-raspisanie-page">
     <div class="container">
@@ -21,7 +18,7 @@
             </div>
           </div>
           @if($sdl_att[0]->shedule)
-            <a href="{{ $sdl_att[0]->shedule }}" class="full" target="_blank"></a>
+            <a href="{{ Storage::url($sdl_att[0]->shedule) }}" class="full" target="_blank"></a>
           @else
             <a href="#" class="full"></a>
           @endif
@@ -35,7 +32,7 @@
             </div>
           </div>
           @if($sdl_att[1]->shedule)
-            <a href="{{ $sdl_att[1]->shedule }}" class="full" target="_blank"></a>
+            <a href="{{ Storage::url($sdl_att[1]->shedule) }}" class="full" target="_blank"></a>
           @else
             <a href="#" class="full"></a>
           @endif
@@ -49,7 +46,7 @@
             </div>
           </div>
           @if($sdl_att[2]->shedule)
-            <a href="{{ $sdl_att[2]->shedule }}" class="full" target="_blank"></a>
+            <a href="{{ Storage::url($sdl_att[2]->shedule) }}" class="full" target="_blank"></a>
           @else
             <a href="#" class="full"></a>
           @endif
@@ -63,7 +60,7 @@
             </div>
           </div>
           @if($sdl_att[3]->shedule)
-            <a href="{{ $sdl_att[3]->shedule }}" class="full" target="_blank"></a>
+            <a href="{{ Storage::url($sdl_att[3]->shedule) }}" class="full" target="_blank"></a>
           @else
             <a href="#" class="full"></a>
           @endif
@@ -74,7 +71,7 @@
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
           @if($sdl_att[0]->attestation)
-            <a class="name" href="{{ $sdl_att[0]->attestation }}" target="_blank">Форма аттестации</a>
+            <a class="name" href="{{ Storage::url($sdl_att[0]->attestation) }}" target="_blank">Форма аттестации</a>
           @else
             <a class="name" href="#">Форма аттестации</a>
           @endif
@@ -82,7 +79,7 @@
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
           @if($sdl_att[1]->attestation)
-            <a class="name" href="{{ $sdl_att[1]->attestation }}" target="_blank">Форма аттестации</a>
+            <a class="name" href="{{ Storage::url($sdl_att[1]->attestation) }}" target="_blank">Форма аттестации</a>
           @else
             <a class="name" href="#">Форма аттестации</a>
           @endif
@@ -90,7 +87,7 @@
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
           @if($sdl_att[2]->attestation)
-            <a class="name" href="{{ $sdl_att[2]->attestation }}" target="_blank">Форма аттестации</a>
+            <a class="name" href="{{ Storage::url($sdl_att[2]->attestation) }}" target="_blank">Форма аттестации</a>
           @else
             <a class="name" href="#">Форма аттестации</a>
           @endif
@@ -98,7 +95,7 @@
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
           @if($sdl_att[3]->attestation)
-            <a class="name" href="{{ $sdl_att[3]->attestation }}" target="_blank">Форма аттестации</a>
+            <a class="name" href="{{ Storage::url($sdl_att[3]->attestation) }}" target="_blank">Форма аттестации</a>
           @else
             <a class="name" href="#">Форма аттестации</a>
           @endif
@@ -115,7 +112,7 @@
                 @foreach($gia as $g)
                   <div class="list-item">
                     <img class="icon" src="/img/pdf-icon.svg" alt="">
-                    <a class="name" href="{{ $g->file }}" target="_blank">{{ $g->title }}</a>
+                    <a class="name" href="{{ Storage::url($g->file) }}" target="_blank">{{ $g->title }}</a>
                   </div>
                 @endforeach
               </div>
@@ -124,7 +121,7 @@
                 @foreach($gup as $g)
                   <div class="list-item">
                     <img class="icon" src="/img/pdf-icon.svg" alt="">
-                    <a class="name" href="{{ $g->file }}" target="_blank">{{ $g->title }}</a>
+                    <a class="name" href="{{ Storage::url($g->file) }}" target="_blank">{{ $g->title }}</a>
                   </div>
                 @endforeach
               </div>
@@ -133,7 +130,7 @@
                 @foreach($zvl as $g)
                   <div class="list-item">
                     <img class="icon" src="/img/pdf-icon.svg" alt="">
-                    <a class="name" href="{{ $g->file }}" target="_blank">{{ $g->title }}</a>
+                    <a class="name" href="{{ Storage::url($g->file) }}" target="_blank">{{ $g->title }}</a>
                   </div>
                 @endforeach
               </div>
@@ -142,7 +139,7 @@
                 @foreach($mrd as $g)
                   <div class="list-item">
                     <img class="icon" src="/img/pdf-icon.svg" alt="">
-                    <a class="name" href="{{ $g->file }}" target="_blank">{{ $g->title }}</a>
+                    <a class="name" href="{{ Storage::url($g->file) }}" target="_blank">{{ $g->title }}</a>
                   </div>
                 @endforeach
               </div>
@@ -151,7 +148,7 @@
                 @foreach($plz as $g)
                   <div class="list-item">
                     <img class="icon" src="/img/pdf-icon.svg" alt="">
-                    <a class="name" href="{{ $g->file }}" target="_blank">{{ $g->title }}</a>
+                    <a class="name" href="{{ Storage::url($g->file) }}" target="_blank">{{ $g->title }}</a>
                   </div>
                 @endforeach
               </div>
@@ -164,7 +161,4 @@
 
     </div>
   </div>
-@endsection
-
-@section('script')
 @endsection

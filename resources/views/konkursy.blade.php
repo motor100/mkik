@@ -10,7 +10,7 @@
         <div class="konkursy-wrapper">
           <div class="item">
             <div class="image">
-              <img src="{{ $knks->image }}" alt="">
+              <img src="{{ Storage::url($knks->image) }}" alt="">
             </div>
             <div class="content">
               <div class="title-wrapper">
