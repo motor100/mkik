@@ -52,7 +52,9 @@
   // var $user_settings = $('<div />', { class: 'mb-4' }).append($user_settings).append('<a href="/dashboard/usersettings">Настройки</a>')
   // $container.append($user_settings);
 
-  var $user_logout = $('<div />', { class: 'mb-2' }).append($user_logout).append('<a href="/logout">Выйти</a>')
+  const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+  var $user_logout = $('<div />', { class: 'mb-2' }).append($user_logout).append('<form class="form" action="/admin/logout" method="POST"><input type="hidden" name="_token" value="' + token + '"><button class="logout-btn" type="submit">Выйти</button></form>')
   $container.append($user_logout);
 
 })(jQuery)

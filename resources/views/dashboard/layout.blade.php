@@ -495,6 +495,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="/dashboard/pedagogicheskij-sostav-dokumenty" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Педагогический состав документы</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Платные образовательные услуги</p>

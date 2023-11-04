@@ -36,20 +36,22 @@ class MainController extends Controller
         return view('home', compact('home_page', 'news', 'afisha', 'kalendar_studenta'));
     }
 
-    public function o_kolledzhe_istoriya()
+    public function o_kolledzhe_istoriya(): View
     {
-
         return view('o-kolledzhe-istoriya');
     }
 
-    public function o_kolledzhe_pedagogicheskij_sostav()
+    public function o_kolledzhe_pedagogicheskij_sostav(): View
     {
-        $teachers = DB::table('teachers')
-                        ->where('category_id', '1')
-                        ->orderBy('sort', 'asc')
-                        ->get();
+        // Руководители
+        $teachers = \App\Models\Teacher::where('category_id', '1')
+                                        ->orderBy('sort', 'asc')
+                                        ->get();
 
-        return view('o-kolledzhe-pedagogicheskij-sostav', compact('teachers'));
+        // Документы
+        $documents = \App\Models\PedagogicheskijSostavDokumenty::all();
+
+        return view('o-kolledzhe-pedagogicheskij-sostav', compact('teachers', 'documents'));
     }
 
     public function o_kolledzhe_single_otdelenie($slug)

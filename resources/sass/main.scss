@@ -1036,7 +1036,9 @@ ul {
   color: #5C0605;
   text-align: center;
 }
-.o-kolledzhe-pedagogicheskij-sostav-page .teachers-wrapper {
+.o-kolledzhe-pedagogicheskij-sostav-page .teachers-wrapper,
+.o-kolledzhe-pedagogicheskij-sostav-page .otdeleniya-wrapper,
+.o-kolledzhe-pedagogicheskij-sostav-page .documents-wrapper {
   margin: 0 0 50px 0;
 }
 .teachers-wrapper .item {
@@ -1470,8 +1472,24 @@ ul {
   margin-right: 15px;
 }
 .documents .name {
+  margin: 15px;
   color: #000;
 }
+.documents .sig-file,
+.documents .key-file {
+  margin: 0 15px 0 0;
+}
+.documents .sig-file-name,
+.documents .key-file-name {
+  margin: 0 5px 0 0;
+  font-size: 13px;
+  color: #A88D8D;
+}
+.documents .sig-file-image
+.documents .key-file-image {
+  width: 16px;
+}
+
 
 /* Страница Преподавателям Списки студентов */
 .spiski-studentov-page .select-course {

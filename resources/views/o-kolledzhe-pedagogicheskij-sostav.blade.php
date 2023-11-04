@@ -6,8 +6,9 @@
   <div class="page o-kolledzhe-pedagogicheskij-sostav-page">
     <div class="container">
       <div class="page-title">Педагогический состав</div>
-      <div class="page-subtitle">Руководство</div>
+
       <div class="teachers-wrapper">
+        <div class="page-subtitle">Руководство</div>
         @if(count($teachers) > 0)
           <div class="row">
             @foreach($teachers as $tchr)
@@ -21,10 +22,10 @@
                       <a href="/o-kolledzhe/pedagogicheskij-sostav/{{ $tchr->slug }}">{{ $tchr->title }}</a>
                     </div>
                     <div class="post">{{ $tchr->post }}</div>
-                    @if( $tchr->phone ) 
+                    @if($tchr->phone) 
                       <div class="phone">{{ $tchr->phone }}</div>
                     @endif
-                    @if( $tchr->email ) 
+                    @if($tchr->email) 
                       <div class="email">{{ $tchr->email }}</div>
                     @endif
                   </div>
@@ -34,8 +35,9 @@
           </div>
         @endif
       </div>
-      <div class="page-subtitle">Отделения</div>
+
       <div class="otdeleniya-wrapper">
+        <div class="page-subtitle">Отделения</div>
         <div class="item">
           <a href="/o-kolledzhe/otdeleniya/fortepiannoe-otdelenie">Фортепианное отделение</a>
         </div>
@@ -73,6 +75,39 @@
           <a href="/o-kolledzhe/otdeleniya/muzykalnoe-iskusstvo-ehstrady">Музыкальное искусство эстрады</a>
         </div>
       </div>
+
+      <div class="documents-wrapper">
+        <div class="page-subtitle">Документы</div>
+        <div class="documents">
+          @foreach($documents as $doc)
+            <div class="list-item">
+              @switch( $doc->filetype )
+                @case("pdf")
+                  <img class="icon" src="/img/pdf-icon.svg" alt="">
+                  <a class="name" href="{{ Storage::url($doc->file) }}" target="_blank">{{ $doc->title }}</a>
+                  @break
+                @case("doc")
+                  <img class="icon" src="/img/word-icon.svg" alt="">
+                  <a class="name" href="{{ Storage::url($doc->file) }}" download>{{ $doc->title }}</a>
+                  @break
+                @case("xls")
+                  <img class="icon" src="/img/excel-icon.svg" alt="">
+                  <a class="name" href="{{ Storage::url($doc->file) }}" download>{{ $doc->title }}</a>
+                  @break
+              @endswitch
+              <a class="sig-file" href="{{ Storage::url($doc->sig_file) }}" download>
+                <span class="sig-file-name">ЭЦП</span> 
+                <img src="/img/sig-file-image.svg" class="sig-file-image" alt="">
+              </a>
+              <a class="key-file" href="{{ Storage::url($doc->key_file) }}" download>
+                <span class="sig-file-name">Ключ</span> 
+                <img src="/img/key-file-image.svg" class="key-file-image" alt="">
+              </a>
+            </div>
+          @endforeach
+        </div>
+      </div>
+
     </div>
   </div>
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Controllers\KonkursyController;
 use App\Http\Controllers\EiosController;
 use App\Http\Controllers\Admin\LearningDirectionController;
 use App\Http\Controllers\Admin\MainnewsController;
+use App\Http\Controllers\Admin\PsDokumentyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -356,6 +357,7 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::get('/dashboard/prepodavatelyam-spiski-studentov', [AdminController::class, 'prepodavatelyam_spiski_studentov']);
 
     Route::post('/dashboard/prepodavatelyam-spiski-studentov-update', [AdminController::class, 'prepodavatelyam_spiski_studentov_update']);
+
     
     Route::get('/dashboard/konkursy', [KonkursyController::class, 'index']);
 
@@ -370,6 +372,7 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::post('/dashboard/konkursy/update', [KonkursyController::class, 'update'])->name('konkursy-update');
 
     Route::get('/dashboard/konkursy/{id}/destroy', [KonkursyController::class, 'destroy'])->name('konkursy-destroy');
+
 
     Route::get('/dashboard/konkursy-dokumenty', [AdminController::class, 'konkursy_dokumenty']);
 
@@ -579,6 +582,23 @@ Route::middleware('can:view-dashboard')->group(function () {
     // стипендии и иные виды материальной поддержки
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/stipendii-i-inye-vidy-materialnoi-podderzki-update', [AdminController::class, 'svedeniya_stipendii_i_inye_vidy_materialnoi_podderzki_update']);
+
+
+    // Педагогический состав документы
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty', [PsDokumentyController::class, 'index']);
+
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/create', [PsDokumentyController::class, 'create'])->name('pedagogicheskij-sostav-dokumenty-create');
+
+    Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/store', [PsDokumentyController::class, 'store'])->name('pedagogicheskij-sostav-dokumenty-store');
+
+    // Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}', [PsDokumentyController::class, 'show'])->name('pedagogicheskij-sostav-dokumenty-show');
+
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/edit', [PsDokumentyController::class, 'edit'])->name('pedagogicheskij-sostav-dokumenty-edit');
+
+    Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/update', [PsDokumentyController::class, 'update'])->name('pedagogicheskij-sostav-dokumenty-update');
+
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/destroy', [PsDokumentyController::class, 'destroy'])->name('pedagogicheskij-sostav-dokumenty-destroy');
+
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi']);
     // платные образовательные услуги
