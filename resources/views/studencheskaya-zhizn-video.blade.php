@@ -2,9 +2,6 @@
 
 @extends('layouts.main')
 
-@section('style')
-@endsection
-
 @section('content')
   <div class="page video-page">
     <div class="container">
@@ -14,7 +11,7 @@
           <div class="item">
             <div class="image">
               <a href="{{ $vd->video }}" target="_blank">
-                <img src="{{ $vd->image }}" alt="">
+                <img src="{{ Storage::url($vd->image) }}" alt="">
               </a>              
             </div>
             <div class="title">{{ $vd->short_title }}<br>
@@ -25,7 +22,4 @@
       </div>
     </div>
   </div>
-@endsection
-
-@section('script')
 @endsection
