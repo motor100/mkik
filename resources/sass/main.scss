@@ -95,6 +95,9 @@ ul {
 .page .history-back {
   position: absolute;
 }
+.page .text::after {
+  clear: both;
+}
 .text p {
   overflow-wrap: break-word;
 }
@@ -103,6 +106,10 @@ ul {
   height: auto;
 }
 .text p a {
+  color: #000;
+  text-decoration: underline;
+}
+.text div a {
   color: #000;
   text-decoration: underline;
 }

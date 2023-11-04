@@ -8,10 +8,11 @@
       <div class="page-title">Результаты вступительных испытаний</div>
       
       @if(isset($text))
-      <div class="text">
-        {!! $text !!}
-      </div>
+        <div class="text">
+          {!! $text !!}
+        </div>
       @endif
+      
     </div>
   </div>
 @endsection

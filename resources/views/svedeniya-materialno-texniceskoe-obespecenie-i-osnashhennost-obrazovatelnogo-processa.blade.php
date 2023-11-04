@@ -11,6 +11,7 @@
       <div class="text">
         {!! $text !!}
       </div>
+      <div class="clear-both"></div>
     </div>
   </div>
 @endsection
