@@ -13,7 +13,7 @@
         <div class="konkursy-wrapper">
           <div class="item">
             <div class="image">
-              <img src="{{ $single_konkurs->image }}" alt="">
+              <img src="{{ Storage::url($single_konkurs->image) }}" alt="">
             </div>
             <div class="content">
               <div class="title-wrapper">
@@ -39,15 +39,15 @@
               @switch( $doc->filetype )
                 @case("pdf")
                   <img class="icon" src="/img/pdf-icon.svg" alt="">
-                  <a class="name" href="{{ $doc->file }}" target="_blank">{{ $doc->title }}</a>
+                  <a class="name" href="{{ Storage::url($doc->file) }}" target="_blank">{{ $doc->title }}</a>
                   @break
                 @case("doc")
                   <img class="icon" src="/img/word-icon.svg" alt="">
-                  <a class="name" href="{{ $doc->file }}" download>{{ $doc->title }}</a>
+                  <a class="name" href="{{ Storage::url($doc->file) }}" download>{{ $doc->title }}</a>
                   @break
                 @case("xls")
                   <img class="icon" src="/img/excel-icon.svg" alt="">
-                  <a class="name" href="{{ $doc->file }}" download>{{ $doc->title }}</a>
+                  <a class="name" href="{{ Storage::url($doc->file) }}" download>{{ $doc->title }}</a>
                   @break
               @endswitch
             </div>
