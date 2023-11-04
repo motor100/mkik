@@ -2,19 +2,16 @@
 
 @extends('layouts.main')
 
-@section('style')
-@endsection
-
 @section('content')
   <div class="page gazeta-pizzicato-page">
     <div class="container">
-      <div class="page-title">{{ Газета Pizzicato }}</div>
+      <div class="page-title">Газета Pizzicato</div>
 
       <div class="newspapers">
         @foreach($newspapers as $nwpr)
           <div class="item">
-            <a href="{{ $nwpr->pdf }}" target="_blank">
-              <img src="{{ $nwpr->image }}" alt="">
+            <a href="{{ Storage::url($nwpr->pdf) }}" target="_blank">
+              <img src="{{ Storage::url($nwpr->image) }}" alt="">
             </a>
           </div>
         @endforeach
@@ -22,7 +19,4 @@
       
     </div>
   </div>
-@endsection
-
-@section('script')
 @endsection
