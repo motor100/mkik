@@ -10,7 +10,7 @@
         <div class="konkursy-wrapper">
           <div class="item">
             <div class="image">
-              <img src="{{ $zdn->image }}" alt="">
+              <img src="{{ Storage::url($zdn->image) }}" alt="">
               <a href="/studencheskaya-zhizn/izdaniya/{{ $zdn->slug }}" class="btn">смотреть</a>
             </div>
             <div class="content">

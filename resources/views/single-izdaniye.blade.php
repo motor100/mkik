@@ -1,4 +1,4 @@
-@section('title', $single_izdaniye->title')
+@section('title', $single_izdaniye->title)
 
 @extends('layouts.main')
 
@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-md-2">
               <div class="image">
-                <img src="{{ $single_izdaniye->image }}" alt="">
+                <img src="{{ Storage::url($single_izdaniye->image) }}" alt="">
               </div>
               <div class="order-text">Заказать:</div>
               <div class="phone">+7 (3513) 55-50-33</div>
