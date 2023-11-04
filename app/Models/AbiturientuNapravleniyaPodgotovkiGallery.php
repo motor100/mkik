@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Abiturientu_napravleniya_podgotovki extends Model
+class AbiturientuNapravleniyaPodgotovkiGallery extends Model
 {
     use HasFactory;
 
@@ -14,5 +14,10 @@ class Abiturientu_napravleniya_podgotovki extends Model
      *
      * @var string
      */
-    protected $table = 'abiturientu_napravleniya_podgotovkis';
+    protected $table = 'abiturientu_napravleniya_podgotovkis_galleries';
+
+    protected $fillable = [
+        'anp_id',
+        'image'
+    ];
 }

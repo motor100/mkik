@@ -149,17 +149,12 @@ class MainController extends Controller
         return view('abiturientu-napravleniya-podgotovki');
     }
 
-    public function single_abiturientu_napravleniya_podgotovki($slug)
+    public function single_abiturientu_napravleniya_podgotovki($slug): mixed
     {
-        $single_napravlenie = DB::table('abiturientu_napravleniya_podgotovkis')
-                                ->where('slug', $slug)
-                                ->first();
+        $single_napravlenie = \App\Models\AbiturientuNapravleniyaPodgotovki::where('slug', $slug)->first();      
 
         if ($single_napravlenie) {
-
-            $gallery = json_decode($single_napravlenie->gallery);
-
-            return view('single-abiturientu-napravleniya-podgotovki', compact('single_napravlenie', 'gallery'));
+            return view('single-abiturientu-napravleniya-podgotovki', compact('single_napravlenie'));
         } else {
             return abort(404);
         }
@@ -1229,6 +1224,34 @@ class MainController extends Controller
         });
 
         return "ok";
+    }
+
+    /**
+     * Абитуриенту направления подготовки - галерея в отдельную таблицу
+     */
+    public function abiturientu_napravleniya_podgotovki_update()
+    {
+        $napravlenies = \App\Models\AbiturientuNapravleniyaPodgotovki::all();
+
+        $insert_array = [];
+
+        foreach($napravlenies as $np) {
+            $gallery_array = json_decode($np->gallery);
+
+            if ($gallery_array) {
+                foreach($gallery_array as $ga) {
+                    $item['anp_id'] = $np->id;
+                    $item['image'] = str_replace('/upload/', 'public/uploads/', $ga);
+                    $item['created_at'] = now();
+                    $item['updated_at'] = now();
+    
+                    $insert_array[] = $item;
+                }
+            }
+        }
+
+        return \App\Models\AbiturientuNapravleniyaPodgotovkiGallery::insert($insert_array);
+
     }
 
     /**

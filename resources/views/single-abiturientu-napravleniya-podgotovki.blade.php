@@ -15,17 +15,17 @@
           <div class="page-title">{{ $single_napravlenie->title }}</div>
           <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
         </div>
-        <div class="gallery">
-          @if($gallery)
-            @foreach($gallery as $glr)
+        @if($single_napravlenie->gallery)
+          <div class="gallery">
+            @foreach($single_napravlenie->gallery as $glr)
               <figure class="figure gallery-item">
-                <a href="{{ $glr }}" data-size="800x600">
-                  <img src="{{ $glr }}" alt="">
+                <a href="{{ Storage::url($glr->image) }}" data-size="800x600">
+                  <img src="{{ Storage::url($glr->image) }}" alt="">
                 </a>
               </figure>
             @endforeach
-          @endif
-        </div>
+          </div>
+        @endif
         @if($single_napravlenie->chairman)
           <div class="chairman-wrapper text-wrapper">
             <div class="title">Председатель:</div>
