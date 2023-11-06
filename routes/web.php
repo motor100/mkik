@@ -37,8 +37,11 @@ Route::get('/o-kolledzhe/pedagogicheskij-sostav/{slug}', [MainController::class,
 Route::get('/o-kolledzhe/kontakty', [MainController::class, 'o_kolledzhe_kontakty']);
 // о колледже контакты
 
-Route::get('/studentam-raspisanie', [MainController::class, 'studentam_raspisanie']);
 // студентам расписание
+Route::get('/studentam-raspisanie', [MainController::class, 'studentam_raspisanie']);
+
+// Студентам форма аттестации
+Route::get('/studentam-attestation-form/{id}', [MainController::class, 'studentam_attestation_form']);
 
 Route::get('/prepodavatelyam-makety', [MainController::class, 'prepodavatelyam_makety']);
 // преподавателям макеты
@@ -321,6 +324,12 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::get('/dashboard/studentam-raspisanie', [AdminController::class, 'studentam_raspisanie']);
 
     Route::post('/dashboard/studentam-raspisanie-update', [AdminController::class, 'studentam_raspisanie_update']);
+
+    // Учеба студентам форма аттестации
+    Route::get('/dashboard/studentam-attestation-form', [AdminController::class, 'studentam_attestation_form']);
+
+    // Учеба студентам форма аттестации обновление
+    Route::get('/dashboard/studentam-attestation-form-update', [AdminController::class, 'studentam_attestation_form_update']);
     
     Route::get('/dashboard/studentam-gia', [AdminController::class, 'studentam_gia']);
 

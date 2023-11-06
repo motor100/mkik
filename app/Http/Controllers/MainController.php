@@ -91,7 +91,7 @@ class MainController extends Controller
         return view('o-kolledzhe-kontakty');
     }
 
-    public function studentam_raspisanie()
+    public function studentam_raspisanie(): View
     {
         $sdl_att = DB::table('studentam_raspisanies')
                         ->get();
@@ -118,6 +118,15 @@ class MainController extends Controller
 
         return view('studentam-raspisanie', compact('sdl_att', 'gia', 'gup', 'zvl', 'mrd', 'plz'));
     }
+
+    public function studentam_attestation_form($id): mixed
+    {
+        if ($id >= 0 && $id < 5) {
+            return view('studentam-attestation-form', compact('id'));
+        } else {
+            return abort(404);
+        }
+    }    
 
     public function prepodavatelyam()
     {

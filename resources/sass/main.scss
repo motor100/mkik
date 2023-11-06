@@ -1443,11 +1443,17 @@ ul {
 .studentam-raspisanie-page .item:hover .corner::after {
   background-color: #fff;
 }
-.studentam-raspisanie-page .attestation-wrapper {
+
+.studentam-raspisanie-page .attestation-form-links {
   display: flex;
   margin: 0 0 50px 0;
-  padding: 0 30px;
+  padding: 0 80px;
   justify-content: space-between;
+  .name {
+    font-family: 'pt-sans-bold';
+    font-size: 18px;
+    color: #000;
+  }
 }
 .studentam-raspisanie-page .documents-wrapper .item {
   margin: 0 0 25px 0;
@@ -1456,6 +1462,22 @@ ul {
   font-family: 'pt-sans-bold';
   font-size: 20px;
 }
+
+// Студентам форма аттестации
+.studentam-attestation-form-page {
+  .course {
+    margin: 0 0 20px 0;
+    font-family: 'pt-sans-bold';
+    font-size: 20px;
+  }
+  .attestation-forms-item {
+    margin: 0 0 20px 0;
+  }
+  .attestation-forms-item__link {
+    color: #000;
+  }
+}
+
 
 /* Страница Преподавателям макеты и Абитуриенту документы */
 .documents {
@@ -1972,7 +1994,7 @@ ul {
   .studentam-raspisanie-page .course-frame {
     padding: 25px 49px 25px 49px;
   }
-  .studentam-raspisanie-page .attestation-wrapper {
+  .studentam-raspisanie-page .attestation-form-links {
     padding: 0;
   }
   .studentam-raspisanie-page .course-frame {
@@ -2090,7 +2112,7 @@ ul {
   .footer .top .info .item {
     justify-content: center;
   }
-  .studentam-raspisanie-page .attestation-wrapper {
+  .studentam-raspisanie-page .attestation-form-links {
     display: block;
   }
   .studentam-raspisanie-page .course-frame {

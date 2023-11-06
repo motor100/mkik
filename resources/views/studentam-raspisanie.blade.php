@@ -67,38 +67,18 @@
         </div>
       </div>
 
-      <div class="attestation-wrapper documents">
+      <div class="attestation-form-links">
         <div class="list-item">
-          <img class="icon" src="/img/pdf-icon.svg" alt="">
-          @if($sdl_att[0]->attestation)
-            <a class="name" href="{{ Storage::url($sdl_att[0]->attestation) }}" target="_blank">Форма аттестации</a>
-          @else
-            <a class="name" href="#">Форма аттестации</a>
-          @endif
+          <a class="name" href="/studentam-attestation-form/1">Форма аттестации</a>
         </div>
         <div class="list-item">
-          <img class="icon" src="/img/pdf-icon.svg" alt="">
-          @if($sdl_att[1]->attestation)
-            <a class="name" href="{{ Storage::url($sdl_att[1]->attestation) }}" target="_blank">Форма аттестации</a>
-          @else
-            <a class="name" href="#">Форма аттестации</a>
-          @endif
+          <a class="name" href="/studentam-attestation-form/2">Форма аттестации</a>
         </div>
         <div class="list-item">
-          <img class="icon" src="/img/pdf-icon.svg" alt="">
-          @if($sdl_att[2]->attestation)
-            <a class="name" href="{{ Storage::url($sdl_att[2]->attestation) }}" target="_blank">Форма аттестации</a>
-          @else
-            <a class="name" href="#">Форма аттестации</a>
-          @endif
+          <a class="name" href="/studentam-attestation-form/3">Форма аттестации</a>
         </div>
         <div class="list-item">
-          <img class="icon" src="/img/pdf-icon.svg" alt="">
-          @if($sdl_att[3]->attestation)
-            <a class="name" href="{{ Storage::url($sdl_att[3]->attestation) }}" target="_blank">Форма аттестации</a>
-          @else
-            <a class="name" href="#">Форма аттестации</a>
-          @endif
+          <a class="name" href="/studentam-attestation-form/4">Форма аттестации</a>
         </div>
       </div>
 

@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class AdminController extends Controller
 {
@@ -164,6 +165,42 @@ class AdminController extends Controller
 
         return redirect('/dashboard/studentam-raspisanie');
     }
+
+    /**
+     * Учеба Студентам форма аттестации
+     */
+    public function studentam_attestation_form(): View
+    {
+        // Направления обучения
+        $learning_directions = \App\Models\LearningDirection::all();
+        
+        return view('dashboard.studentam-attestation-form', compact('learning_directions'));
+    }
+
+    /**
+     * Учеба Студентам форма аттестации обновление
+     */
+    public function studentam_attestation_form_update(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'course' => 'numeric',
+            'learning_direction' => 'numeric',
+            'input-main-file' => 'required',
+            'input-sig-file' => [
+                                'nullable',
+                                \Illuminate\Validation\Rules\File::types(['asc'])
+            ],
+            'input-key-file' => [
+                                'nullable',
+                                \Illuminate\Validation\Rules\File::types(['application/pgp-keys', 'text/plain'])
+            ],
+        ]);
+
+        
+        
+        return redirect()->back();
+    }
+
 
     public function studentam_gia()
     {   
@@ -930,19 +967,28 @@ class AdminController extends Controller
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/metodicheskie-razrabotki-obespechivayushchie-uchebnyj-process');
     }
 
-    public function abiturientu_napravleniya_podgotovki()
+    public function abiturientu_napravleniya_podgotovki(): View
     {   
-        $content = DB::table('abiturientu_napravleniya_podgotovkis')
-                    ->get();
-        
-        $i = 0;
-        foreach($content as $cnt) {
-            $cnt->glr = json_decode($cnt->gallery);
-            $cnt->count = $i;
-            $i++;
+        $learning_directions = \App\Models\AbiturientuNapravleniyaPodgotovki::all();
+
+        /*
+        // Копирование title и slug в таблицу learning_directions
+        $insert_array = [];
+
+        foreach($learning_directions as $ld) {
+            $item = [];
+            $item['title'] = $ld->title;
+            $item['slug'] = $ld->slug;
+            $item['created_at'] = now();
+            $item['updated_at'] = now();
+            
+            $insert_array[] = $item;
         }
 
-        return view('dashboard.abiturientu-napravleniya-podgotovki', compact('content'));
+        \App\Models\LearningDirection::insert($insert_array);
+        */
+
+        return view('dashboard.abiturientu-napravleniya-podgotovki', compact('learning_directions'));
     }
 
     public function abiturientu_napravleniya_podgotovki_update(Request $request)

@@ -1,8 +1,6 @@
 @extends('dashboard.layout')
 
-@section('title')
-Абитуриенту направления подготовки
-@endsection
+@section('title', 'Абитуриенту направления подготовки')
 
 @section('dashboardcontent')
 
@@ -17,8 +15,8 @@
           <div class="form-group mb-3">
             <div class="label-text">Направление</div>
             <select name="direction" id="form-select" class="form-select" required>
-              @foreach($content as $cnt)
-                @if($cnt->count == 0)
+              @foreach($learning_directions as $cnt)
+                @if($cnt->id == 1)
                   <option value="{{ $cnt->title }}" selected>{{ $cnt->title }}</option>
                 @else
                   <option value="{{ $cnt->title }}">{{ $cnt->title }}</option>
@@ -28,7 +26,7 @@
           </div>
           <div class="form-group mb-3">
             <label for="inputChairman" class="form-check-label">Председатель</label>
-            <input type="text" name="chairman" class="form-control" id="inputChairman" maxlength="150" value="{{ $content[0]->chairman }}">
+            <input type="text" name="chairman" class="form-control" id="inputChairman" maxlength="150" value="{{ $learning_directions[0]->chairman }}">
           </div>
           <div class="form-group mb-3">
             <div class="label-text">Галерея</div>
@@ -36,10 +34,10 @@
             <label class="custom-inputfile-label" for="input-gallery-file">Выберите файлы</label>
             <span class="file-text">Файлы не выбраны</span>
             <div id="image-link-wrapper" class="link-wrapper">
-              @if($content[0]->glr)
-                @foreach($content[0]->glr as $glr)
+              @if($learning_directions[0]->gallery)
+                @foreach($learning_directions[0]->gallery as $glr)
                   <div class="label-text mb-1">
-                    <a href="{{ $glr }}" target="_blank">Изображение</a>
+                    <a href="{{ Storage::url($glr->image) }}" target="_blank">Изображение</a>
                   </div>
                 @endforeach
               @endif
@@ -47,18 +45,18 @@
           </div>
           <div class="form-group mb-3">
             <label for="inputTeachers" class="form-check-label">Преподаватели</label>
-            <input type="text" name="teachers" class="form-control" id="inputTeachers" maxlength="200" value="{{ $content[0]->teachers }}">
+            <input type="text" name="teachers" class="form-control" id="inputTeachers" maxlength="200" value="{{ $learning_directions[0]->teachers }}">
           </div>
           <div class="form-group mb-3">
             <label for="text" class="form-check-label">Описание</label>
-            <textarea name="text" id="text">{{ $content[0]->text }}</textarea>
+            <textarea name="text" id="text">{{ $learning_directions[0]->text }}</textarea>
           </div>
           <div class="form-group mb-5">
             <label for="inputDiploma" class="form-check-label">Диплом</label>
-            <input type="text" name="diploma" class="form-control" id="inputDiploma" maxlength="100" value="{{ $content[0]->diploma }}">
+            <input type="text" name="diploma" class="form-control" id="inputDiploma" maxlength="100" value="{{ $learning_directions[0]->diploma }}">
           </div>
 
-          <input type="hidden" name="id" id="inputId" value="{{ $content[0]->id }}">
+          <input type="hidden" name="id" id="inputId" value="{{ $learning_directions[0]->id }}">
 
           @csrf
           <button type="submit" class="btn btn-primary">Обновить</button>
@@ -66,7 +64,7 @@
       </div>
 
       <div class="hidden-text hidden">
-        @foreach($content as $cnt)
+        @foreach($learning_directions as $cnt)
           <div class="item">
             <div class="id">{{ $cnt->id }}</div>
             <div class="chairman">{{ $cnt->chairman }}</div>

@@ -111,6 +111,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="/dashboard/studentam-attestation-form" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Студентам Форма аттестации</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="/dashboard/studentam-gia" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Студентам ГИА</p>

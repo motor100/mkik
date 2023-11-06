@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Teachers_category;
+// use App\Models\LearningDirection;
 use Illuminate\Support\Str;
 
 class LearningDirectionController extends Controller
@@ -16,7 +16,9 @@ class LearningDirectionController extends Controller
      */
     public function index()
     {
-        $learning_directions = Teachers_category::all();
+        // $learning_directions = LearningDirection::all();
+
+        $learning_directions = \App\Models\TeachersCategory::all();
         
         return view('dashboard.learning-directions', compact('learning_directions'));
     }
