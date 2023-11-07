@@ -16,6 +16,12 @@
       </div>
     @endif
 
+    @if(session()->get('status'))
+      <div class="alert alert-success">
+        {{ session()->get('status') }}
+      </div>
+    @endif
+
     <div class="studentam-attestation-form mb-5">
       <form class="form" action="/dashboard/studentam-attestation-form-update" enctype="multipart/form-data" method="post">
         <div class="form-group mb-3">

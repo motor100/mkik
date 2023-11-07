@@ -119,14 +119,25 @@ class MainController extends Controller
         return view('studentam-raspisanie', compact('sdl_att', 'gia', 'gup', 'zvl', 'mrd', 'plz'));
     }
 
+    /**
+     * Страница Формы аттестации
+     * @param string $id номер курса
+     * @return mixed
+     */
     public function studentam_attestation_form($id): mixed
     {
         if ($id >= 0 && $id < 5) {
-            return view('studentam-attestation-form', compact('id'));
+
+            // Коллекция моделей с сортировкой по полю learning_direction_id
+            $attestation_forms = \App\Models\StudentamAttestationForm::where('course', $id)
+                                                                    ->orderBy('learning_direction_id', 'asc')
+                                                                    ->get();
+
+            return view('studentam-attestation-form', compact('attestation_forms', 'id'));
         } else {
             return abort(404);
         }
-    }    
+    }
 
     public function prepodavatelyam()
     {

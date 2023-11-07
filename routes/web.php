@@ -329,7 +329,7 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::get('/dashboard/studentam-attestation-form', [AdminController::class, 'studentam_attestation_form']);
 
     // Учеба студентам форма аттестации обновление
-    Route::get('/dashboard/studentam-attestation-form-update', [AdminController::class, 'studentam_attestation_form_update']);
+    Route::post('/dashboard/studentam-attestation-form-update', [AdminController::class, 'studentam_attestation_form_update']);
     
     Route::get('/dashboard/studentam-gia', [AdminController::class, 'studentam_gia']);
 

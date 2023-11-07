@@ -122,3 +122,22 @@ if (studentamRaspisanieForm) {
     attestationLinkWrapper.innerHTML = textItems[index].querySelector('.attestation').innerHTML;
   })
 }
+
+// Fade out success message
+let alertSuccess = document.querySelector('.alert-success');
+
+if (alertSuccess) {
+  fadeOut(alertSuccess, 3000);
+}
+
+function fadeOut (el, timeout) {
+  el.style.opacity = 1;
+  el.style.transition = `opacity ${timeout}ms`;
+  el.style.opacity = 0;
+
+  setTimeout(() => {
+    el.style.display = 'none';
+  }, timeout);
+
+  return false;
+};

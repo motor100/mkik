@@ -179,6 +179,8 @@ class AdminController extends Controller
 
     /**
      * Учеба Студентам форма аттестации обновление
+     * @param Illuminate\Http\Request
+     * @return Illuminate\Http\RedirectResponse
      */
     public function studentam_attestation_form_update(Request $request): RedirectResponse
     {
@@ -196,11 +198,34 @@ class AdminController extends Controller
             ],
         ]);
 
-        
-        
-        return redirect()->back();
-    }
+        // Модель форма аттестации
+        $attestation_form = \App\Models\StudentamAttestationForm::where('course', $validated['course'])
+                                                                ->where('learning_direction_id', $validated['learning_direction'])
+                                                                ->first();
 
+        // Если модель есть, то обновление. Иначе создание новой модели
+        if ($attestation_form) {
+            $attestation_form->update([
+                'file' => (new \App\Services\FileUpdate($attestation_form, 'forma-attestacii', $validated))->file_update(),
+                'sig_file' => (new \App\Services\FileUpdate($attestation_form, 'forma-attestacii', $validated))->sig_update(),
+                'key_file' => (new \App\Services\FileUpdate($attestation_form, 'forma-attestacii', $validated))->key_update()
+            ]);
+        } else {
+            
+            $sig_file = array_key_exists('input-sig-file', $validated) ? (new \App\Services\FileAdd($validated['input-sig-file'], 'forma-attestacii'))->add() : NULL;
+            $key_file = array_key_exists('input-key-file', $validated) ? (new \App\Services\FileAdd($validated['input-key-file'], 'forma-attestacii'))->add() : NULL;
+
+            \App\Models\StudentamAttestationForm::create([
+                'course' => $validated['course'],
+                'learning_direction_id' => $validated['learning_direction'],
+                'file' => (new \App\Services\FileAdd($validated['input-main-file'], 'forma-attestacii'))->add(),
+                'sig_file' => $sig_file,
+                'key_file' => $key_file
+            ]);
+        }
+        
+        return redirect()->back()->with('status', 'Обновлено');
+    }
 
     public function studentam_gia()
     {   

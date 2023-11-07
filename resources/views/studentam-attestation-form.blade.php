@@ -7,37 +7,24 @@
   <div class="container">
     <div class="page-title">Форма аттестации</div>
     <div class="course">Курс {{ $id }}</div>
-    <div class="attestation-forms">
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Фортепиано</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Инструменты народного оркестра</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Оркестровые духовые и ударные инструменты</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Оркестровые струнные инструменты</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Вокальное искусство</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Сольное и хоровое народное пение</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Хоровое дирижирование</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Теория музыки</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Народное художественное творчество</a>
-      </div>
-      <div class="attestation-forms-item">
-        <a href="#" class="attestation-forms-item__link">Музыкальное искусство эстрады</a>
-      </div>
+    <div class="attestation-forms documents">
+      @foreach($attestation_forms as $af)
+        <div class="attestation-forms-item">
+          <a href="{{ Storage::url($af->file) }}" class="attestation-forms-item__link">{{ $af->learning_direction->title }}</a>
+          @if($af->sig_file)
+            <a class="sig-file" href="{{ Storage::url($af->sig_file) }}" download>
+              <span class="sig-file-name">ЭЦП</span> 
+              <img src="/img/sig-file-image.svg" class="sig-file-image" alt="">
+            </a>
+          @endif
+          @if($af->key_file)
+            <a class="key-file" href="{{ Storage::url($af->key_file) }}" download>
+              <span class="sig-file-name">Ключ</span> 
+              <img src="/img/key-file-image.svg" class="key-file-image" alt="">
+            </a>
+          @endif
+        </div>
+      @endforeach
     </div>
   </div>
 </div>
