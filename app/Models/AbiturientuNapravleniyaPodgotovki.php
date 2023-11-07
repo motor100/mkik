@@ -17,12 +17,29 @@ class AbiturientuNapravleniyaPodgotovki extends Model
      */
     protected $table = 'abiturientu_napravleniya_podgotovkis';
 
+    protected $fillable = [
+        'learning_direction_id',
+        'chairman',
+        'teachers',
+        'text',
+        'diploma',
+    ];
+
     /**
      * Один ко многим
      * Получить галерею к направлению.
      */
     public function gallery(): HasMany
     {
-        return $this->hasMany(AbiturientuNapravleniyaPodgotovkiGallery::class, 'anp_id', 'id');
+        return $this->hasMany(AbiturientuNapravleniyaPodgotovkiGallery::class, 'learning_direction_id', 'id');
+    }
+
+    /**
+     * Один к одному
+     * Получить направление.
+     */
+    public function learning_direction()
+    {
+        return $this->hasOne(LearningDirection::class, 'id', 'learning_direction_id');
     }
 }

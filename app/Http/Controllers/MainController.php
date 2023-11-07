@@ -173,9 +173,12 @@ class MainController extends Controller
 
     public function single_abiturientu_napravleniya_podgotovki($slug): mixed
     {
-        $single_napravlenie = \App\Models\AbiturientuNapravleniyaPodgotovki::where('slug', $slug)->first();      
+        $learning_direction = \App\Models\LearningDirection::where('slug', $slug)->first();
 
-        if ($single_napravlenie) {
+        if ($learning_direction) {
+
+            $single_napravlenie = \App\Models\AbiturientuNapravleniyaPodgotovki::where('learning_direction_id', $learning_direction->id)->first();
+            
             return view('single-abiturientu-napravleniya-podgotovki', compact('single_napravlenie'));
         } else {
             return abort(404);

@@ -8,6 +8,7 @@ use App\Http\Controllers\EiosController;
 use App\Http\Controllers\Admin\LearningDirectionController;
 use App\Http\Controllers\Admin\MainnewsController;
 use App\Http\Controllers\Admin\PedagogicheskijSostavDokumentyController;
+use App\Http\Controllers\Admin\AbiturientuNapravleniyaPodgotovkiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -431,9 +432,13 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/studencheskaya-zhizn-media-centr-da-capo-update', [AdminController::class, 'studencheskaya_zhizn_media_centr_da_capo_update']);
 
-    Route::get('/dashboard/abiturientu-napravleniya-podgotovki', [AdminController::class, 'abiturientu_napravleniya_podgotovki']);
+    // Абитуриенту направления подготовки
+    Route::get('/dashboard/abiturientu-napravleniya-podgotovki', [AbiturientuNapravleniyaPodgotovkiController::class, 'index']);
 
-    Route::post('/dashboard/abiturientu-napravleniya-podgotovki-update', [AdminController::class, 'abiturientu_napravleniya_podgotovki_update']);
+    Route::get('/dashboard/abiturientu-napravleniya-podgotovki/{id}/edit', [AbiturientuNapravleniyaPodgotovkiController::class, 'edit'])->name('dashboard.abiturientu-napravleniya-podgotovki-edit');
+
+    Route::post('/dashboard/abiturientu-napravleniya-podgotovki/{id}/update', [AbiturientuNapravleniyaPodgotovkiController::class, 'update'])->name('dashboard.abiturientu-napravleniya-podgotovki-update');
+
 
     Route::get('/dashboard/abiturientu-podgotovitelnye-kursy', [AdminController::class, 'abiturientu_podgotovitelnye_kursy']);
 

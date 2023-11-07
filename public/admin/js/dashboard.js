@@ -81,6 +81,7 @@ if (spiskiStudentovForm) {
 }
 
 // Замена контента страница Абитуриенту Направления подготовки
+/*
 let napravleniyaPodgotovkiForm = document.querySelector('.abiturientu-napravleniya-podgotovki-form');
 
 if (napravleniyaPodgotovkiForm) {
@@ -103,6 +104,8 @@ if (napravleniyaPodgotovkiForm) {
     tinyMCE.activeEditor.setContent(textItems[index].querySelector('.text').innerHTML);
   })
 }
+*/
+
 
 // Замена контента страница Студентам Расписание
 let studentamRaspisanieForm = document.querySelector('.studentam-raspisanie-form');

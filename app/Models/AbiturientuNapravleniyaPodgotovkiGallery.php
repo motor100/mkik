@@ -17,7 +17,7 @@ class AbiturientuNapravleniyaPodgotovkiGallery extends Model
     protected $table = 'abiturientu_napravleniya_podgotovkis_galleries';
 
     protected $fillable = [
-        'anp_id',
+        'learning_direction_id',
         'image'
     ];
 }
