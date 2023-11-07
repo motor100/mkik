@@ -45,10 +45,11 @@ class FileUpdate
      */
     public function sig_update(): mixed
     {
-        // dd($this->validated);
         if (array_key_exists('input-sig-file', $this->validated)) {
-            if (Storage::exists($this->model->sig_file)) {
-                Storage::delete($this->model->sig_file);
+            if ($this->model->sig_file) {
+                if (Storage::exists($this->model->sig_file)) {
+                    Storage::delete($this->model->sig_file);
+                }
             }
 
             return Storage::putFile('public/uploads/' . $this->folder, $this->validated["input-sig-file"]);
@@ -67,8 +68,10 @@ class FileUpdate
     public function key_update(): mixed
     {
         if (array_key_exists('input-key-file', $this->validated)) {
-            if (Storage::exists($this->model->key_file)) {
-                Storage::delete($this->model->key_file);
+            if ($this->model->key_file) {
+                if (Storage::exists($this->model->key_file)) {
+                    Storage::delete($this->model->key_file);
+                }
             }
 
             return Storage::putFile('public/uploads/' . $this->folder, $this->validated["input-key-file"]);

@@ -8,9 +8,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Models\PedagogicheskijSostavDokumenty;
-use Illuminate\Support\Str;
 
-class PsDokumentyController extends Controller
+class PedagogicheskijSostavDokumentyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,11 +38,11 @@ class PsDokumentyController extends Controller
             'title' => 'required|min:4|max:250',
             'input-main-file' => 'required',
             'input-sig-file' => [
-                                'required',
+                                'nullable',
                                 \Illuminate\Validation\Rules\File::types(['asc'])
             ],
             'input-key-file' => [
-                                'required',
+                                'nullable',
                                 \Illuminate\Validation\Rules\File::types(['application/pgp-keys', 'text/plain'])
             ],
         ]);
@@ -52,10 +51,10 @@ class PsDokumentyController extends Controller
         $file = (new \App\Services\FileAdd($validated['input-main-file'], 'pedagogicheskij-sostav-dokumenty'))->add();
 
         // Подпись
-        $sig_file = (new \App\Services\FileAdd($validated['input-sig-file'], 'pedagogicheskij-sostav-dokumenty'))->add();
+        $sig_file = array_key_exists('input-sig-file', $validated) ? (new \App\Services\FileAdd($validated['input-sig-file'], 'pedagogicheskij-sostav-dokumenty'))->add() : NULL;
         
         // Ключ
-        $key_file = (new \App\Services\FileAdd($validated['input-key-file'], 'pedagogicheskij-sostav-dokumenty'))->add();
+        $key_file = array_key_exists('input-key-file', $validated) ? (new \App\Services\FileAdd($validated['input-key-file'], 'pedagogicheskij-sostav-dokumenty'))->add() : NULL;
 
         // Создание модели
         PedagogicheskijSostavDokumenty::create([
@@ -94,7 +93,7 @@ class PsDokumentyController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|min:4|max:250',
-            'input-main-file' => 'nullable',
+            'input-main-file' => 'required',
             'input-sig-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['asc'])
@@ -108,13 +107,13 @@ class PsDokumentyController extends Controller
         $document = PedagogicheskijSostavDokumenty::findOrFail($id);
 
         // Документ
-        $file = (new \App\Services\FileUpdate($document, $validated))->file_update();
+        $file = (new \App\Services\FileUpdate($document, 'pedagogicheskij-sostav-dokumenty', $validated))->file_update();
 
         // Подпись
-        $sig_file = (new \App\Services\FileUpdate($document, $validated))->sig_update();
+        $sig_file = (new \App\Services\FileUpdate($document, 'pedagogicheskij-sostav-dokumenty', $validated))->sig_update();
 
         // Ключ
-        $key_file = (new \App\Services\FileUpdate($document, $validated))->key_update();
+        $key_file = (new \App\Services\FileUpdate($document, 'pedagogicheskij-sostav-dokumenty', $validated))->key_update();
 
         // Тип файла
         $filetype = array_key_exists("input-main-file", $validated) ? $validated["input-main-file"]->getClientOriginalExtension() : $document->filetype;
@@ -128,7 +127,7 @@ class PsDokumentyController extends Controller
             'filetype' => $filetype
         ]);
 
-        return redirect('/dashboard/pedagogicheskij-sostav-dokumenty');
+        return redirect()->back()->with('status', 'Обновлено');
     }
 
     /**

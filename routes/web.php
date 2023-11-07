@@ -7,7 +7,7 @@ use App\Http\Controllers\KonkursyController;
 use App\Http\Controllers\EiosController;
 use App\Http\Controllers\Admin\LearningDirectionController;
 use App\Http\Controllers\Admin\MainnewsController;
-use App\Http\Controllers\Admin\PsDokumentyController;
+use App\Http\Controllers\Admin\PedagogicheskijSostavDokumentyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -594,19 +594,19 @@ Route::middleware('can:view-dashboard')->group(function () {
 
 
     // Педагогический состав документы
-    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty', [PsDokumentyController::class, 'index']);
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty', [PedagogicheskijSostavDokumentyController::class, 'index']);
 
-    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/create', [PsDokumentyController::class, 'create'])->name('pedagogicheskij-sostav-dokumenty-create');
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/create', [PedagogicheskijSostavDokumentyController::class, 'create'])->name('pedagogicheskij-sostav-dokumenty-create');
 
-    Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/store', [PsDokumentyController::class, 'store'])->name('pedagogicheskij-sostav-dokumenty-store');
+    Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/store', [PedagogicheskijSostavDokumentyController::class, 'store'])->name('pedagogicheskij-sostav-dokumenty-store');
 
     // Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}', [PsDokumentyController::class, 'show'])->name('pedagogicheskij-sostav-dokumenty-show');
 
-    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/edit', [PsDokumentyController::class, 'edit'])->name('pedagogicheskij-sostav-dokumenty-edit');
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/edit', [PedagogicheskijSostavDokumentyController::class, 'edit'])->name('pedagogicheskij-sostav-dokumenty-edit');
 
-    Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/update', [PsDokumentyController::class, 'update'])->name('pedagogicheskij-sostav-dokumenty-update');
+    Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/update', [PedagogicheskijSostavDokumentyController::class, 'update'])->name('pedagogicheskij-sostav-dokumenty-update');
 
-    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/destroy', [PsDokumentyController::class, 'destroy'])->name('pedagogicheskij-sostav-dokumenty-destroy');
+    Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/destroy', [PedagogicheskijSostavDokumentyController::class, 'destroy'])->name('pedagogicheskij-sostav-dokumenty-destroy');
 
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi']);

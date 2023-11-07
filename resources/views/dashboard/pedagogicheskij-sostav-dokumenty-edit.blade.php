@@ -16,6 +16,12 @@
     </div>
   @endif
 
+  @if(session()->get('status'))
+    <div class="alert alert-success">
+      {{ session()->get('status') }}
+    </div>
+  @endif
+
   <div class="news-form mb-5">
     <form class="form" action="{{ route('pedagogicheskij-sostav-dokumenty-update', $document->id) }}" enctype="multipart/form-data" method="post">
       <div class="form-group mb-3">
@@ -24,7 +30,7 @@
       </div>
       <div class="form-group mb-1">
         <div class="label-text">Документ</div>
-        <input type="file" name="input-main-file" class="inputfile" id="input-main-file" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <input type="file" name="input-main-file" class="inputfile" id="input-main-file" required accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
         <label class="custom-inputfile-label" for="input-main-file">Выберите файл</label>
         <span class="file-text">Файл не выбран</span>
       </div>
@@ -38,7 +44,9 @@
         <span class="file-text">Файл не выбран</span>
       </div>
       <div class="form-group mb-3">
-        <a href="{{ Storage::url($document->sig_file) }}" class="document" download="">Подпись</a>
+        @if($document->sig_file)
+          <a href="{{ Storage::url($document->sig_file) }}" class="document" download="">Подпись</a>
+        @endif
       </div>
       <div class="form-group mb-1">
         <div class="label-text">Ключ</div>
@@ -47,8 +55,10 @@
         <span class="file-text">Файл не выбран</span>
       </div>
       <div class="form-group mb-5">
-        <a href="{{ Storage::url($document->key_file) }}" class="document" download="">Ключ</a>
-      </div>
+        @if($document->key_file)
+          <a href="{{ Storage::url($document->key_file) }}" class="document" download="">Ключ</a>
+        @endif
+      </div>      
 
       @csrf
       <button type="submit" class="btn btn-primary">Обновить</button>
