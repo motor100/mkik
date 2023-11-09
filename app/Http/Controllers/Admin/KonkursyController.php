@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Konkurs;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class KonkursyController extends Controller
 {
@@ -15,7 +18,7 @@ class KonkursyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         $konkursy = Konkurs::orderBy('id', 'desc')->get();
         
@@ -27,7 +30,7 @@ class KonkursyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
         return view('dashboard.konkursy-create');
     }
@@ -38,7 +41,7 @@ class KonkursyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $title = $request->input('title');
         $image = $request->file('inputimage');
@@ -89,7 +92,7 @@ class KonkursyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id): View
     {
         $konkurs = Konkurs::find($id);
 
@@ -103,7 +106,7 @@ class KonkursyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request): RedirectResponse
     {   
         $id = $request->input('id');
         $title = $request->input('title');
@@ -163,7 +166,7 @@ class KonkursyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
         $konkurs = Konkurs::find($id);
 
