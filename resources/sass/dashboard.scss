@@ -82,12 +82,6 @@
   height: 150px;
   object-fit: cover;
 }
-.gallery-delete {
-  width: 120px;
-  font-size: 14px;
-  text-decoration: underline;
-  cursor: pointer;
-}
 
 .footer {
   border-top: 1px solid #dee2e6;
@@ -188,7 +182,9 @@
   height: 300px;
 }
 .input-number {
+  -webkit-appearance: textfield;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 .input-number::-webkit-inner-spin-button,
 .input-number::-webkit-outer-spin-button {

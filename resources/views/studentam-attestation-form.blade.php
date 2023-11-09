@@ -10,7 +10,7 @@
     <div class="attestation-forms documents">
       @foreach($attestation_forms as $af)
         <div class="attestation-forms-item">
-          <a href="{{ Storage::url($af->file) }}" class="attestation-forms-item__link">{{ $af->learning_direction->title }}</a>
+          <a href="{{ Storage::url($af->file) }}" class="attestation-forms-item__link name">{{ $af->learning_direction->title }}</a>
           @if($af->sig_file)
             <a class="sig-file" href="{{ Storage::url($af->sig_file) }}" download>
               <span class="sig-file-name">ЭЦП</span> 

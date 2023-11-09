@@ -602,7 +602,7 @@
   <script src="{{ asset('/admin/js/adminlte.js') }}"></script>
   <script src="{{ asset('/admin/js/demo.js') }}"></script>
   <script src="{{ asset('/admin/js/air-datepicker.js') }}"></script>
-  <script src="{{ asset('/admin/js/dashboard.js') }}"></script>
+  @vite(['resources/js/dashboard.js'])
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)
