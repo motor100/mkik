@@ -210,6 +210,9 @@
             <div class="info">
               <div class="item">Лицензия<br>№13117 от 01.09.2016г</div>
               <div class="item">Свидетельство<br>№2957 от 01.04.2019г</div>
+              <div class="item">
+                <a href="/feedback" class="item-link">Напишите нам</a>
+              </div>
             </div>
           </div>
           <div class="col-md-4 col-lg-3">

@@ -559,6 +559,16 @@
 
             <li class="nav-item menu-item">
               <a href="/dashboard/learning-directions" class="nav-link">
+                <i class="nav-icon fas fa-comments"></i>
+                <p>Обращения
+                </p>
+              </a>
+            </li>
+
+            
+
+            <li class="nav-item menu-item">
+              <a href="/dashboard/learning-directions" class="nav-link">
                 <i class="nav-icon fa fa-arrow-right"></i>
                 <p>Направления подготовки
                 </p>

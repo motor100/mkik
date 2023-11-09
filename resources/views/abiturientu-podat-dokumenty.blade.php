@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-  <div class="page podat-dokumenty-page">
+  <div class="page podat-dokumenty-page form-page">
     <div class="container">
       <div class="page-title">Подать документы</div>
       <div class="required-text">Все поля обязательны для заполнения*</div>
@@ -45,7 +45,7 @@
           <div class="row">
             <div class="col-xl-4 col-md-6 ms-auto">
               <label for="phone" class="input-label">Телефон</label>
-              <input type="text" name="phone" id="phone" class="input-field" minlength="16" maxlength="16" required value="">
+              <input type="text" name="phone" id="phone" class="input-field js-input-phone-mask" required value="">
             </div>
             <div class="col-xl-4 col-md-6 me-auto">
               <label for="email" class="input-label">Email</label>

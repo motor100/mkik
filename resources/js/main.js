@@ -42,14 +42,6 @@ if (podatDokumentyPage) {
     });
   }
 
-  // Маска ввода телефона оформления заказа
-  let phone = document.querySelector('#phone');
-
-  let maskOptionsPhone = {
-    mask: '+7(000)000-00-00'
-  };
-  let mask = IMask(phone, maskOptionsPhone);
-
   // Выбор файла Документ PDF
   let inputfile = document.querySelectorAll('.inputfile'),
       pdfFileText = document.querySelectorAll('.pdf-file-text');
@@ -138,5 +130,23 @@ menuItemHasChildren.forEach(function (item) {
   });
 });
 
+
+// Input mask
+function inputPhoneMask() {
+  const elementPhone = document.querySelectorAll('.js-input-phone-mask');
+
+  const maskOptionsPhone = {
+    mask: '+{7}(000)000-00-00'
+  };
+
+  elementPhone.forEach((item) => {
+    const mask = IMask(item, maskOptionsPhone);
+  });
+}
+
+inputPhoneMask();
+
+
 //  Версия для слабовидящих
 new isvek.Bvi();
+

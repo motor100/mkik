@@ -640,6 +640,9 @@ ul {
   margin: 0 0 15px 0;
   align-items: center;
 }
+.footer .top .item-link {
+  color: #000;
+}
 .footer .top .item .icon {
   width: 35px;
   height: 35px;
@@ -1272,49 +1275,49 @@ ul {
 }
 
 /* Страница Подать документы */
-.podat-dokumenty-page .required-text {
+.form-page .required-text {
   margin: 0 0 50px 0;
   font-size: 24px;
   color: #5C0605;
   text-align: center;
 }
-.podat-dokumenty-page .message-text {
+.form-page .message-text {
   margin: 0 0 50px 0;
   font-size: 24px;
   color: #000;
   text-align: center;
 }
-.podat-dokumenty-page .form {
+.form-page .form {
   margin: 0 0 20px 0;
 }
-.podat-dokumenty-page .form-group {
+.form-page .form-group {
   margin: 0 0 25px 0;
 }
-.podat-dokumenty-page .middle-form-group {
+.form-page .middle-form-group {
   margin: 0 0 10px 0 !important;
 }
-.podat-dokumenty-page .last-form-group {
+.form-page .last-form-group {
   margin: 0 0 50px 0 !important;
 }
-.podat-dokumenty-page .input-label,
-.podat-dokumenty-page .label-text {
+.form-page .input-label,
+.form-page .label-text {
   display: block;
   margin: 0 0 5px 10px;
   font-family: 'pt-sans-bold';
 }
-.podat-dokumenty-page .input-field {
+.form-page .input-field {
   display: block;
   width: 100%;
   padding: 5px 10px;
   border: 1px solid #5C0605;
   font-family: inherit;
 }
-.podat-dokumenty-page .inputfile {
+.form-page .inputfile {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-.podat-dokumenty-page .custom-inputfile-label {
+.form-page .custom-inputfile-label {
   margin: 0 10px 0 0;
   padding: 5px 65px;
   background-color: #fff;
@@ -1323,7 +1326,17 @@ ul {
   color: #000;
   cursor: pointer;
 }
-.podat-dokumenty-page .submit-btn {
+.form-page .textarea {
+  height: 90px;
+  resize: none;
+}
+.form-page .textarea:focus-visible {
+  outline: none;
+}
+.form-page .mb50 {
+  margin: 0 0 50px 0;
+}
+.form-page .submit-btn {
   display: block;
   width: 200px;
   margin: 0 auto;
@@ -1334,12 +1347,12 @@ ul {
   font-family: 'pt-sans-bold';
   color: #fff;
 }
-.podat-dokumenty-page .custom-checkbox {
+.form-page .custom-checkbox {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-.podat-dokumenty-page .custom-checkbox+label:before {
+.form-page .custom-checkbox+label:before {
   content: '';
   display: block;
   float: left;
@@ -1352,11 +1365,14 @@ ul {
   background-size: 60%;
   background-color: #fff;
 }
-.podat-dokumenty-page .custom-checkbox-label .span-text a {
+.form-page .custom-checkbox-label {
+  margin: 0 0 5px 0;
+}
+.form-page .custom-checkbox-label .span-text a {
   color: #000;
   text-decoration: underline;
 }
-.podat-dokumenty-page .custom-checkbox:checked+label::before {
+.form-page .custom-checkbox:checked+label::before {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }
 

@@ -282,6 +282,11 @@ Route::get('/news-archive-{year}', [MainController::class, 'news_archive_year'])
 Route::get('/news/{slug}', [MainController::class, 'single_news'])->name('single-news');
 // карточка новости
 
+// Обратная связь Напишите нам
+Route::get('/feedback', [MainController::class, 'feedback']);
+
+Route::post('/feedback-store', [MainController::class, 'feedback_store']);
+
 Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
 
 require __DIR__.'/auth.php';

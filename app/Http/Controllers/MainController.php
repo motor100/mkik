@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class MainController extends Controller
 {
@@ -1073,6 +1074,45 @@ class MainController extends Controller
     public function politika_konfidencialnosti()
     {
         return view('politika-konfidencialnosti');
+    }
+
+    /**
+     * Обратная связь Напишите нам
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function feedback(): View
+    {
+        return view('feedback');
+    }
+
+    public function feedback_store(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required|min:3|max:100',
+            'phone' => 'required|min:3|max:100',
+            'email' => 'required|min:3|max:100',
+            'message' => 'required|min:3|max:1000',
+            'processing' => 'required',
+            'privacy' => 'required',
+            'g-recaptcha-response' => 'required',
+        ]);
+
+        // Google Captcha
+        $g_response = (new \App\Services\GoogleCaptcha($validated))->get();
+
+        if (!$g_response) {
+            redirect()->back()->with('error', 'Ошибка');
+        }
+
+        \App\Models\Feedback::create([
+            'name' => $validated["name"],
+            'phone' => $validated["phone"],
+            'email' => $validated["email"],
+            'message' => $validated["message"],
+        ]);
+        
+        return redirect()->back()->with('status', 'Ваше обращение принято');
     }
 
     public static function archive_content($object, $prefix, $cat = null) {
