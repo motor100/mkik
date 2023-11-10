@@ -47,12 +47,12 @@ form div {
   max-width: 350px;
 }
 
-input {
-  max-width: 350px;
+.input-field {
+  max-width: 350px !important;
   background-color: #fff !important;
 }
 
-input:focus {
+.input-field:focus {
   border: 1px solid #000 !important;
 }
 
