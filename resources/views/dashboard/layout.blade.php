@@ -558,14 +558,12 @@
             </li>
 
             <li class="nav-item menu-item">
-              <a href="/dashboard/learning-directions" class="nav-link">
+              <a href="/dashboard/feedbacks" class="nav-link">
                 <i class="nav-icon fas fa-comments"></i>
                 <p>Обращения
                 </p>
               </a>
             </li>
-
-            
 
             <li class="nav-item menu-item">
               <a href="/dashboard/learning-directions" class="nav-link">

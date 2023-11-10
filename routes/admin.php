@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\LearningDirectionController;
 use App\Http\Controllers\Admin\MainnewsController;
 use App\Http\Controllers\Admin\PedagogicheskijSostavDokumentyController;
 use App\Http\Controllers\Admin\AbiturientuNapravleniyaPodgotovkiController;
+use App\Http\Controllers\Admin\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -386,6 +387,11 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/metodicheskie-razrabotki-obespechivayushchie-uchebnyj-process-update', [AdminController::class, 'svedeniya_metodicheskie_razrabotki_obespechivayushchie_uchebnyj_process_update']);
 
+
+    // Обращения через форму Напишите нам
+    Route::get('/dashboard/feedbacks', [FeedbackController::class, 'index']);
+
+    Route::get('/dashboard/feedbacks/{id}', [FeedbackController::class, 'show']);
 
 
     Route::get('/dashboard/learning-directions', [LearningDirectionController::class, 'index']);
