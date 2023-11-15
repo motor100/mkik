@@ -565,6 +565,7 @@
               </a>
             </li>
 
+            <!-- 
             <li class="nav-item menu-item">
               <a href="/dashboard/learning-directions" class="nav-link">
                 <i class="nav-icon fa fa-arrow-right"></i>
@@ -572,6 +573,7 @@
                 </p>
               </a>
             </li>
+             -->
 
           </ul>
         </nav>
