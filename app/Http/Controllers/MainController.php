@@ -147,7 +147,7 @@ class MainController extends Controller
 
     public function prepodavatelyam_makety(): View
     {
-        $documents = \App\Models\Prepodavatelyam_makety::all();
+        $documents = \App\Models\PrepodavatelyamMakety::all();
 
         return view('prepodavatelyam-makety', compact('documents'));
     }
@@ -437,10 +437,9 @@ class MainController extends Controller
         return view('centr-sodejstviya-trudoustrojstvu', compact('text'));
     }
 
-    public function svedeniya_ob_obrazovatelnoj_organizacii()
+    public function svedeniya_ob_obrazovatelnoj_organizacii(): View
     {
-        $categories = DB::table('svedeniya_kategories')
-                        ->get();
+        $categories = \App\Models\SvedeniyaCategory::all();
 
         return view('svedeniya-ob-obrazovatelnoj-organizacii', compact('categories'));
     }

@@ -13,7 +13,7 @@ class CreateSvedeniyaKategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('svedeniya_kategories', function (Blueprint $table) {
+        Schema::create('svedeniya_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug');
@@ -28,6 +28,6 @@ class CreateSvedeniyaKategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('svedeniya_kategories');
+        Schema::dropIfExists('svedeniya_categories');
     }
 }

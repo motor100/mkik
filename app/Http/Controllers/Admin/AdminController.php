@@ -357,11 +357,9 @@ class AdminController extends Controller
         return redirect('/dashboard/studentam-polozheniya');
     }
 
-    public function prepodavatelyam_makety()
+    public function prepodavatelyam_makety(): View
     {
-        $documents = DB::table('maketys')
-                        ->orderBy('id', 'desc')
-                        ->get();
+        $documents = \App\Models\PrepodavatelyamMakety::orderBy('id', 'desc')->get();
 
         return view('dashboard.prepodavatelyam-makety', compact('documents'));
     }
