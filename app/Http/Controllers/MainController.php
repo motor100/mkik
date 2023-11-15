@@ -195,11 +195,9 @@ class MainController extends Controller
         return view('abiturientu-podgotovitelnye-kursy', compact('text'));
     }
 
-    public function abiturientu_dokumenty()
+    public function abiturientu_dokumenty(): View
     {
-        $documents = DB::table('abiturientu_dokumenties')
-                        ->orderBy('id', 'desc')
-                        ->get();
+        $documents = \App\Models\AbiturientuDokumenty::orderBy('id', 'desc')->get();
 
         return view('abiturientu-dokumenty', compact('documents'));
     }

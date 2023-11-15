@@ -55,8 +55,3 @@
 </script>
 
 @endsection
-
-@section('script')
-  <script src="https://cdn.tiny.cloud/1/5bpy3e636t6os710b6abr6w7zmyr1d77c4px4vl6qi628r67/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script src="{{ asset('admin/js/tiny-file-upload.js') }}"></script>
-@endsection

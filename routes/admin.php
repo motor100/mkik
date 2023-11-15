@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AbiturientuNapravleniyaPodgotovkiController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\SvedeniyaSubcategoryController;
 use App\Http\Controllers\Admin\SvedeniyaDocumentsController;
+use App\Http\Controllers\Admin\AbiturientuDokumentyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,8 +115,6 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/konkursy/update', [KonkursyController::class, 'update'])->name('konkursy-update');
 
-    Route::post('/dashboard/konkursy/update', [KonkursyController::class, 'update'])->name('konkursy-update');
-
     Route::get('/dashboard/konkursy/{id}/destroy', [KonkursyController::class, 'destroy'])->name('konkursy-destroy');
 
 
@@ -167,23 +166,32 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/studencheskaya-zhizn-media-centr-da-capo-update', [AdminController::class, 'studencheskaya_zhizn_media_centr_da_capo_update']);
 
-    // Абитуриенту направления подготовки
+    // Абитуриенту Направления подготовки
     Route::get('/dashboard/abiturientu-napravleniya-podgotovki', [AbiturientuNapravleniyaPodgotovkiController::class, 'index']);
 
     Route::get('/dashboard/abiturientu-napravleniya-podgotovki/{id}/edit', [AbiturientuNapravleniyaPodgotovkiController::class, 'edit'])->name('dashboard.abiturientu-napravleniya-podgotovki-edit');
 
     Route::post('/dashboard/abiturientu-napravleniya-podgotovki/{id}/update', [AbiturientuNapravleniyaPodgotovkiController::class, 'update'])->name('dashboard.abiturientu-napravleniya-podgotovki-update');
 
-
+    // Абитуриенту Подготовительные курсы
     Route::get('/dashboard/abiturientu-podgotovitelnye-kursy', [AdminController::class, 'abiturientu_podgotovitelnye_kursy']);
 
     Route::post('/dashboard/abiturientu-podgotovitelnye-kursy-update', [AdminController::class, 'abiturientu_podgotovitelnye_kursy_update']);
 
-    Route::get('/dashboard/abiturientu-dokumenty', [AdminController::class, 'abiturientu_dokumenty']);
 
-    Route::get('/dashboard/abiturientu-dokumenty/del/{id}', [AdminController::class, 'abiturientu_dokumenty_del']);
+    // Абитуриенту Документы
+    Route::get('/dashboard/abiturientu-dokumenty', [AbiturientuDokumentyController::class, 'index']);
 
-    Route::post('/dashboard/abiturientu-dokumenty/add', [AdminController::class, 'abiturientu_dokumenty_add']);
+    Route::get('/dashboard/abiturientu-dokumenty/create', [AbiturientuDokumentyController::class, 'create'])->name('dashboard.abiturientu-dokumenty-create');
+
+    Route::post('/dashboard/abiturientu-dokumenty/store', [AbiturientuDokumentyController::class, 'store'])->name('dashboard.abiturientu-dokumenty-store');
+
+    Route::get('/dashboard/abiturientu-dokumenty/{id}/edit', [AbiturientuDokumentyController::class, 'edit'])->name('dashboard.abiturientu-dokumenty-edit');
+
+    Route::post('/dashboard/abiturientu-dokumenty/{id}/update', [AbiturientuDokumentyController::class, 'update'])->name('dashboard.abiturientu-dokumenty-update');
+
+    Route::get('/dashboard/abiturientu-dokumenty/{id}/destroy', [AbiturientuDokumentyController::class, 'destroy'])->name('dashboard.abiturientu-dokumenty-destroy');
+
 
     Route::get('/dashboard/abiturientu-rezultaty-vstupitelnyh-ispytanij', [AdminController::class, 'abiturientu_rezultaty_vstupitelnyh_ispytanij']);
     // абитуриенту результаты вступительных испытаний

@@ -1,48 +1,53 @@
 @extends('dashboard.layout')
 
-@section('title')
-Абитуриенту документы
-@endsection
+@section('title', 'Абитуриенту документы')
 
 @section('dashboardcontent')
 
-<div class="dashboard-home">
+<div class="dashboard-content">
 
-  <div class="content">
-    <div class="container-fluid">
-
-      <div class="form-wrapper mb-5">
-        <form class="form" action="/dashboard/abiturientu-dokumenty/add" enctype="multipart/form-data" method="post">
-
-          <div class="form-group mb-3">
-            <label for="inputTitle" class="form-check-label">Название документа (250 символов)</label>
-            <input type="text" name="title" class="form-control" id="inputTitle" maxlength="250" required>
-          </div>
-          <div class="form-group mb-5">
-            <div class="label-text">Документ</div>
-            <input type="file" name="inputfile" class="inputfile" id="input-main-file" required accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-            <label class="custom-inputfile-label" for="input-main-file">Выберите файл</label>
-            <span class="main-file-text">Файл не выбран</span>
-          </div>
-
-          @csrf
-          <button type="submit" class="btn btn-primary">Добавить</button>
-        </form>
-      </div>
-
-      <div class="archive list-archive">
-        <h3 class="h4 mb-4">Архив документов</h3>
-        @foreach($documents as $doc)
-          <div class="item d-flex justify-content-between mb-3">
-            <div class="title">{{ $doc->title }}</div>
-            <a class="list-btn delete-btn" href="/dashboard/abiturientu-dokumenty/del/{{$doc->id}}">
-              <i class="far fa-times-circle"></i>
-            </a>
-          </div>
+  @if($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
         @endforeach
-      </div>
+      </ul>
     </div>
-  </div>
+  @endif
+
+  <a href="{{ route('dashboard.abiturientu-dokumenty-create') }}" class="btn btn-success mb-3">Добавить</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="number-column">№</th>
+        <th>Название</th>
+        <th class="button-column"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($documents as $doc)
+        <tr>
+          <td>{{ $loop->index + 1 }}</td>
+          <td>{{ $doc->title }}</td>
+          <td class="table-button">
+            <a href="{{ Storage::url($doc->file) }}" class="btn btn-success" target="_blank">
+              <i class="fas fa-eye"></i>
+            </a>
+            <a href="{{ route('dashboard.abiturientu-dokumenty-edit', $doc->id) }}" class="btn btn-primary">
+              <i class="fas fa-pen"></i>
+            </a>
+            <form class="form" action="{{ route('dashboard.abiturientu-dokumenty-destroy', $doc->id) }}" method="get">
+              @csrf
+              <button type="submit" class="btn btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
 
 </div>
 
@@ -50,17 +55,5 @@
   // Изменение цвета активного пункта меню
   let navLink = document.querySelectorAll('.nav-sidebar .menu-item > .nav-link');
   navLink[4].classList.add('active');
-</script>
-
-<script>
-  // Выбор файла Изображение
-  let inputMainFile = document.querySelector('#input-main-file'),
-      mainFileText = document.querySelector('.main-file-text');
-
-  if (inputMainFile) {
-    inputMainFile.onchange = function() {
-      mainFileText.innerHTML = this.files[0].name;
-    }
-  }
 </script>
 @endsection

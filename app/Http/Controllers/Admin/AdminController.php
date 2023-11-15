@@ -1007,43 +1007,6 @@ class AdminController extends Controller
         return redirect('/dashboard/abiturientu-podgotovitelnye-kursy');
     }
 
-    public function abiturientu_dokumenty()
-    {   
-        $documents = DB::table('abiturientu_dokumenties')
-                        ->orderBy('id', 'desc')
-                        ->get();
-
-        return view('dashboard.abiturientu-dokumenty', compact('documents'));
-    }
-
-    public function abiturientu_dokumenty_add(Request $request)
-    {
-        $title = $request->input('title');
-        $file = $request->file('inputfile');
-
-        $slug = Str::slug($title);
-        $now = date('Y-m-d H:i:s');
-
-        $folder = 'abiturientu-dokumenty';
-
-        $filetype = AdminController::get_file_type($file);
-
-        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
-
-        DB::insert('insert into abiturientu_dokumenties (title, file, filetype, created_at, updated_at) values (?, ?, ?, ?, ?)', [$title, $fl, $filetype, $now, $now]);
-
-        return redirect('/dashboard/abiturientu-dokumenty');
-    }
-
-    public function abiturientu_dokumenty_del($id)
-    {
-        DB::table('abiturientu_dokumenties')
-            ->where('id', $id)
-            ->delete();
-        
-        return redirect('/dashboard/abiturientu-dokumenty');
-    }
-
     public function abiturientu_rezultaty_vstupitelnyh_ispytanij()
     {
         $text = DB::table('pages')
