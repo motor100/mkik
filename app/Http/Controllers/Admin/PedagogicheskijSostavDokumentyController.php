@@ -93,7 +93,7 @@ class PedagogicheskijSostavDokumentyController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|min:4|max:250',
-            'input-main-file' => 'required',
+            'input-main-file' => 'nullable',
             'input-sig-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['asc'])

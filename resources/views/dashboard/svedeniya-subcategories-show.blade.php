@@ -31,13 +31,13 @@
           <td>{{ $loop->index + 1 }}</td>
           <td>{{ $doc->title }}</td>
           <td class="table-button">
-            <a href="{{-- route('svedeniya-subcategories-show', $doc->id) --}}" class="btn btn-success" target="_blank">
+            <a href="{{ Storage::url($doc->file) }}" class="btn btn-success" target="_blank">
               <i class="fas fa-eye"></i>
             </a>
-            <a href="{{-- route('svedeniya-subcategories-edit', $doc->id) --}}" class="btn btn-primary">
+            <a href="{{ route('dashboard.svedeniya-dokumenty-edit', $doc->id) }}" class="btn btn-primary">
               <i class="fas fa-pen"></i>
             </a>
-            <form class="form" action="{{-- route('svedeniya-subcategories-destroy', $doc->id) --}}" method="get">
+            <form class="form" action="{{ route('dashboard.svedeniya-dokumenty-destroy', $doc->id) }}" method="get">
               @csrf
               <button type="submit" class="btn btn-danger">
                 <i class="fas fa-trash"></i>

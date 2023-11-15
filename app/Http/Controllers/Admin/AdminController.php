@@ -548,34 +548,6 @@ class AdminController extends Controller
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei');
     }
 
-    /*
-    public function svedeniya_dokumenty(): view
-    {
-        // Сведения категория Документы
-        $category_id = 4;
-
-        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)->get();
-
-        return view('dashboard.svedeniya-dokumenty', compact('svedeniya_subcategories', 'category_id'));
-    }
-    */
-
-    /*
-    public function svedeniya_dokumenty_update(Request $request)
-    {
-        $text = $request->input('text');
-
-        DB::table('pages')
-            ->where('id', 19)
-            ->update([
-                'text' => $text,
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-
-        return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty');
-    }
-    */
-
     public function svedeniya_obrazovanie()
     {
         $text = DB::table('pages')

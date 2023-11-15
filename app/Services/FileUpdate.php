@@ -52,7 +52,10 @@ class FileUpdate
                 }
             }
 
-            return Storage::putFile('public/uploads/' . $this->folder, $this->validated["input-sig-file"]);
+            // Переименование файла
+            $fileName = "file" . "-" . date("dmY") . "-" . mt_rand() . "." . $this->validated["input-sig-file"]->getClientOriginalExtension();
+
+            return Storage::putFileAs('public/uploads/' . $this->folder, $this->validated["input-sig-file"], $fileName);
 
         } else {
 
@@ -74,7 +77,10 @@ class FileUpdate
                 }
             }
 
-            return Storage::putFile('public/uploads/' . $this->folder, $this->validated["input-key-file"]);
+            // Переименование файла
+            $fileName = "file" . "-" . date("dmY") . "-" . mt_rand() . "." . $this->validated["input-key-file"]->getClientOriginalExtension();
+
+            return Storage::putFileAs('public/uploads/' . $this->folder, $this->validated["input-key-file"], $fileName);
 
         } else {
 
