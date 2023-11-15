@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\MainnewsController;
 use App\Http\Controllers\Admin\PedagogicheskijSostavDokumentyController;
 use App\Http\Controllers\Admin\AbiturientuNapravleniyaPodgotovkiController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\SvedeniyaSubcategoryController;
+use App\Http\Controllers\Admin\SvedeniyaDocumentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -260,6 +262,10 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/centr-sodejstviya-trudoustrojstvu-update', [AdminController::class, 'centr_sodejstviya_trudoustrojstvu_update']);
 
+    // Сведения Категории
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/category/{id}', [AdminController::class, 'svedeniya_category'])->name('dashboard.svedeniya-category');
+
+
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/osnovnye-svedeniya', [AdminController::class, 'svedeniya_osnovnye_svedeniya']);
     // основные сведения
 
@@ -270,10 +276,43 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei-update', [AdminController::class, 'svedeniya_struktura_i_organy_upravleniya_obrazovatelnoi_organizaciei_update']);
 
-    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty', [AdminController::class, 'svedeniya_dokumenty']);
-    // документы
 
-    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty-update', [AdminController::class, 'svedeniya_dokumenty_update']);
+    // Сведения Документы
+    // Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty', [AdminController::class, 'svedeniya_dokumenty']);
+
+    // Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty-update', [AdminController::class, 'svedeniya_dokumenty_update']);
+
+
+    // Сведения Подкатегории
+    // subcategories/create/{category_id} category_id категории в которой создается подкатегория
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/create/{category_id}', [SvedeniyaSubcategoryController::class, 'create'])->name('dashboard.svedeniya-subcategories-create');
+
+    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/store', [SvedeniyaSubcategoryController::class, 'store'])->name('dashboard.svedeniya-subcategories-store');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/{id}', [SvedeniyaSubcategoryController::class, 'show'])->name('dashboard.svedeniya-subcategories-show');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/{id}/edit', [SvedeniyaSubcategoryController::class, 'edit'])->name('dashboard.svedeniya-subcategories-edit');
+
+    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/{id}/update', [SvedeniyaSubcategoryController::class, 'update'])->name('dashboard.svedeniya-subcategories-update');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/{id}/destroy', [SvedeniyaSubcategoryController::class, 'destroy'])->name('dashboard.svedeniya-subcategories-destroy');
+
+
+    // Сведения Документы
+    // documents/create/{subcategory_id} subcategory_id подкатегория в которую добавляется документ
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/create/{subcategory_id}', [SvedeniyaDocumentsController::class, 'create'])->name('dashboard.svedeniya-dokumenty-create');
+
+    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/store', [SvedeniyaDocumentsController::class, 'store'])->name('dashboard.svedeniya-dokumenty-store');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{id}', [SvedeniyaDocumentsController::class, 'show'])->name('dashboard.svedeniya-dokumenty-show');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{id}/edit', [SvedeniyaDocumentsController::class, 'edit'])->name('dashboard.svedeniya-dokumenty-edit');
+
+    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{id}/update', [SvedeniyaDocumentsController::class, 'update'])->name('dashboard.svedeniya-dokumenty-update');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{id}/destroy', [SvedeniyaDocumentsController::class, 'destroy'])->name('dashboard.svedeniya-dokumenty-destroy');
+
+
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/obrazovanie', [AdminController::class, 'svedeniya_obrazovanie']);
     // образование
@@ -338,7 +377,7 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/store', [PedagogicheskijSostavDokumentyController::class, 'store'])->name('pedagogicheskij-sostav-dokumenty-store');
 
-    // Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}', [PsDokumentyController::class, 'show'])->name('pedagogicheskij-sostav-dokumenty-show');
+    // Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}', [PedagogicheskijSostavDokumentyController::class, 'show'])->name('pedagogicheskij-sostav-dokumenty-show');
 
     Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/edit', [PedagogicheskijSostavDokumentyController::class, 'edit'])->name('pedagogicheskij-sostav-dokumenty-edit');
 

@@ -485,6 +485,23 @@ class AdminController extends Controller
         return redirect('/dashboard/centr-sodejstviya-trudoustrojstvu');
     }
 
+    public function svedeniya_category($category_id): mixed
+    {
+        $svedeniya_category = \App\Models\SvedeniyaCategory::where('id', $category_id)
+                                                            ->with(['subcategories' => function ($q) {
+                                                                $q->orderBy('sort', 'asc');
+                                                            }])
+                                                            ->first();
+
+        if ($svedeniya_category) {
+
+            return view('dashboard.svedeniya-category', compact('svedeniya_category'));
+
+        } else {
+            return abort(404);
+        }     
+    }
+
     public function svedeniya_osnovnye_svedeniya()
     {
         $text = DB::table('pages')
@@ -531,15 +548,19 @@ class AdminController extends Controller
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei');
     }
 
-    public function svedeniya_dokumenty()
+    /*
+    public function svedeniya_dokumenty(): view
     {
-        $text = DB::table('pages')
-                ->where('id', 19)
-                ->value('text');
+        // Сведения категория Документы
+        $category_id = 4;
 
-        return view('dashboard.svedeniya-dokumenty', compact('text'));
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)->get();
+
+        return view('dashboard.svedeniya-dokumenty', compact('svedeniya_subcategories', 'category_id'));
     }
+    */
 
+    /*
     public function svedeniya_dokumenty_update(Request $request)
     {
         $text = $request->input('text');
@@ -553,6 +574,7 @@ class AdminController extends Controller
 
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty');
     }
+    */
 
     public function svedeniya_obrazovanie()
     {

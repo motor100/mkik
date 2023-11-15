@@ -462,33 +462,27 @@ class MainController extends Controller
         return view('svedeniya-struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei', compact('text'));
     }
 
-    public function svedeniya_dokumenty()
+    public function svedeniya_dokumenty(): View
     {   
-        $text = DB::table('pages')
-                    ->where('title', 'Документы')
-                    ->value('text');
+        // Сведения категория Документы
+        $category_id = 4;
 
-        return view('svedeniya-dokumenty', compact('text'));
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)->get();
+
+        return view('svedeniya-dokumenty', compact('svedeniya_subcategories'));
     }
 
-    public function svedeniya_dokumenty_uchreditelnye_dokumenty()
+    public function svedeniya_dokumenty_inner($subcat): View
     {
-        return view('svedeniya-dokumenty-uchreditelnye-dokumenty');
-    }
+        $svedeniya_subcategory = \App\Models\SvedeniyaSubcategory::where('slug', $subcat)->first();
 
-    public function svedeniya_dokumenty_lokalnye_akty_dlya_obuchayushchihsya()
-    {
-        return view('svedeniya-dokumenty-lokalnye-akty-dlya-obuchayushchihsya');
-    }
+        if ($svedeniya_subcategory) {
 
-    public function svedeniya_dokumenty_lokalnye_akty_dlya_sotrudnikov_i_prepodavatelej()
-    {
-        return view('svedeniya-dokumenty-lokalnye-akty-dlya-sotrudnikov-i-prepodavatelej');
-    }
+            return view('svedeniya-dokumenty-inner', compact('svedeniya_subcategory'));
 
-    public function svedeniya_dokumenty_publichnye()
-    {
-        return view('svedeniya-dokumenty-publichnye');
+        } else {
+            return abort(404);
+        }
     }
 
     public function svedeniya_obrazovanie()

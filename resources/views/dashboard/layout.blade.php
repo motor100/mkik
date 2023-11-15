@@ -429,7 +429,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty" class="nav-link">
+                  <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/category/4" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Документы</p>
                   </a>
