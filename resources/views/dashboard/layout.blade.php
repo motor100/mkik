@@ -565,6 +565,13 @@
               </a>
             </li>
 
+            <li class="nav-item menu-item">
+              <a href="/dashboard/information" class="nav-link">
+                <i class="nav-icon fas fa-info"></i>
+                <p>Информация
+                </p>
+              </a>
+
             <!-- 
             <li class="nav-item menu-item">
               <a href="/dashboard/learning-directions" class="nav-link">

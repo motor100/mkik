@@ -1915,6 +1915,28 @@ class AdminController extends Controller
         }
     }
 
+    public function information(): View
+    {
+        $information = \App\Models\Information::find(1);
+        
+        return view('dashboard.information', compact('information'));
+    }
+
+    public function information_update(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'text' => 'required',
+        ]);
+
+        $information = \App\Models\Information::find(1);
+
+        $information->update([
+            'text' => $validated['text']
+        ]);
+        
+        return redirect()->back();
+    }
+
     public function tiny_file_upload(Request $request)
     {
         $fileName = $request->file("file")->getClientOriginalName();

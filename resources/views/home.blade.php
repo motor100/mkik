@@ -183,7 +183,7 @@
       </div>
     </div>
 
-    <div class="afisha-section">
+    <div class="afisha-section ai-section">
       <div class="container">
         <div class="section-title-wrapper">
           <div class="section-title">Анонсы/Афиши</div>
@@ -270,6 +270,22 @@
             </div>
           </div>
         @endif
+      </div>
+    </div>
+
+    <div class="info-section ai-section">
+      <div class="container">
+        <div class="section-title-wrapper hidden-mobile">
+          <span class="section-title">Информация</span>
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="container">
+          <div class="text">
+            {!! $information->text !!}
+          </div>
+        </div>
       </div>
     </div>
 

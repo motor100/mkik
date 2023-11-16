@@ -431,14 +431,25 @@ ul {
 .home-page .afisha-section {
   padding: 50px 0 105px 0;
 }
-.home-page .afisha-section .section-title-wrapper {
+.home-page .afisha-section .afisha-archive-btn {
+  position: absolute;
+  top: -90px;
+  left: 350px;
+  font-family: 'pt-sans-bold';
+  font-size: 20px;
+  color: #5C0605;
+  text-transform: uppercase;
+}
+
+/* home page ai-section заголовок для секций Афиша и Информация */
+.home-page .ai-section .section-title-wrapper {
   position: relative;
 }
-.home-page .afisha-section .section-title {
+.home-page .ai-section .section-title {
   position: absolute;
   top: -105px;
   left: 0;
-  width: 312px;
+  width: max-content;
   height: 55px;
   padding: 3px 13px;
   background-color: #E8E2D4;
@@ -448,14 +459,23 @@ ul {
   color: #5C0605;
   text-transform: uppercase;
 }
-.home-page .afisha-section .afisha-archive-btn {
-  position: absolute;
-  top: -90px;
-  left: 350px;
-  font-family: 'pt-sans-bold';
-  font-size: 20px;
-  color: #5C0605;
-  text-transform: uppercase;
+
+/* home page info section */
+.info-section {
+  height: 500px;
+  padding: 50px 0 0 0;
+}
+.info-section .text {
+  height: 450px;
+}
+.info-section .text p,
+.info-section .text div {
+  height: 100%;
+}
+.info-section .text p img,
+.info-section .text div img {
+  max-height: 100% !important;
+  width: auto;
 }
 
 /* home-page kalendar-studenta-section */
@@ -2076,7 +2096,7 @@ ul {
   .home-page .afisha-section {
     padding: 50px 0 85px 0;
   }
-  .home-page .afisha-section .section-title {
+  .home-page .ai-section .section-title {
     left: 0;
     right: 0;
     width: 295px;

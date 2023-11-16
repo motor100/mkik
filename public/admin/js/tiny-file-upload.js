@@ -60,7 +60,7 @@ tinymce.init({
       xhr.onload = function() {
         var json;
         if (xhr.status != 200) {
-          failure('HTTP Error: ' + xhr.status);
+          console.log('HTTP Error: ' + xhr.status);
           return;
         }
         json = JSON.parse(xhr.responseText);

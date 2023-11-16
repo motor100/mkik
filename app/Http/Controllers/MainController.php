@@ -32,9 +32,11 @@ class MainController extends Controller
                                 ->limit(4)
                                 ->get();
 
+        $information = \App\Models\Information::find(1);
+
         $home_page = true;
 
-        return view('home', compact('home_page', 'news', 'afisha', 'kalendar_studenta'));
+        return view('home', compact('home_page', 'news', 'afisha', 'kalendar_studenta', 'information'));
     }
 
     public function o_kolledzhe_istoriya(): View

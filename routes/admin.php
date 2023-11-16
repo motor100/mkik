@@ -103,16 +103,6 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::get('/dashboard/ucheba-prepodavatelyam-makety/{id}/destroy', [UchebaPrepodavatelyamMaketyController::class, 'destroy'])->name('dashboard.ucheba-prepodavatelyam-makety-destroy');
 
-    /*
-    Route::get('/dashboard/prepodavatelyam-makety', [AdminController::class, 'prepodavatelyam_makety']);
-
-    Route::post('/dashboard/prepodavatelyam-makety/add', [AdminController::class, 'prepodavatelyam_makety_add']);
-
-    Route::get('/dashboard/prepodavatelyam-makety/del/{id}', [AdminController::class, 'prepodavatelyam_makety_del']);
-    */
-
-
-
 
     Route::get('/dashboard/prepodavatelyam-metodicheskie-rekomendacii', [AdminController::class, 'prepodavatelyam_metodicheskie_rekomendacii']);
 
@@ -305,12 +295,6 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei-update', [AdminController::class, 'svedeniya_struktura_i_organy_upravleniya_obrazovatelnoi_organizaciei_update']);
 
 
-    // Сведения Документы
-    // Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty', [AdminController::class, 'svedeniya_dokumenty']);
-
-    // Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty-update', [AdminController::class, 'svedeniya_dokumenty_update']);
-
-
     // Сведения Подкатегории
     // subcategories/create/{category_id} category_id категории в которой создается подкатегория
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/subcategories/create/{category_id}', [SvedeniyaSubcategoryController::class, 'create'])->name('dashboard.svedeniya-subcategories-create');
@@ -339,7 +323,6 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{id}/update', [SvedeniyaDocumentsController::class, 'update'])->name('dashboard.svedeniya-dokumenty-update');
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{id}/destroy', [SvedeniyaDocumentsController::class, 'destroy'])->name('dashboard.svedeniya-dokumenty-destroy');
-
 
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/obrazovanie', [AdminController::class, 'svedeniya_obrazovanie']);
@@ -475,6 +458,14 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::post('/dashboard/learning-directions/{id}/update', [LearningDirectionController::class, 'update'])->name('learning-directions-update');
 
     Route::get('/dashboard/learning-directions/{id}/destroy', [LearningDirectionController::class, 'destroy'])->name('learning-directions-destroy');
+
+
+    // Главная страница секция Информация
+    Route::get('/dashboard/information', [AdminController::class, 'information']);
+
+    Route::post('/dashboard/information-update', [AdminController::class, 'information_update']);
+
+
 
     Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
 
