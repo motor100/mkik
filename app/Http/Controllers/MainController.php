@@ -159,6 +159,30 @@ class MainController extends Controller
         return view('prepodavatelyam-metodicheskie-rekomendacii', compact('documents'));
     }
 
+    /**
+     * Учеба Издания
+     */
+    public function ucheba_izdaniya(): View
+    {
+        $izdaniya = \App\Models\Izdaniya::orderBy('id', 'desc')->get();
+        
+        return view('ucheba-izdaniya', compact('izdaniya'));
+    }
+
+    /**
+     * Учеба Издания карточка
+     */
+    public function ucheba_izdaniya_inner($slug): mixed
+    {
+        $single_izdaniye = \App\Models\Izdaniya::where('slug', $slug)->first();
+
+        if ($single_izdaniye) {
+            return view('ucheba-izdaniya-inner', compact('single_izdaniye'));
+        } else {
+            return abort(404);
+        }
+    }
+
     public function prepodavatelyam_spiski_studentov()
     {
         $content = DB::table('prepodavatelyam_spiski_studentovs')
@@ -280,28 +304,6 @@ class MainController extends Controller
                         ->get();
 
         return view('studencheskaya-zhizn-gazeta-pizzicato', compact('newspapers'));
-    }
-
-    public function studencheskaya_zhizn_izdaniya()
-    {
-        $izdaniya = DB::table('izdaniyas')
-                        ->orderBy('id', 'desc')
-                        ->get();
-        
-        return view('studencheskaya-zhizn-izdaniya', compact('izdaniya'));
-    }
-
-    public function single_studencheskaya_zhizn_izdaniya($slug)
-    {
-        $single_izdaniye = DB::table('izdaniyas')
-                            ->where('slug', $slug)
-                            ->first();
-
-        if ($single_izdaniye) {
-            return view('single-izdaniye', compact('single_izdaniye'));
-        } else {
-            return abort(404);
-        }
     }
 
     public function studencheskaya_zhizn_video()

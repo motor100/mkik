@@ -64,6 +64,9 @@
                 <a href="/prepodavatelyam-metodicheskie-rekomendacii">Метод. рекомендации<br>преподавателям</a>
               </li>
               <li class="sub-menu-item">
+                <a href="/ucheba/izdaniya">Издания</a>
+              </li>
+              <li class="sub-menu-item">
                 <a href="https://poo.edu-74.ru/security/#/login" target="_blank">Сетевой город</a>
               </li>
               <li class="sub-menu-item">
@@ -99,9 +102,6 @@
             <ul class="sub-menu">
               <li class="sub-menu-item">
                 <a href="/studencheskaya-zhizn/gazeta-pizzicato">Газета Pizzicato</a>
-              </li>
-              <li class="sub-menu-item">
-                <a href="/studencheskaya-zhizn/izdaniya">Издания</a>
               </li>
               <li class="sub-menu-item">
                 <a href="/studencheskaya-zhizn/video">Видео</a>
@@ -244,6 +244,9 @@
                     <a href="/prepodavatelyam-metodicheskie-rekomendacii">Метод. рекомендации<br>преподавателям</a>
                   </li>
                   <li class="sub-menu-item">
+                    <a href="/ucheba/izdaniya">Издания</a>
+                  </li>
+                  <li class="sub-menu-item">
                     <a href="https://poo.edu-74.ru/security/#/login" target="_blank">Сетевой город</a>
                   </li>
                   <li class="sub-menu-item">
@@ -280,9 +283,6 @@
                 <ul class="sub-menu">
                   <li class="sub-menu-item">
                     <a href="/studencheskaya-zhizn/gazeta-pizzicato">Газета Pizzicato</a>
-                  </li>
-                  <li class="sub-menu-item">
-                    <a href="/studencheskaya-zhizn/izdaniya">Издания</a>
                   </li>
                   <li class="sub-menu-item">
                     <a href="/studencheskaya-zhizn/video">Видео</a>
@@ -385,6 +385,9 @@
             <a href="/prepodavatelyam-metodicheskie-rekomendacii">Метод. рекомендации<br>преподавателям</a>
           </li>
           <li class="sub-menu-item">
+            <a href="/ucheba/izdaniya">Издания</a>
+          </li>
+          <li class="sub-menu-item">
             <a href="https://poo.edu-74.ru/security/#/login" target="_blank">Сетевой город</a>
           </li>
           <li class="sub-menu-item">
@@ -420,9 +423,6 @@
         <ul class="sub-menu">
           <li class="sub-menu-item">
             <a href="/studencheskaya-zhizn/gazeta-pizzicato">Газета Pizzicato</a>
-          </li>
-          <li class="sub-menu-item">
-            <a href="/studencheskaya-zhizn/izdaniya">Издания</a>
           </li>
           <li class="sub-menu-item">
             <a href="/studencheskaya-zhizn/video">Видео</a>

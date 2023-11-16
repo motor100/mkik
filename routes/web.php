@@ -45,6 +45,12 @@ Route::get('/prepodavatelyam-makety', [MainController::class, 'prepodavatelyam_m
 Route::get('/prepodavatelyam-metodicheskie-rekomendacii', [MainController::class, 'prepodavatelyam_metodicheskie_rekomendacii']);
 // преподавателям методические рекомендации
 
+// Учеба Издания
+Route::get('/ucheba/izdaniya', [MainController::class, 'ucheba_izdaniya']);
+
+// Учеба Издания карточка
+Route::get('/ucheba/izdaniya/{slug}', [MainController::class, 'ucheba_izdaniya_inner']);
+
 Route::get('/prepodavatelyam-spiski-studentov', [MainController::class, 'prepodavatelyam_spiski_studentov']);
 // преподавателям списки студентов
 
@@ -77,12 +83,6 @@ Route::get('/konkursy/{slug}', [MainController::class, 'single_konkurs']);
 
 Route::get('/studencheskaya-zhizn/gazeta-pizzicato', [MainController::class, 'studencheskaya_zhizn_gazeta_pizzicato']);
 // студенческая жизнь газета pizzicato
-
-Route::get('/studencheskaya-zhizn/izdaniya', [MainController::class, 'studencheskaya_zhizn_izdaniya']);
-// студенческая жизнь издания
-
-Route::get('/studencheskaya-zhizn/izdaniya/{slug}', [MainController::class, 'single_studencheskaya_zhizn_izdaniya']);
-// студенческая жизнь издания карточка
 
 Route::get('/studencheskaya-zhizn/video', [MainController::class, 'studencheskaya_zhizn_video']);
 // студенческая жизнь видео

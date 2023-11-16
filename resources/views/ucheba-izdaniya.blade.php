@@ -11,7 +11,7 @@
           <div class="item">
             <div class="image">
               <img src="{{ Storage::url($zdn->image) }}" alt="">
-              <a href="/studencheskaya-zhizn/izdaniya/{{ $zdn->slug }}" class="btn">смотреть</a>
+              <a href="/ucheba/izdaniya/{{ $zdn->slug }}" class="btn">смотреть</a>
             </div>
             <div class="content">
               <div class="title-wrapper text-wrapper">
