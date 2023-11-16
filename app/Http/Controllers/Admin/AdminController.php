@@ -357,43 +357,6 @@ class AdminController extends Controller
         return redirect('/dashboard/studentam-polozheniya');
     }
 
-
-
-
-    /*
-    public function prepodavatelyam_makety_add(Request $request)
-    {   
-        $title = $request->input('title');
-        $file = $request->file('inputfile');
-
-        $slug = Str::slug($title);
-        $now = date('Y-m-d H:i:s');
-
-        $folder = 'makety';
-
-        $filetype = AdminController::get_file_type($file);
-
-        $fl = (new \App\Services\File())->rename_file($slug, $file, $folder);
-
-        DB::insert('insert into maketys (title, file, filetype, created_at, updated_at) values (?, ?, ?, ?, ?)', [$title, $fl, $filetype, $now, $now]);
-
-        return redirect('/dashboard/prepodavatelyam-makety');
-
-    }
-
-    public function prepodavatelyam_makety_del($id)
-    {
-        DB::table('maketys')
-            ->where('id', $id)
-            ->delete();
-        
-        return redirect('/dashboard/prepodavatelyam-makety');
-    }
-    */
-
-
-
-
     public function prepodavatelyam_metodicheskie_rekomendacii()
     {
         $documents = DB::table('prepodavatelyam_metodicheskie_rekomendaciis')
