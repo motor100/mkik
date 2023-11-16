@@ -39,8 +39,8 @@ Route::get('/studentam-raspisanie', [MainController::class, 'studentam_raspisani
 // Студентам форма аттестации
 Route::get('/studentam-attestation-form/{id}', [MainController::class, 'studentam_attestation_form']);
 
-Route::get('/prepodavatelyam-makety', [MainController::class, 'prepodavatelyam_makety']);
-// преподавателям макеты
+// Учеба Преподавателям макеты
+Route::get('/ucheba-prepodavatelyam-makety', [MainController::class, 'ucheba_prepodavatelyam_makety']);
 
 Route::get('/prepodavatelyam-metodicheskie-rekomendacii', [MainController::class, 'prepodavatelyam_metodicheskie_rekomendacii']);
 // преподавателям методические рекомендации

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PrepodavatelyamMakety extends Model
+class UchebaPrepodavatelyamMakety extends Model
 {
     use HasFactory;
 
@@ -15,4 +15,12 @@ class PrepodavatelyamMakety extends Model
      * @var string
      */
     protected $table = 'prepodavatelyam_maketys';
+
+    protected $fillable = [
+        'title',
+        'file',
+        'sig_file',
+        'key_file',
+        'filetype'
+    ];
 }

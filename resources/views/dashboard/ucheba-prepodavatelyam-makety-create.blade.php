@@ -16,8 +16,8 @@
     </div>
   @endif
 
-  <div class="news-form mb-5">
-    <form class="form" action="{{ route('dashboard.svedeniya-dokumenty-store') }}" enctype="multipart/form-data" method="post">
+  <div class="ucheba-prepodavatelyam-makety-form mb-5">
+    <form class="form" action="{{ route('dashboard.ucheba-prepodavatelyam-makety-store') }}" enctype="multipart/form-data" method="post">
       <div class="form-group mb-3">
         <label for="inputTitle" class="form-check-label">Заголовок (250 символов)</label>
         <input type="text" name="title" class="form-control" id="inputTitle" maxlength="250" required>
@@ -41,8 +41,6 @@
         <span class="file-text">Файл не выбран</span>
       </div>
 
-      <input type="hidden" name="subcategory_id" value="{{ $subcategory_id }}">
-
       @csrf
       <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
@@ -53,7 +51,7 @@
 <script>
   // Изменение цвета активного пункта меню
   let navLink = document.querySelectorAll('.nav-sidebar .menu-item > .nav-link');
-  navLink[12].classList.add('active');
+  navLink[3].classList.add('active');
 </script>
 
 @endsection

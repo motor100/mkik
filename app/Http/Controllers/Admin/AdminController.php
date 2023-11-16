@@ -357,13 +357,10 @@ class AdminController extends Controller
         return redirect('/dashboard/studentam-polozheniya');
     }
 
-    public function prepodavatelyam_makety(): View
-    {
-        $documents = \App\Models\PrepodavatelyamMakety::orderBy('id', 'desc')->get();
 
-        return view('dashboard.prepodavatelyam-makety', compact('documents'));
-    }
 
+
+    /*
     public function prepodavatelyam_makety_add(Request $request)
     {   
         $title = $request->input('title');
@@ -392,6 +389,10 @@ class AdminController extends Controller
         
         return redirect('/dashboard/prepodavatelyam-makety');
     }
+    */
+
+
+
 
     public function prepodavatelyam_metodicheskie_rekomendacii()
     {

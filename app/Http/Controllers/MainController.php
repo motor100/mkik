@@ -145,11 +145,14 @@ class MainController extends Controller
         return view('prepodavatelyam');
     }
 
-    public function prepodavatelyam_makety(): View
+    /**
+     * Учеба Преподавателям макеты
+     */
+    public function ucheba_prepodavatelyam_makety(): View
     {
-        $documents = \App\Models\PrepodavatelyamMakety::all();
+        $documents = \App\Models\UchebaPrepodavatelyamMakety::orderBy('id', 'desc')->get();
 
-        return view('prepodavatelyam-makety', compact('documents'));
+        return view('ucheba-prepodavatelyam-makety', compact('documents'));
     }
 
     public function prepodavatelyam_metodicheskie_rekomendacii(): View

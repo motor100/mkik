@@ -58,7 +58,7 @@
                 <a href="/studentam-raspisanie">Студентам</a>
               </li>
               <li class="sub-menu-item">
-                <a href="/prepodavatelyam-makety">Бланки/макеты<br>преподавателям</a>
+                <a href="/ucheba-prepodavatelyam-makety">Бланки/макеты<br>преподавателям</a>
               </li>
               <li class="sub-menu-item">
                 <a href="/prepodavatelyam-metodicheskie-rekomendacii">Метод. рекомендации<br>преподавателям</a>
@@ -238,7 +238,7 @@
                     <a href="/studentam-raspisanie">Студентам</a>
                   </li>
                   <li class="sub-menu-item">
-                    <a href="/prepodavatelyam-makety">Бланки/макеты<br>преподавателям</a>
+                    <a href="/ucheba-prepodavatelyam-makety">Бланки/макеты<br>преподавателям</a>
                   </li>
                   <li class="sub-menu-item">
                     <a href="/prepodavatelyam-metodicheskie-rekomendacii">Метод. рекомендации<br>преподавателям</a>
@@ -379,7 +379,7 @@
             <a href="/studentam-raspisanie">Студентам</a>
           </li>
           <li class="sub-menu-item">
-            <a href="/prepodavatelyam-makety">Бланки/макеты<br>преподавателям</a>
+            <a href="/ucheba-prepodavatelyam-makety">Бланки/макеты<br>преподавателям</a>
           </li>
           <li class="sub-menu-item">
             <a href="/prepodavatelyam-metodicheskie-rekomendacii">Метод. рекомендации<br>преподавателям</a>

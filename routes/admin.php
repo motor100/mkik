@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\SvedeniyaSubcategoryController;
 use App\Http\Controllers\Admin\SvedeniyaDocumentsController;
 use App\Http\Controllers\Admin\AbiturientuDokumentyController;
+use App\Http\Controllers\Admin\UchebaPrepodavatelyamMaketyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,10 +63,10 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/studentam-raspisanie-update', [AdminController::class, 'studentam_raspisanie_update']);
 
-    // Учеба студентам форма аттестации
+    // Учеба Студентам форма аттестации
     Route::get('/dashboard/studentam-attestation-form', [AdminController::class, 'studentam_attestation_form']);
 
-    // Учеба студентам форма аттестации обновление
+    // Учеба Студентам форма аттестации обновление
     Route::post('/dashboard/studentam-attestation-form-update', [AdminController::class, 'studentam_attestation_form_update']);
     
     Route::get('/dashboard/studentam-gia', [AdminController::class, 'studentam_gia']);
@@ -88,11 +89,30 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/studentam-polozheniya/add', [AdminController::class, 'studentam_polozheniya_add']);
 
+
+    // Учеба Преподавателям макеты
+    Route::get('/dashboard/ucheba-prepodavatelyam-makety', [UchebaPrepodavatelyamMaketyController::class, 'index']);
+
+    Route::get('/dashboard/ucheba-prepodavatelyam-makety/create', [UchebaPrepodavatelyamMaketyController::class, 'create'])->name('dashboard.ucheba-prepodavatelyam-makety-create');
+
+    Route::post('/dashboard/ucheba-prepodavatelyam-makety/store', [UchebaPrepodavatelyamMaketyController::class, 'store'])->name('dashboard.ucheba-prepodavatelyam-makety-store');
+
+    Route::get('/dashboard/ucheba-prepodavatelyam-makety/{id}/edit', [UchebaPrepodavatelyamMaketyController::class, 'edit'])->name('dashboard.ucheba-prepodavatelyam-makety-edit');
+
+    Route::post('/dashboard/ucheba-prepodavatelyam-makety/{id}/update', [UchebaPrepodavatelyamMaketyController::class, 'update'])->name('dashboard.ucheba-prepodavatelyam-makety-update');
+
+    Route::get('/dashboard/ucheba-prepodavatelyam-makety/{id}/destroy', [UchebaPrepodavatelyamMaketyController::class, 'destroy'])->name('dashboard.ucheba-prepodavatelyam-makety-destroy');
+
+    /*
     Route::get('/dashboard/prepodavatelyam-makety', [AdminController::class, 'prepodavatelyam_makety']);
 
     Route::post('/dashboard/prepodavatelyam-makety/add', [AdminController::class, 'prepodavatelyam_makety_add']);
 
     Route::get('/dashboard/prepodavatelyam-makety/del/{id}', [AdminController::class, 'prepodavatelyam_makety_del']);
+    */
+
+
+
 
     Route::get('/dashboard/prepodavatelyam-metodicheskie-rekomendacii', [AdminController::class, 'prepodavatelyam_metodicheskie_rekomendacii']);
 
