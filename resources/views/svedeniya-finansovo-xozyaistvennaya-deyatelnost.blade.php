@@ -8,10 +8,6 @@
       <div class="page-title-wrapper">
         <div class="page-title">Финансово-хозяйственная деятельность</div>
       </div>
-      <div class="text">
-        {!! $text !!}
-      </div>
-      <div class="clear-both"></div>
 
       <div class="svedeniya-links">
         @foreach($svedeniya_subcategories as $subcat)

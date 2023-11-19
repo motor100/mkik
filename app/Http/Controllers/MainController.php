@@ -480,7 +480,9 @@ class MainController extends Controller
         // Сведения категория Документы
         $category_id = 4;
 
-        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)->get();
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)
+                                                                    ->orderBy('sort', 'asc')
+                                                                    ->get();
 
         return view('svedeniya-dokumenty', compact('svedeniya_subcategories'));
     }
@@ -617,17 +619,14 @@ class MainController extends Controller
      */
     public function svedeniya_finansovo_xozyaistvennaya_deyatelnost(): View
     {   
-        // temp
-        $text = DB::table('pages')
-                    ->where('title', 'Финансово-хозяйственная деятельность')
-                    ->value('text');
-
         // Сведения категория Финансово-хозяйственная деятельность
         $category_id = 5;
 
-        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)->get();
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)
+                                                                    ->orderBy('id', 'desc')
+                                                                    ->get();
 
-        return view('svedeniya-finansovo-xozyaistvennaya-deyatelnost', compact('text', 'svedeniya_subcategories'));
+        return view('svedeniya-finansovo-xozyaistvennaya-deyatelnost', compact('svedeniya_subcategories'));
     }
 
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()
