@@ -418,10 +418,12 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi-update', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi_update']);
 
+    /*
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/finansovo-xozyaistvennaya-deyatelnost', [AdminController::class, 'svedeniya_finansovo_xozyaistvennaya_deyatelnost']);
     // финансово-хозяйственная деятельность
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/finansovo-xozyaistvennaya-deyatelnost-update', [AdminController::class, 'svedeniya_finansovo_xozyaistvennaya_deyatelnost_update']);
+    */
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/vakantnye-mesta-dlya-priema-perevoda', [AdminController::class, 'svedeniya_vakantnye_mesta_dlya_priema_perevoda']);
     // вакантные места для приема (перевода)

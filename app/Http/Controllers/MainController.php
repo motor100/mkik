@@ -611,13 +611,23 @@ class MainController extends Controller
         return view('svedeniya-platnye-obrazovatelnye-uslugi', compact('text'));
     }
 
-    public function svedeniya_finansovo_xozyaistvennaya_deyatelnost()
+    /**
+     * Сведения
+     * Финансово-хозяйственная деятельность
+     */
+    public function svedeniya_finansovo_xozyaistvennaya_deyatelnost(): View
     {   
+        // temp
         $text = DB::table('pages')
                     ->where('title', 'Финансово-хозяйственная деятельность')
                     ->value('text');
 
-        return view('svedeniya-finansovo-xozyaistvennaya-deyatelnost', compact('text'));
+        // Сведения категория Финансово-хозяйственная деятельность
+        $category_id = 5;
+
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)->get();
+
+        return view('svedeniya-finansovo-xozyaistvennaya-deyatelnost', compact('text', 'svedeniya_subcategories'));
     }
 
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()

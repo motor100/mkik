@@ -788,29 +788,6 @@ class AdminController extends Controller
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi');
     }
 
-    public function svedeniya_finansovo_xozyaistvennaya_deyatelnost()
-    {
-        $text = DB::table('pages')
-                ->where('id', 25)
-                ->value('text');
-
-        return view('dashboard.svedeniya-finansovo-xozyaistvennaya-deyatelnost', compact('text'));
-    }
-
-    public function svedeniya_finansovo_xozyaistvennaya_deyatelnost_update(Request $request)
-    {
-        $text = $request->input('text');
-
-        DB::table('pages')
-            ->where('id', 25)
-            ->update([
-                'text' => $text,
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-
-        return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/finansovo-xozyaistvennaya-deyatelnost');
-    }
-
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()
     {
         $text = DB::table('pages')
