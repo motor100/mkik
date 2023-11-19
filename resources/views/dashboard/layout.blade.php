@@ -429,6 +429,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Структура и органы управления образовательной организацией Документы</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/category/4" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Документы</p>

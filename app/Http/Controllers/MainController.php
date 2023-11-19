@@ -458,13 +458,21 @@ class MainController extends Controller
         return view('svedeniya-osnovnye-svedeniya', compact('text'));
     }
 
-    public function struktura_i_organy_upravleniya_obrazovatelnoi_organizaciei()
+    /**
+     * Сведения
+     * Структура и органы управления образовательной организацией
+     */
+    public function struktura_i_organy_upravleniya_obrazovatelnoi_organizaciei(): View
     {   
+        // Текст
         $text = DB::table('pages')
                     ->where('title', 'Структура и органы управления образовательной организацией')
                     ->value('text');
 
-        return view('svedeniya-struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei', compact('text'));
+        // Документы
+        $documents = \App\Models\SvedeniyaStrukturaDokumenty::orderBy('id', 'desc')->get();
+
+        return view('svedeniya-struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei', compact('text', 'documents'));
     }
 
     public function svedeniya_dokumenty(): View

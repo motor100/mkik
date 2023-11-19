@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SvedeniyaSubcategoryController;
 use App\Http\Controllers\Admin\SvedeniyaDocumentsController;
 use App\Http\Controllers\Admin\AbiturientuDokumentyController;
 use App\Http\Controllers\Admin\UchebaPrepodavatelyamMaketyController;
+use App\Http\Controllers\Admin\SvedeniyaStrukturaDokumentyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -289,10 +290,25 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/osnovnye-svedeniya-update', [AdminController::class, 'svedeniya_osnovnye_svedeniya_update']);
 
+    
+    // Сведения Структура и органы управления образовательной организацией
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei', [AdminController::class, 'svedeniya_struktura_i_organy_upravleniya_obrazovatelnoi_organizaciei']);
-    // структура и органы управления образовательной организацией
-
+    
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-i-organy-upravleniya-obrazovatelnoi-organizaciei-update', [AdminController::class, 'svedeniya_struktura_i_organy_upravleniya_obrazovatelnoi_organizaciei_update']);
+
+
+    // Сведения Структура и органы управления образовательной организацией Документы
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty', [SvedeniyaStrukturaDokumentyController::class, 'index']);
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty/create', [SvedeniyaStrukturaDokumentyController::class, 'create'])->name('dashboard.svedeniya-struktura-dokumenty-create');
+
+    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty/store', [SvedeniyaStrukturaDokumentyController::class, 'store'])->name('dashboard.svedeniya-struktura-dokumenty-store');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty/{id}/edit', [SvedeniyaStrukturaDokumentyController::class, 'edit'])->name('dashboard.svedeniya-struktura-dokumenty-edit');
+
+    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty/{id}/update', [SvedeniyaStrukturaDokumentyController::class, 'update'])->name('dashboard.svedeniya-struktura-dokumenty-update');
+
+    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty/{id}/destroy', [SvedeniyaStrukturaDokumentyController::class, 'destroy'])->name('dashboard.svedeniya-struktura-dokumenty-destroy');
 
 
     // Сведения Подкатегории

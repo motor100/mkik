@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css/bvi.css') }}">
   @yield('style')
   @vite(['resources/sass/main.scss'])
-  <title>@yield('title', config('app.name') )</title>
+  <title>@yield('title', 'Миасский государственный колледж искусства и культуры' )</title>
 </head>
 <body>
   <header class="header">

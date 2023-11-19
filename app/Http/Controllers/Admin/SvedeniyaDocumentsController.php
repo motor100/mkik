@@ -143,13 +143,17 @@ class SvedeniyaDocumentsController extends Controller
         }
 
         // Удаление подписи
-        if (Storage::exists($document->sig_file)) {
-            Storage::delete($document->sig_file);
+        if ($document->sig_file) {
+            if (Storage::exists($document->sig_file)) {
+                Storage::delete($document->sig_file);
+            }
         }
 
         // Удаление ключа
-        if (Storage::exists($document->key_file)) {
-            Storage::delete($document->key_file);
+        if ($document->key_file) {
+            if (Storage::exists($document->key_file)) {
+                Storage::delete($document->key_file);
+            }
         }
 
         // Удаление модели

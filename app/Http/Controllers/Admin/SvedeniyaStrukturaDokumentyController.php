@@ -3,30 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\AbiturientuDokumenty;
 use Illuminate\Support\Facades\Storage;
+use App\Models\SvedeniyaStrukturaDokumenty;
 
-class AbiturientuDokumentyController extends Controller
+class SvedeniyaStrukturaDokumentyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        $documents = AbiturientuDokumenty::orderBy('id', 'desc')->get();
+        $documents = SvedeniyaStrukturaDokumenty::orderBy('id', 'desc')->get();
 
-        return view('dashboard.abiturientu-dokumenty', compact('documents'));
+        return view('dashboard.svedeniya-struktura-dokumenty', compact('documents'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create()
     {
-        return view('dashboard.abiturientu-dokumenty-create');
+        return view('dashboard.svedeniya-struktura-dokumenty-create');
     }
 
     /**
@@ -48,16 +46,16 @@ class AbiturientuDokumentyController extends Controller
         ]);
 
         // Файл
-        $file = (new \App\Services\FileAdd($validated['input-main-file'], 'abiturientu-dokumenty'))->add();
+        $file = (new \App\Services\FileAdd($validated['input-main-file'], 'svedeniya-struktura-dokumenty'))->add();
 
         // Подпись
-        $sig_file = array_key_exists('input-sig-file', $validated) ? (new \App\Services\FileAdd($validated['input-sig-file'], 'abiturientu-dokumenty'))->add() : NULL;
+        $sig_file = array_key_exists('input-sig-file', $validated) ? (new \App\Services\FileAdd($validated['input-sig-file'], 'svedeniya-struktura-dokumenty'))->add() : NULL;
         
         // Ключ
-        $key_file = array_key_exists('input-key-file', $validated) ? (new \App\Services\FileAdd($validated['input-key-file'], 'abiturientu-dokumenty'))->add() : NULL;
+        $key_file = array_key_exists('input-key-file', $validated) ? (new \App\Services\FileAdd($validated['input-key-file'], 'svedeniya-struktura-dokumenty'))->add() : NULL;
 
         // Создание модели
-        AbiturientuDokumenty::create([
+        SvedeniyaStrukturaDokumenty::create([
             'title' => $validated["title"],
             'file' => $file,
             'sig_file' => $sig_file,
@@ -65,7 +63,7 @@ class AbiturientuDokumentyController extends Controller
             'filetype' => $validated["input-main-file"]->getClientOriginalExtension()
         ]);
 
-        return redirect('/dashboard/abiturientu-dokumenty');
+        return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/struktura-dokumenty');
     }
 
     /**
@@ -79,17 +77,17 @@ class AbiturientuDokumentyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): View
+    public function edit(string $id)
     {
-        $document = AbiturientuDokumenty::findOrFail($id);
+        $document = SvedeniyaStrukturaDokumenty::findOrFail($id);
         
-        return view('dashboard.abiturientu-dokumenty-edit', compact('document'));
+        return view('dashboard.svedeniya-struktura-dokumenty-edit', compact('document'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request, string $id)
     {
         $validated = $request->validate([
             'title' => 'required|min:4|max:250',
@@ -104,16 +102,16 @@ class AbiturientuDokumentyController extends Controller
             ],
         ]);
 
-        $document = AbiturientuDokumenty::findOrFail($id);
+        $document = SvedeniyaStrukturaDokumenty::findOrFail($id);
 
         // Документ
-        $file = (new \App\Services\FileUpdate($document, 'abiturientu-dokumenty', $validated))->file_update();
+        $file = (new \App\Services\FileUpdate($document, 'svedeniya-struktura-dokumenty', $validated))->file_update();
 
         // Подпись
-        $sig_file = (new \App\Services\FileUpdate($document, 'abiturientu-dokumenty', $validated))->sig_update();
+        $sig_file = (new \App\Services\FileUpdate($document, 'svedeniya-struktura-dokumenty', $validated))->sig_update();
 
         // Ключ
-        $key_file = (new \App\Services\FileUpdate($document, 'abiturientu-dokumenty', $validated))->key_update();
+        $key_file = (new \App\Services\FileUpdate($document, 'svedeniya-struktura-dokumenty', $validated))->key_update();
 
         // Тип файла
         $filetype = array_key_exists("input-main-file", $validated) ? $validated["input-main-file"]->getClientOriginalExtension() : $document->filetype;
@@ -133,9 +131,9 @@ class AbiturientuDokumentyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy(string $id)
     {
-        $document = AbiturientuDokumenty::findOrFail($id);
+        $document = SvedeniyaStrukturaDokumenty::findOrFail($id);
 
         // Удаление документа
         if (Storage::exists($document->file)) {
