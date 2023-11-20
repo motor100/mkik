@@ -604,15 +604,6 @@ class MainController extends Controller
         return view('svedeniya-stipendii-i-inye-vidy-materialnoi-podderzki', compact('text'));
     }
 
-    public function svedeniya_platnye_obrazovatelnye_uslugi()
-    {   
-        $text = DB::table('pages')
-                    ->where('title', 'Платные образовательные услуги')
-                    ->value('text');
-
-        return view('svedeniya-platnye-obrazovatelnye-uslugi', compact('text'));
-    }
-
     /**
      * Сведения
      * Финансово-хозяйственная деятельность
@@ -628,6 +619,23 @@ class MainController extends Controller
 
         return view('svedeniya-finansovo-xozyaistvennaya-deyatelnost', compact('svedeniya_subcategories'));
     }
+
+    /**
+     * Сведения
+     * Платные образовательные услуги
+     */
+    public function svedeniya_platnye_obrazovatelnye_uslugi(): View
+    {   
+        // Сведения категория Платные образовательные услуги
+        $category_id = 6;
+
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)
+                                                                    ->orderBy('id', 'desc')
+                                                                    ->get();
+
+        return view('svedeniya-platnye-obrazovatelnye-uslugi', compact('svedeniya_subcategories'));
+    }
+
 
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()
     {   

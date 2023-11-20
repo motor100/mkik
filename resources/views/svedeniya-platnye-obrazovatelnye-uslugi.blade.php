@@ -8,10 +8,15 @@
       <div class="page-title-wrapper">
         <div class="page-title">Платные образовательные услуги</div>
       </div>
-      <div class="text">
-        {!! $text !!}
+
+      <div class="svedeniya-links">
+        @foreach($svedeniya_subcategories as $subcat)
+          <div class="item">
+            <a href="/svedeniya-ob-obrazovatelnoj-organizacii/dokumenty/{{ $subcat->slug }}" class="item__link">{{ $subcat->title }}</a>
+          </div>
+        @endforeach
       </div>
-      <div class="clear-both"></div>
+      
     </div>
   </div>
 @endsection

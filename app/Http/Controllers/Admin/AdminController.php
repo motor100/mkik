@@ -765,6 +765,8 @@ class AdminController extends Controller
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/stipendii-i-inye-vidy-materialnoi-podderzki');
     }
 
+    // Сведения Платные образовательные услуги
+    /*
     public function svedeniya_platnye_obrazovatelnye_uslugi()
     {
         $text = DB::table('pages')
@@ -787,6 +789,7 @@ class AdminController extends Controller
 
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi');
     }
+    */
 
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()
     {

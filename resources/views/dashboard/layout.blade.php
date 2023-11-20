@@ -513,15 +513,15 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Платные образовательные услуги</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/category/5" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Финансово-хозяйственная деятельность</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/category/6" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Платные образовательные услуги</p>
                   </a>
                 </li>
                 <li class="nav-item">

@@ -412,11 +412,12 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/destroy', [PedagogicheskijSostavDokumentyController::class, 'destroy'])->name('pedagogicheskij-sostav-dokumenty-destroy');
 
-
+    // Сведения Платные образовательные услуги
+    /*
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi']);
-    // платные образовательные услуги
 
     Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi-update', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi_update']);
+    */
 
     /*
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/finansovo-xozyaistvennaya-deyatelnost', [AdminController::class, 'svedeniya_finansovo_xozyaistvennaya_deyatelnost']);
