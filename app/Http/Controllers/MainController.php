@@ -636,7 +636,6 @@ class MainController extends Controller
         return view('svedeniya-platnye-obrazovatelnye-uslugi', compact('svedeniya_subcategories'));
     }
 
-
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()
     {   
         $text = DB::table('pages')
@@ -664,13 +663,20 @@ class MainController extends Controller
         return view('svedeniya-mezdunarodnoe-sotrudnicestvo', compact('text'));
     }
 
-    public function svedeniya_protivodejstvie_korrupcii()
+    /**
+     * Сведения
+     * Противодействие коррупции
+     */
+    public function svedeniya_protivodejstvie_korrupcii(): View
     {
-        $text = DB::table('pages')
-                    ->where('id', 45)
-                    ->value('text');
+        // Сведения категория Платные образовательные услуги
+        $category_id = 14;
 
-        return view('svedeniya-protivodejstvie-korrupcii', compact('text'));
+        $svedeniya_subcategories = \App\Models\SvedeniyaSubcategory::where('svedeniya_category_id', $category_id)
+                                                                    ->orderBy('id', 'desc')
+                                                                    ->get();
+
+        return view('svedeniya-protivodejstvie-korrupcii', compact('svedeniya_subcategories'));
     }
 
     public function svedeniya_razdel_dlya_invalidov_i_lic_s_ovz()
