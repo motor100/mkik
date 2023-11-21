@@ -3,7 +3,7 @@
 @extends('layouts.main')
 
 @section('content')
-  <div class="page svedeniya-list protivodejstvie-korrupcii-page">
+  <div class="page subcategory-list protivodejstvie-korrupcii-page">
     <div class="container">
       <div class="page-title">Противодействие коррупции</div>
 

@@ -3,7 +3,7 @@
 @extends('layouts.main')
 
 @section('content')
-  <div class="page svedeniya-list svedeniya-dokumenty-page">
+  <div class="page subcategory-list svedeniya-dokumenty-page">
     <div class="container">
       <div class="page-title-wrapper">
         <div class="page-title">Документы</div>

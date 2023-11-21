@@ -321,7 +321,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/dashboard/dshi-obrazovanie" class="nav-link">
+                  <a href="/dashboard/dshi/category/4" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Образование</p>
                   </a>

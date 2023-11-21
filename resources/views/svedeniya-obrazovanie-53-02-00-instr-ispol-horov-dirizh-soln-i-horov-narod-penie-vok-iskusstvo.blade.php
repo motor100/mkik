@@ -3,7 +3,7 @@
 @extends('layouts.main')
 
 @section('content')
-  <div class="page svedeniya-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">
+  <div class="page subcategory-list svedeniya-pdf-list svedeniya-dokumenty-page svedeniya-page">
     <div class="container">
       <div class="page-title-wrapper">
         <div class="page-title">53.02.00 Инстр.испол,,Хоров.дириж.,Сольн.и хоров.народ.пение,Вок.искусство</div>

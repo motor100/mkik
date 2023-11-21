@@ -23,7 +23,7 @@
   @endif
 
   <div class="news-form mb-5">
-    <form class="form" action="{{ route('dashboard.svedeniya-dokumenty-update', $document->id) }}" enctype="multipart/form-data" method="post">
+    <form class="form" action="{{ route('dashboard.dshi-dokumenty-update', $document->id) }}" enctype="multipart/form-data" method="post">
       <div class="form-group mb-3">
         <label for="inputTitle" class="form-check-label">Заголовок (250 символов)</label>
         <input type="text" name="title" class="form-control" id="inputTitle" maxlength="250" required value="{{ $document->title }}">
@@ -70,7 +70,7 @@
 <script>
   // Изменение цвета активного пункта меню
   let navLink = document.querySelectorAll('.nav-sidebar .menu-item > .nav-link');
-  navLink[12].classList.add('active');
+  navLink[7].classList.add('active');
 </script>
 
 @endsection

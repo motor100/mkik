@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\SvedeniyaDocumentsController;
 use App\Http\Controllers\Admin\AbiturientuDokumentyController;
 use App\Http\Controllers\Admin\UchebaPrepodavatelyamMaketyController;
 use App\Http\Controllers\Admin\SvedeniyaStrukturaDokumentyController;
+use App\Http\Controllers\Admin\DshiSubcategoryController;
+use App\Http\Controllers\Admin\DshiDocumentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -221,7 +223,41 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/dshi-platnye-obrazovatelnye-uslugi-update', [AdminController::class, 'dshi_platnye_obrazovatelnye_uslugi_update']);
 
-    Route::get('/dashboard/dshi-obrazovanie', [AdminController::class, 'dshi_obrazovanie']);
+
+    // ДШИ Категории
+    Route::get('/dashboard/dshi/category/{id}', [AdminController::class, 'dshi_category'])->name('dashboard.dshi-category');
+
+    // ДШИ Подкатегории
+    // subcategories/create/{category_id} category_id категории в которой создается подкатегория
+    Route::get('/dashboard/dshi/subcategories/create/{category_id}', [DshiSubcategoryController::class, 'create'])->name('dashboard.dshi-subcategories-create');
+
+    Route::post('/dashboard/dshi/subcategories/store', [DshiSubcategoryController::class, 'store'])->name('dashboard.dshi-subcategories-store');
+
+    Route::get('/dashboard/dshi/subcategories/{id}', [DshiSubcategoryController::class, 'show'])->name('dashboard.dshi-subcategories-show');
+
+    Route::get('/dashboard/dshi/subcategories/{id}/edit', [DshiSubcategoryController::class, 'edit'])->name('dashboard.dshi-subcategories-edit');
+
+    Route::post('/dashboard/dshi/subcategories/{id}/update', [DshiSubcategoryController::class, 'update'])->name('dashboard.dshi-subcategories-update');
+
+    Route::get('/dashboard/dshi/subcategories/{id}/destroy', [DshiSubcategoryController::class, 'destroy'])->name('dashboard.dshi-subcategories-destroy');
+
+
+    // Сведения Документы
+    // documents/create/{subcategory_id} subcategory_id подкатегория в которую добавляется документ
+    Route::get('/dashboard/dshi/dokumenty/create/{subcategory_id}', [DshiDocumentsController::class, 'create'])->name('dashboard.dshi-dokumenty-create');
+
+    Route::post('/dashboard/dshi/dokumenty/store', [DshiDocumentsController::class, 'store'])->name('dashboard.dshi-dokumenty-store');
+
+    Route::get('/dashboard/dshi/dokumenty/{id}', [DshiDocumentsController::class, 'show'])->name('dashboard.dshi-dokumenty-show');
+
+    Route::get('/dashboard/dshi/dokumenty/{id}/edit', [DshiDocumentsController::class, 'edit'])->name('dashboard.dshi-dokumenty-edit');
+
+    Route::post('/dashboard/dshi/dokumenty/{id}/update', [DshiDocumentsController::class, 'update'])->name('dashboard.dshi-dokumenty-update');
+
+    Route::get('/dashboard/dshi/dokumenty/{id}/destroy', [DshiDocumentsController::class, 'destroy'])->name('dashboard.dshi-dokumenty-destroy');
+
+
+    // Route::get('/dashboard/dshi-obrazovanie', [AdminController::class, 'dshi_obrazovanie']);
 
     Route::post('/dashboard/dshi-obrazovanie-update', [AdminController::class, 'dshi_obrazovanie_update']);
 
@@ -404,27 +440,12 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/store', [PedagogicheskijSostavDokumentyController::class, 'store'])->name('pedagogicheskij-sostav-dokumenty-store');
 
-    // Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}', [PedagogicheskijSostavDokumentyController::class, 'show'])->name('pedagogicheskij-sostav-dokumenty-show');
-
     Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/edit', [PedagogicheskijSostavDokumentyController::class, 'edit'])->name('pedagogicheskij-sostav-dokumenty-edit');
 
     Route::post('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/update', [PedagogicheskijSostavDokumentyController::class, 'update'])->name('pedagogicheskij-sostav-dokumenty-update');
 
     Route::get('/dashboard/pedagogicheskij-sostav-dokumenty/{id}/destroy', [PedagogicheskijSostavDokumentyController::class, 'destroy'])->name('pedagogicheskij-sostav-dokumenty-destroy');
 
-    // Сведения Платные образовательные услуги
-    /*
-    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi']);
-
-    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi-update', [AdminController::class, 'svedeniya_platnye_obrazovatelnye_uslugi_update']);
-    */
-
-    /*
-    Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/finansovo-xozyaistvennaya-deyatelnost', [AdminController::class, 'svedeniya_finansovo_xozyaistvennaya_deyatelnost']);
-    // финансово-хозяйственная деятельность
-
-    Route::post('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/finansovo-xozyaistvennaya-deyatelnost-update', [AdminController::class, 'svedeniya_finansovo_xozyaistvennaya_deyatelnost_update']);
-    */
 
     Route::get('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/vakantnye-mesta-dlya-priema-perevoda', [AdminController::class, 'svedeniya_vakantnye_mesta_dlya_priema_perevoda']);
     // вакантные места для приема (перевода)

@@ -449,6 +449,10 @@ class AdminController extends Controller
         return redirect('/dashboard/centr-sodejstviya-trudoustrojstvu');
     }
 
+    /**
+     * Сведения
+     * Категории
+     */
     public function svedeniya_category($category_id): mixed
     {
         $svedeniya_category = \App\Models\SvedeniyaCategory::where('id', $category_id)
@@ -764,32 +768,6 @@ class AdminController extends Controller
 
         return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/stipendii-i-inye-vidy-materialnoi-podderzki');
     }
-
-    // Сведения Платные образовательные услуги
-    /*
-    public function svedeniya_platnye_obrazovatelnye_uslugi()
-    {
-        $text = DB::table('pages')
-                ->where('id', 24)
-                ->value('text');
-
-        return view('dashboard.svedeniya-platnye-obrazovatelnye-uslugi', compact('text'));
-    }
-
-    public function svedeniya_platnye_obrazovatelnye_uslugi_update(Request $request)
-    {
-        $text = $request->input('text');
-
-        DB::table('pages')
-            ->where('id', 24)
-            ->update([
-                'text' => $text,
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-
-        return redirect('/dashboard/svedeniya-ob-obrazovatelnoj-organizacii/platnye-obrazovatelnye-uslugi');
-    }
-    */
 
     public function svedeniya_vakantnye_mesta_dlya_priema_perevoda()
     {
@@ -1336,6 +1314,27 @@ class AdminController extends Controller
         return redirect('/dashboard/studencheskaya-zhizn-media-centr-da-capo');
     }
 
+    /**
+     * ДШИ
+     * Категории
+     */
+    public function dshi_category($category_id): mixed
+    {
+        $dshi_category = \App\Models\DshiCategory::where('id', $category_id)
+                                                    ->with(['subcategories' => function ($q) {
+                                                        $q->orderBy('sort', 'asc');
+                                                    }])
+                                                    ->first();
+
+        if ($dshi_category) {
+
+            return view('dashboard.dshi-category', compact('dshi_category'));
+
+        } else {
+            return abort(404);
+        }     
+    }
+
     public function dshi_rukovodstvo_i_pedsostav()
     {   
         $text = DB::table('pages')
@@ -1405,6 +1404,7 @@ class AdminController extends Controller
         return redirect('/dashboard/dshi-platnye-obrazovatelnye-uslugi');
     }
 
+    /*
     public function dshi_obrazovanie()
     {   
         $text = DB::table('pages')
@@ -1427,6 +1427,7 @@ class AdminController extends Controller
 
         return redirect('/dashboard/dshi-obrazovanie');
     }
+    */
 
     public function dshi_dokumenty()
     {   

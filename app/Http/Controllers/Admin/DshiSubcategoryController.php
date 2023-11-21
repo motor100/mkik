@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
-use App\Models\SvedeniyaSubcategory;
+use App\Models\DshiSubcategory;
 use Illuminate\Http\RedirectResponse;
 
-class SvedeniyaSubcategoryController extends Controller
+class DshiSubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class SvedeniyaSubcategoryController extends Controller
      */
     public function create($category_id): View
     {
-        return view('dashboard.svedeniya-subcategories-create', compact('category_id'));
+        return view('dashboard.dshi-subcategories-create', compact('category_id'));
     }
 
     /**
@@ -41,16 +41,16 @@ class SvedeniyaSubcategoryController extends Controller
         $slug = Str::slug($validated["title"]);
 
         // Проверка на уникальный slug
-        $slug = (new \App\Services\Slug(SvedeniyaSubcategory::query(), $slug))->check();
+        $slug = (new \App\Services\Slug(DshiSubcategory::query(), $slug))->check();
 
-        SvedeniyaSubcategory::create([
-            'svedeniya_category_id' => $validated["category_id"],
+        DshiSubcategory::create([
+            'dshi_category_id' => $validated["category_id"],
             'title' => $validated["title"],
             'slug' => $slug,
             'sort' => array_key_exists('sort', $validated) ? $validated["sort"] : NULL,
         ]);
 
-        return redirect()->route('dashboard.svedeniya-category', $validated["category_id"]);
+        return redirect()->route('dashboard.dshi-category', $validated["category_id"]);
     }
 
     /**
@@ -58,9 +58,9 @@ class SvedeniyaSubcategoryController extends Controller
      */
     public function show(string $id): View
     {
-        $svedeniya_subcategory = \App\Models\SvedeniyaSubcategory::findOrFail($id);
+        $dshi_subcategory = \App\Models\DshiSubcategory::findOrFail($id);
 
-        return view('dashboard.svedeniya-subcategories-show', compact('svedeniya_subcategory'));
+        return view('dashboard.dshi-subcategories-show', compact('dshi_subcategory'));
     }
 
     /**
@@ -68,9 +68,9 @@ class SvedeniyaSubcategoryController extends Controller
      */
     public function edit(string $id): View
     {
-        $svedeniya_subcategory = \App\Models\SvedeniyaSubcategory::findOrFail($id);
+        $dshi_subcategory = \App\Models\DshiSubcategory::findOrFail($id);
 
-        return view('dashboard.svedeniya-subcategories-edit', compact('svedeniya_subcategory'));
+        return view('dashboard.dshi-subcategories-edit', compact('dshi_subcategory'));
     }
 
     /**
@@ -83,14 +83,14 @@ class SvedeniyaSubcategoryController extends Controller
             'sort' => 'nullable|min:1|max:1000',
         ]);
 
-        $svedeniya_subcategory = \App\Models\SvedeniyaSubcategory::findOrFail($id);
+        $dshi_subcategory = \App\Models\DshiSubcategory::findOrFail($id);
 
         $slug = Str::slug($validated["title"]);
 
         // Проверка на уникальный slug
-        $slug = (new \App\Services\Slug(SvedeniyaSubcategory::query(), $slug))->check();
+        $slug = (new \App\Services\Slug(DshiSubcategory::query(), $slug))->check();
 
-        $svedeniya_subcategory->update([
+        $dshi_subcategory->update([
             'title' => $validated["title"],
             'slug' => $slug,
             'sort' => array_key_exists('sort', $validated) ? $validated["sort"] : NULL,

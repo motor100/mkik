@@ -406,13 +406,41 @@ class MainController extends Controller
         return view('dshi-platnye-obrazovatelnye-uslugi', compact('text'));
     }
 
-    public function dshi_obrazovanie()
+    /**
+     * ДШИ
+     * Образование
+     */
+    public function dshi_obrazovanie(): View
     {
         $text = DB::table('pages')
                     ->where('title', 'Детская школа искусств образование')
                     ->value('text');
 
-        return view('dshi-obrazovanie', compact('text'));
+        // ДШИ категория Образование
+        $category_id = 4;
+
+        $svedeniya_subcategories = \App\Models\DshiSubcategory::where('dshi_category_id', $category_id)
+                                                                    ->orderBy('sort', 'asc')
+                                                                    ->get();
+
+        return view('dshi-obrazovanie', compact('text', 'svedeniya_subcategories'));
+    }
+
+    /**
+     * Сведения
+     * Страница Список документов в подкатегории
+     */
+    public function dshi_dokumenty_inner($subcat): View
+    {
+        $dshi_subcategory = \App\Models\DshiSubcategory::where('slug', $subcat)->first();
+
+        if ($dshi_subcategory) {
+
+            return view('dshi-dokumenty-inner', compact('dshi_subcategory'));
+
+        } else {
+            return abort(404);
+        }
     }
 
     public function dshi_dokumenty()
@@ -487,6 +515,10 @@ class MainController extends Controller
         return view('svedeniya-dokumenty', compact('svedeniya_subcategories'));
     }
 
+    /**
+     * Сведения
+     * Страница Список документов в подкатегории
+     */
     public function svedeniya_dokumenty_inner($subcat): View
     {
         $svedeniya_subcategory = \App\Models\SvedeniyaSubcategory::where('slug', $subcat)->first();
@@ -1281,108 +1313,4 @@ class MainController extends Controller
 
         return $filetype;
     }
-
-
-    // temp
-    public function mainnews_update()
-    {
-        $mainnews = \App\Models\Mainnew::all();
-
-        $mainnews->each(function ($item) {
-            $item->image = str_replace('/upload/', 'public/uploads/', $item->image);
-            $item->save();
-        });
-
-        return "ok";
-    }
-
-    public function afishas_update()
-    {
-        $afishas = \App\Models\Afisha::all();
-
-        $afishas->each(function ($item) {
-            $item->image = str_replace('/upload/', 'public/uploads/', $item->image);
-            $item->save();
-        });
-
-        return "ok";
-    }
-
-    public function calendar_update()
-    {
-        $calendar = new \App\Models\Calendar();
-
-        $calendar->each(function ($item) {
-            $item->image = str_replace('/upload/', 'public/uploads/', $item->image);
-            $item->save();
-        });
-
-        return "ok";
-    }
-
-    /**
-     * Абитуриенту направления подготовки - галерея в отдельную таблицу
-     */
-    public function abiturientu_napravleniya_podgotovki_update()
-    {
-        $napravlenies = \App\Models\AbiturientuNapravleniyaPodgotovki::all();
-
-        $insert_array = [];
-
-        foreach($napravlenies as $np) {
-            $gallery_array = json_decode($np->gallery);
-
-            if ($gallery_array) {
-                foreach($gallery_array as $ga) {
-                    $item['anp_id'] = $np->id;
-                    $item['image'] = str_replace('/upload/', 'public/uploads/', $ga);
-                    $item['created_at'] = now();
-                    $item['updated_at'] = now();
-    
-                    $insert_array[] = $item;
-                }
-            }
-        }
-
-        return \App\Models\AbiturientuNapravleniyaPodgotovkiGallery::insert($insert_array);
-
-    }
-
-    /**
-     * Перемещение галереи из таблицы mainnews в таблицу mainews_galleries
-     */
-    public function mainnews_gallery_update()
-    {
-        // Получаю все модели у которых галерея не равна []
-        $mainnews = \App\Models\Mainnew::where('gallery', '!=', '[]')->get();
-
-        $insert_array = [];
-
-        // Перебираю все новости
-        foreach($mainnews as $item) {
-            
-            // Получаю галерею для каждой новости
-            $gallery_array = json_decode($item->gallery, true);
-            
-            // Перебираю галерею и создаю массив
-            foreach($gallery_array as $gl_item) {
-                $arr = [];
-                $gl_item = str_replace('/upload/news/', 'public/uploads/news/', $gl_item);
-                $gl_item = str_replace('/public/uploads/news/', 'public/uploads/news/', $gl_item);
-                $arr['mainnew_id'] = $item->id;
-                $arr['image'] = $gl_item;
-                $arr['created_at'] = now();
-                $arr['updated_at'] = now();
-
-                $insert_array[] = $arr;
-            }
-        }
-
-        // dd($insert_array);
-
-        $tt = \App\Models\MainnewGallery::insert($insert_array);
-
-        return ($tt);
-    }
-
 }

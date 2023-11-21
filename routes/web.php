@@ -114,8 +114,10 @@ Route::get('/dshi/postupayushchim', [MainController::class, 'dshi_postupayushchi
 Route::get('/dshi/platnye-obrazovatelnye-uslugi', [MainController::class, 'dshi_platnye_obrazovatelnye_uslugi']);
 // детская школа искусств платные образовательные услуги
 
+// ДШИ Образование
 Route::get('/dshi/obrazovanie', [MainController::class, 'dshi_obrazovanie']);
-// детская школа искусств образование
+
+Route::get('/dshi/dokumenty/{subcat}', [MainController::class, 'dshi_dokumenty_inner']);
 
 Route::get('/dshi/dokumenty', [MainController::class, 'dshi_dokumenty']);
 // детская школа искусств документы
@@ -298,18 +300,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/eios/rezultaty-osvoeniya-obrazovatelnoj-programmy', [EiosController::class, 'rezultaty_osvoeniya_obrazovatelnoj_programmy']);
 });
-
-
-
-// temp
-Route::get('/temp/mainnews-update', [MainController::class, 'mainnews_update']);
-
-Route::get('/temp/afishas-update', [MainController::class, 'afishas_update']);
-
-Route::get('/temp/calendar-update', [MainController::class, 'calendar_update']);
-
-// Перемещение галереи из таблицы mainnews в таблицу mainews_galleries
-Route::get('/temp/mainnews-gallery-update', [MainController::class, 'mainnews_gallery_update']);
-
 
 Route::fallback([AdminController::class, 'dashboard_404']);

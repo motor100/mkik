@@ -2,20 +2,19 @@
 
 @extends('layouts.main')
 
-@section('style')
-@endsection
-
 @section('content')
-  <div class="page istoriya-page">
+  <div class="page subcategory-list dshi-obrazovanie-page">
     <div class="container">
       <div class="page-title">Образование</div>
-      <div class="text">
-        {!! $text !!}
+
+      <div class="svedeniya-links">
+        @foreach($svedeniya_subcategories as $subcat)
+          <div class="item">
+            <a href="/dshi/dokumenty/{{ $subcat->slug }}" class="item__link">{{ $subcat->title }}</a>
+          </div>
+        @endforeach
       </div>
-      <div class="clear-both"></div>
+
     </div>
   </div>
-@endsection
-
-@section('script')
 @endsection
