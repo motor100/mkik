@@ -8,7 +8,7 @@
       <div class="page-title-wrapper">
         <div class="page-title">Документы</div>
       </div>
-      
+
       <div class="svedeniya-links">
         @foreach($svedeniya_subcategories as $subcat)
           <div class="item">
