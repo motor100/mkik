@@ -1132,9 +1132,20 @@ class MainController extends Controller
 
     }
 
-    public function politika_konfidencialnosti()
+    /**
+     * Политика конфиденциальности
+     */
+    public function politika_konfidencialnosti(): View
     {
         return view('politika-konfidencialnosti');
+    }
+
+    /**
+     * Правила на обработку персональных данных
+     */
+    public function pravila_na_obrabotku_personalnyh_dannyh(): View
+    {
+        return view('pravila-na-obrabotku-personalnyh-dannyh');
     }
 
     /**

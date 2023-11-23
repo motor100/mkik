@@ -283,6 +283,8 @@ Route::post('/feedback-store', [MainController::class, 'feedback_store']);
 
 Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
 
+Route::get('/pravila-na-obrabotku-personalnyh-dannyh', [MainController::class, 'pravila_na_obrabotku_personalnyh_dannyh']);
+
 require __DIR__.'/auth.php';
 
 // ЭИОС

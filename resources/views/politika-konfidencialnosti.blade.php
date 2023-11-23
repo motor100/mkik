@@ -9,16 +9,6 @@
         <div class="page-title">Политика конфиденциальности</div>
         <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
       </div>
-      <div class="documents">
-        <div class="list-item">
-          <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/soglasie.pdf" target="_blank">Согласие на обработку персональных  данных</a>
-        </div>
-        <div class="list-item">
-          <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/soglasie_zakonogo_predstavitela.pdf" target="_blank">Согласие законного представителя на обработку персональных  данных</a>
-        </div>
-      </div>
       <div class="text">
         <p>Комментарии</p>
         <p>Если посетитель оставляет комментарий на сайте, мы собираем данные указанные в форме комментария, а также IP адрес посетителя и данные user-agent браузера с целью определения спама.</p>

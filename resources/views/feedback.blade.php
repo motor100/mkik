@@ -44,7 +44,7 @@
               </label>
               <input type="checkbox" name="privacy" class="custom-checkbox" id="privacy">
               <label for="privacy" class="custom-checkbox-label">
-                <span class="span-text">Я согласен(на) с <a href="/politika-konfidencialnosti" target="_blank">правилами</a> на обработку персональных данных</span>
+                <span class="span-text">Я согласен(на) с <a href="/pravila-na-obrabotku-personalnyh-dannyh" target="_blank">правилами</a> на обработку персональных данных</span>
               </label>
             </div>
 

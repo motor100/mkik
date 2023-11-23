@@ -345,6 +345,9 @@
         <div class="item">
           <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
         </div>
+        <div class="item">
+          <a href="/pravila-na-obrabotku-personalnyh-dannyh">Правила на обработку персональных данных</a>
+        </div>
         <div class="item">2011-@php echo date("Y"); @endphp</div>
       </div>
     </div>
