@@ -37,7 +37,7 @@ class DshiDocumentsController extends Controller
             'input-main-file' => 'required',
             'input-sig-file' => [
                                 'nullable',
-                                \Illuminate\Validation\Rules\File::types(['asc'])
+                                \Illuminate\Validation\Rules\File::types(['application/pgp-signature', 'text/plain'])
             ],
             'input-key-file' => [
                                 'nullable',
@@ -96,7 +96,7 @@ class DshiDocumentsController extends Controller
             'input-main-file' => 'nullable',
             'input-sig-file' => [
                                 'nullable',
-                                \Illuminate\Validation\Rules\File::types(['asc'])
+                                \Illuminate\Validation\Rules\File::types(['application/pgp-signature', 'text/plain'])
             ],
             'input-key-file' => [
                                 'nullable',

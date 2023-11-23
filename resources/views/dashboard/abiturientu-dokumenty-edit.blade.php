@@ -39,7 +39,7 @@
       </div>
       <div class="form-group mb-1">
         <div class="label-text">Подпись</div>
-        <input type="file" name="input-sig-file" class="inputfile" id="input-sig-file" accept="application/pgp-signature">
+        <input type="file" name="input-sig-file" class="inputfile" id="input-sig-file" accept="application/pgp-signature, text/plain">
         <label class="custom-inputfile-label" for="input-sig-file">Выберите файл</label>
         <span class="file-text">Файл не выбран</span>
       </div>
