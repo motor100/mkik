@@ -11,7 +11,10 @@
   <div class="container">
     <div class="page-title">ЭИОС</div>
     <div class="logout">
-      <a href="/logout">Выйти</a>
+      <form class="form" action="/logout" method="POST">
+        <button class="logout-btn" type="submit">Выйти</button>
+        @csrf        
+      </form>
     </div>
     
     <div class="category-wrapper">
