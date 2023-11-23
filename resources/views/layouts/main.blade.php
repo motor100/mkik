@@ -218,7 +218,7 @@
           <div class="col-md-4 col-lg-3">
             <ul class="bottom-menu">
               <li class="menu-item menu-item-has-children">
-                <span class="menu-item__text">О колледже</span>
+                <span class="menu-item__title">О колледже</span>
                 <ul class="sub-menu">
                   <li class="sub-menu-item">
                     <a href="/o-kolledzhe/istoriya">История</a>
@@ -232,7 +232,7 @@
                 </ul>
               </li>
               <li class="menu-item menu-item-has-children">
-                <span class="menu-item__text">Учеба</span>
+                <span class="menu-item__title">Учеба</span>
                 <ul class="sub-menu">
                   <li class="sub-menu-item">
                     <a href="/studentam-raspisanie">Студентам</a>
@@ -255,7 +255,7 @@
                 </ul>
               </li>
               <li class="menu-item menu-item-has-children">
-                <span class="menu-item__text">Абитуриенту</span>
+                <span class="menu-item__title">Абитуриенту</span>
                 <ul class="sub-menu">
                   <li class="sub-menu-item">
                     <a href="/abiturientu/napravleniya-podgotovki">Направления подготовки</a>
@@ -279,7 +279,7 @@
           <div class="col-md-4">
             <ul class="bottom-menu">
               <li class="menu-item menu-item-has-children">
-                <span class="menu-item__text">Студенческая жизнь</span>
+                <span class="menu-item__title">Студенческая жизнь</span>
                 <ul class="sub-menu">
                   <li class="sub-menu-item">
                     <a href="/studencheskaya-zhizn/gazeta-pizzicato">Газета Pizzicato</a>
@@ -308,7 +308,7 @@
                 </ul>
               </li>
               <li class="menu-item menu-item-has-children">
-                <span class="menu-item__text">ДШИ</span>
+                <span class="menu-item__title">ДШИ</span>
                 <ul class="sub-menu">
                   <li class="sub-menu-item">
                     <a href="/dshi/rukovodstvo-i-pedsostav">Руководство и педсостав</a>
@@ -345,10 +345,12 @@
         <div class="item">
           <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
         </div>
-        <div class="item">2011-<?php echo date("Y"); ?></div>
-        <div class="item">
-          <a href="https://mybutton.ru" target="_blank">Сайт сделан студией Button</a>
-        </div>
+        <div class="item">2011-@php echo date("Y"); @endphp</div>
+      </div>
+    </div>
+    <div class="developer">
+      <div class="container">
+        <a href="https://mybutton.ru" target="_blank">Сайт сделан студией Button</a>
       </div>
     </div>
   </footer>

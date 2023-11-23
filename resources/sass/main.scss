@@ -242,7 +242,7 @@ ul {
   font-size: 22px;
   color: #5C0605;
   text-transform: uppercase;
-  text-shadow: #aaa 2px 2px 2px;
+  text-shadow: 2px 2px 2px #aaa;
 }
 .required-links .glasses {
   position: relative;
@@ -251,13 +251,14 @@ ul {
 .required-links .glasses__text {
   position: absolute;
   left: -35px;
-  top: 35px;
+  top: 33px;
   display: none;
   padding: 10px;
   background-color: #E8E2D4;
   font-family: "pt-sans-bold";
   color: #5C0605;
   text-align: center;
+  z-index: 1;
 }
 .required-links .glasses:hover .glasses__text {
   display: block;
@@ -633,19 +634,19 @@ ul {
 
 /* footer */
 .footer {
-  padding: 56px 0 20px 0;
+  padding: 55px 0;
   background: url(/resources/img/kalendar-studenta-bg.jpg) center no-repeat;
   background-size: cover;
 }
 .footer .top {
-  margin: 0 0 16px 0;
+  margin: 0 0 40px 0;
 }
 .footer .bottom-menu .menu-item {
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
 }
-.footer .bottom-menu .menu-item__text {
+.footer .bottom-menu .menu-item__title {
   display: block;
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
   font-family: 'pt-sans-bold';
 }
 .footer .bottom-menu .sub-menu-item {
@@ -676,13 +677,20 @@ ul {
   max-width: 100%;
 }
 .footer .bottom {
-  padding: 10px 0;
+  margin: 0 0 20px 0;
   color: #000;
   text-align: center;
 }
 .footer .bottom a {
   color: #000;
 }
+.footer .developer {
+  text-align: center;
+}
+.footer .developer a {
+  color: #000;
+}
+
 
 /* Архив */
 .archive-page .years {
