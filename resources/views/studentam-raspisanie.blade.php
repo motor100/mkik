@@ -69,16 +69,16 @@
 
       <div class="attestation-form-links">
         <div class="list-item">
-          <a class="name" href="/studentam-attestation-form/1">Форма аттестации</a>
+          <a class="name" href="/studentam-attestation-form/1">Формы аттестации</a>
         </div>
         <div class="list-item">
-          <a class="name" href="/studentam-attestation-form/2">Форма аттестации</a>
+          <a class="name" href="/studentam-attestation-form/2">Формы аттестации</a>
         </div>
         <div class="list-item">
-          <a class="name" href="/studentam-attestation-form/3">Форма аттестации</a>
+          <a class="name" href="/studentam-attestation-form/3">Формы аттестации</a>
         </div>
         <div class="list-item">
-          <a class="name" href="/studentam-attestation-form/4">Форма аттестации</a>
+          <a class="name" href="/studentam-attestation-form/4">Формы аттестации</a>
         </div>
       </div>
 
