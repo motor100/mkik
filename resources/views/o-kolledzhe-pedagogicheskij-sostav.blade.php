@@ -9,9 +9,9 @@
 
       <div class="teachers-wrapper">
         <div class="page-subtitle">Руководство</div>
-        @if(count($teachers) > 0)
+        @if(count($prepodavateli) > 0)
           <div class="row">
-            @foreach($teachers as $tchr)
+            @foreach($prepodavateli as $tchr)
               <div class="col-xl-4 col-lg-6">
                 <div class="item">
                   <div class="photo">

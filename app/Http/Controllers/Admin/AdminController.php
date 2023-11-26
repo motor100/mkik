@@ -1175,7 +1175,6 @@ class AdminController extends Controller
         return redirect('/dashboard/video');
     }
 
-
     public function studencheskaya_zhizn_kollektivy()
     {
         $text = DB::table('pages')
@@ -1344,8 +1343,8 @@ class AdminController extends Controller
         return view('dashboard.dshi-rukovodstvo-i-pedsostav', compact('text'));
     }
 
-    public function dshi_rukovodstvo_i_pedsostav_update(Request $request) {
-
+    public function dshi_rukovodstvo_i_pedsostav_update(Request $request)
+    {
         $text = $request->input('text');
 
         DB::table('pages')
@@ -1367,8 +1366,8 @@ class AdminController extends Controller
         return view('dashboard.dshi-postupayushchim', compact('text'));
     }
 
-    public function dshi_postupayushchim_update(Request $request) {
-
+    public function dshi_postupayushchim_update(Request $request)
+    {
         $text = $request->input('text');
 
         DB::table('pages')
@@ -1390,8 +1389,8 @@ class AdminController extends Controller
         return view('dashboard.dshi-platnye-obrazovatelnye-uslugi', compact('text'));
     }
 
-    public function dshi_platnye_obrazovatelnye_uslugi_update(Request $request) {
-
+    public function dshi_platnye_obrazovatelnye_uslugi_update(Request $request)
+    {
         $text = $request->input('text');
 
         DB::table('pages')
@@ -1403,31 +1402,6 @@ class AdminController extends Controller
 
         return redirect('/dashboard/dshi-platnye-obrazovatelnye-uslugi');
     }
-
-    /*
-    public function dshi_obrazovanie()
-    {   
-        $text = DB::table('pages')
-                ->where('id', 8)
-                ->value('text');
-
-        return view('dashboard.dshi-obrazovanie', compact('text'));
-    }
-
-    public function dshi_obrazovanie_update(Request $request) {
-
-        $text = $request->input('text');
-
-        DB::table('pages')
-            ->where('id', 8)
-            ->update([
-                'text' => $text,
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-
-        return redirect('/dashboard/dshi-obrazovanie');
-    }
-    */
 
     public function dshi_dokumenty()
     {   
@@ -1475,17 +1449,7 @@ class AdminController extends Controller
         return redirect('/dashboard/dshi-kontakty');
     }
 
-    public function prepodavateli()
-    {   
-        $teachers = DB::table('teachers')
-                    ->orderBy('id', 'desc')
-                    ->get();
 
-        $categories = DB::table('teachers_categories')
-                    ->get();
-
-        return view('dashboard.prepodavateli', compact('teachers', 'categories'));
-    }
 
     public function prepodavateli_add(Request $request)
     {   
@@ -1505,13 +1469,13 @@ class AdminController extends Controller
         $folder = 'teachers';
 
         // проверка на уникальный slug
-        $have_slug = DB::table('teachers')
+        $have_slug = DB::table('prepodavateli')
                         ->where('slug', $slug)
                         ->get();
 
         if (count($have_slug) > 0) {
             $newslug = $slug . '-%';
-            $slugs = DB::table('teachers')
+            $slugs = DB::table('prepodavateli')
                         ->where('slug', 'like', $newslug)
                         ->get();
             $count_slugs = count($slugs) + 1;
@@ -1527,7 +1491,7 @@ class AdminController extends Controller
 
     public function prepodavateli_edit($id)
     {
-        $teacher = DB::table('teachers')
+        $teacher = DB::table('prepodavateli')
                         ->where('id', $id)
                         ->first();
 
@@ -1536,7 +1500,7 @@ class AdminController extends Controller
 
         if ($teacher) {
 
-            $teachers = DB::table('teachers')
+            $teachers = DB::table('prepodavateli')
                             ->orderBy('id', 'desc')
                             ->get();
 
@@ -1573,7 +1537,7 @@ class AdminController extends Controller
 
         $folder = 'teachers';
 
-        $teacher = DB::table('teachers')
+        $teacher = DB::table('prepodavateli')
                         ->where('id', $id)
                         ->first();
 
@@ -1583,7 +1547,7 @@ class AdminController extends Controller
             $img = $teacher->image;
         }
 
-        DB::table('teachers')
+        DB::table('prepodavateli')
             ->where('id', $id)
             ->update([
                 'title' => $title,
@@ -1603,12 +1567,15 @@ class AdminController extends Controller
 
     public function prepodavateli_del($id)
     {
-        DB::table('teachers')
+        DB::table('prepodavateli')
             ->where('id', $id)
             ->delete();
     
         return redirect('/dashboard/prepodavateli');
     }
+
+
+
 
     public function eios_bank_studencheskih_rabot()
     {   

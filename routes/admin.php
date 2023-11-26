@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\UchebaPrepodavatelyamMaketyController;
 use App\Http\Controllers\Admin\SvedeniyaStrukturaDokumentyController;
 use App\Http\Controllers\Admin\DshiSubcategoryController;
 use App\Http\Controllers\Admin\DshiDocumentsController;
+use App\Http\Controllers\Admin\PrepodavateliController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,6 @@ use App\Http\Controllers\Admin\DshiDocumentsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 
 require __DIR__.'/auth.php';
 
@@ -257,8 +256,6 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::get('/dashboard/dshi/dokumenty/{id}/destroy', [DshiDocumentsController::class, 'destroy'])->name('dashboard.dshi-dokumenty-destroy');
 
 
-    // Route::get('/dashboard/dshi-obrazovanie', [AdminController::class, 'dshi_obrazovanie']);
-
     Route::post('/dashboard/dshi-obrazovanie-update', [AdminController::class, 'dshi_obrazovanie_update']);
 
     Route::get('/dashboard/dshi-dokumenty', [AdminController::class, 'dshi_dokumenty']);
@@ -269,15 +266,20 @@ Route::middleware('can:view-dashboard')->group(function () {
 
     Route::post('/dashboard/dshi-kontakty-update', [AdminController::class, 'dshi_kontakty_update']);
 
-    Route::get('/dashboard/prepodavateli', [AdminController::class, 'prepodavateli']);
 
-    Route::post('/dashboard/prepodavateli/add', [AdminController::class, 'prepodavateli_add']);
+    // Преподаватели
+    Route::get('/dashboard/prepodavateli', [PrepodavateliController::class, 'index']);
 
-    Route::get('/dashboard/prepodavateli/edit/{id}', [AdminController::class, 'prepodavateli_edit']);
+    Route::get('/dashboard/prepodavateli/create', [PrepodavateliController::class, 'create'])->name('dashboard.prepodavateli-create');
 
-    Route::post('/dashboard/prepodavateli/update/{id}', [AdminController::class, 'prepodavateli_update']);
+    Route::post('/dashboard/prepodavateli/store', [PrepodavateliController::class, 'store'])->name('dashboard.prepodavateli-store');
 
-    Route::get('/dashboard/prepodavateli/del/{id}', [AdminController::class, 'prepodavateli_del']);
+    Route::get('/dashboard/prepodavateli/{id}/edit', [PrepodavateliController::class, 'edit'])->name('dashboard.prepodavateli-edit');
+
+    Route::post('/dashboard/prepodavateli/{id}/update', [PrepodavateliController::class, 'update'])->name('dashboard.prepodavateli-update');
+
+    Route::get('/dashboard/prepodavateli/{id}/destroy', [PrepodavateliController::class, 'destroy'])->name('dashboard.prepodavateli-destroy');
+    
 
     Route::get('/dashboard/eios-bank-studencheskih-rabot', [AdminController::class, 'eios_bank_studencheskih_rabot']);
 

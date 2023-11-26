@@ -15,7 +15,7 @@ class LearningDirectionController extends Controller
      */
     public function index()
     {
-        $learning_directions = \App\Models\TeachersCategory::all();
+        $learning_directions = \App\Models\PrepodavateliCategory::all();
         
         return view('dashboard.learning-directions', compact('learning_directions'));
     }

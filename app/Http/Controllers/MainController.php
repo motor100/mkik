@@ -47,40 +47,36 @@ class MainController extends Controller
     public function o_kolledzhe_pedagogicheskij_sostav(): View
     {
         // Руководители
-        $teachers = \App\Models\Teacher::where('category_id', '1')
-                                        ->orderBy('sort', 'asc')
-                                        ->get();
+        $prepodavateli = \App\Models\Prepodavateli::where('category_id', '1')
+                                                    ->orderBy('sort', 'asc')
+                                                    ->get();
 
         // Документы
         $documents = \App\Models\PedagogicheskijSostavDokumenty::all();
 
-        return view('o-kolledzhe-pedagogicheskij-sostav', compact('teachers', 'documents'));
+        return view('o-kolledzhe-pedagogicheskij-sostav', compact('prepodavateli', 'documents'));
     }
 
-    public function o_kolledzhe_single_otdelenie($slug)
+    public function o_kolledzhe_single_otdelenie($slug): mixed
     {   
-        $teachers_category = DB::table('teachers_categories')
+        $teachers_category = DB::table('prepodavateli_categories')
                                 ->where('slug', $slug)
                                 ->first();
         
         if ($teachers_category) {
 
-            $teachers = DB::table('teachers')
-                            ->where('category_id', $teachers_category->id)
-                            ->get();
+            $prepodavateli = \App\Models\Prepodavateli::where('category_id', $teachers_category->id)->get();
 
-            return view('o-kolledzhe-single-otdelenie', compact('teachers_category', 'teachers'));
+            return view('o-kolledzhe-single-otdelenie', compact('teachers_category', 'prepodavateli'));
 
         } else {
             return abort(404);
         }
     }
 
-    public function o_kolledzhe_single_teacher($slug)
+    public function o_kolledzhe_single_teacher($slug): mixed
     {   
-        $single_teacher = DB::table('teachers')
-                            ->where('slug', $slug)
-                            ->first();
+        $single_teacher = \App\Models\Prepodavateli::where('slug', $slug)->first();
 
         if ($single_teacher) {
             return view('o-kolledzhe-single-teacher', compact('single_teacher'));

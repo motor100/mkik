@@ -10,9 +10,9 @@
         <span class="history-back" onclick="window.history.back()">&lt;&lt;&nbsp;Назад</span>
       </div>
       <div class="teachers-wrapper">
-        @if(count($teachers) > 0)
+        @if(count($prepodavateli) > 0)
           <div class="row">
-            @foreach($teachers as $tchr)
+            @foreach($prepodavateli as $tchr)
               <div class="col-xl-4 col-lg-6">
                 <div class="item">
                   <div class="photo">
