@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SvedeniyaStrukturaDokumentyController;
 use App\Http\Controllers\Admin\DshiSubcategoryController;
 use App\Http\Controllers\Admin\DshiDocumentsController;
 use App\Http\Controllers\Admin\PrepodavateliController;
+use App\Http\Controllers\Admin\KonkursyDokumentyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,11 +131,18 @@ Route::middleware('can:view-dashboard')->group(function () {
     Route::get('/dashboard/konkursy/{id}/destroy', [KonkursyController::class, 'destroy'])->name('konkursy-destroy');
 
 
-    Route::get('/dashboard/konkursy-dokumenty', [AdminController::class, 'konkursy_dokumenty']);
+    Route::get('/dashboard/konkursy-dokumenty', [KonkursyDokumentyController::class, 'index']);
 
-    Route::post('/dashboard/konkursy-dokumenty/add', [AdminController::class, 'konkursy_dokumenty_add']);
+    Route::get('/dashboard/konkursy-dokumenty/create', [KonkursyDokumentyController::class, 'create'])->name('konkursy-dokumenty-create');
 
-    Route::get('/dashboard/konkursy-dokumenty/del/{id}', [AdminController::class, 'konkursy_dokumenty_del']);
+    Route::post('/dashboard/konkursy-dokumenty/store', [KonkursyDokumentyController::class, 'store'])->name('konkursy-dokumenty-store');
+
+    Route::get('/dashboard/konkursy-dokumenty/{id}/edit', [KonkursyDokumentyController::class, 'edit'])->name('konkursy-dokumenty-edit');
+
+    Route::post('/dashboard/konkursy-dokumenty/{id}/update', [KonkursyDokumentyController::class, 'update'])->name('konkursy-dokumenty-update');
+
+    Route::get('/dashboard/konkursy-dokumenty/{id}/destroy', [KonkursyDokumentyController::class, 'destroy'])->name('konkursy-dokumenty-destroy');
+
 
     Route::get('/dashboard/studencheskaya-zhizn-gazeta-pizzicato', [AdminController::class, 'gazeta_pizzicato']);
 

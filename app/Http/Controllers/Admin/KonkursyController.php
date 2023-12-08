@@ -20,7 +20,7 @@ class KonkursyController extends Controller
      */
     public function index(): View
     {
-        $konkursy = Konkurs::orderBy('id', 'desc')->get();
+        $konkursy = Konkurs::all();
         
         return view('dashboard.konkursy', compact('konkursy'));
     }

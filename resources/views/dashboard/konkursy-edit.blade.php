@@ -18,7 +18,7 @@
           </div>
           <div class="form-group">
             <div class="image-preview">
-              <img src="{{ $konkurs->image }}" alt="">
+              <img src="{{ Storage::url($konkurs->image) }}" alt="">
             </div>
           </div>
           <div class="form-group mb-3">
@@ -65,7 +65,7 @@
   let navLink = document.querySelectorAll('.nav-sidebar .menu-item > .nav-link');
   navLink[5].classList.add('active');
 </script>
-<!-- 
+
 <script>
   // Выбор файла Изображение
   let inputImageFile = document.querySelector('#input-image-file'),
@@ -87,7 +87,7 @@
     }
   }
 </script>
- -->
+
 @endsection
 
 @section('script')

@@ -9,7 +9,6 @@ class FileUpdate
     protected $model;
     protected $folder;
     protected $validated;
-    // pedagogicheskij-sostav-dokumenty
 
     public function __construct($model, $folder, $validated)
     {

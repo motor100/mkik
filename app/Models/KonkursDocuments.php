@@ -5,9 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Konkurs_documents extends Model
+class KonkursDocuments extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'konkurs_id',
+        'title',
+        'file',
+        'filetype',
+    ];
 
     /**
      * Получить конкурс, которому принадлежит документ.
