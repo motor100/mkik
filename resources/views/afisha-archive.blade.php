@@ -23,7 +23,7 @@
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
               <div class="item">
                 <div class="image">
-                  <img src="{{ $fsh->image }}" alt="">
+                  <img src="{{ Storage::url($fsh->image) }}" alt="">
                 </div>
                 <div class="brown-line"></div>
                 <div class="date">{{ $fsh->date }}</div>

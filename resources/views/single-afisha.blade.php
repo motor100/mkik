@@ -40,7 +40,7 @@
         </div>
         @if($single_afisha->image)
           <div class="single-image">
-            <img src="{{ $single_afisha->image }}" alt="">
+            <img src="{{ Storage::url($single_afisha->image) }}" alt="">
           </div>
         @endif
         <div class="text">
