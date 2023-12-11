@@ -125,9 +125,11 @@ class PrepodavateliController extends Controller
 
         $slug = Str::slug($validated['title']);
 
-        // Проверка на уникальный slug
-        $slug = (new \App\Services\Slug(Prepodavateli::query(), $slug))->check();
-
+        // Проверка на уникальный slug если изменено имя преподавателя
+        if ($validated['title'] != $prepodavatel->title) {
+            $slug = (new \App\Services\Slug(Prepodavateli::query(), $slug))->check();
+        }
+        
         // Изображение
         $image = (new \App\Services\ImageUpdate($prepodavatel, $validated, 'teachers'))->update();
 
