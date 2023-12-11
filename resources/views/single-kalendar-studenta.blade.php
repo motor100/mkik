@@ -29,7 +29,7 @@
             <div class="col-md-9">
               <div class="images">
                 <div class="single-image">
-                  <img src="{{ $single_kalendar->image }}" alt="">
+                  <img src="{{ Storage::url($single_kalendar->image) }}" alt="">
                 </div>
               </div>
             </div>
