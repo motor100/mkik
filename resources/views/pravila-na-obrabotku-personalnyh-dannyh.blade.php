@@ -12,11 +12,11 @@
       <div class="documents">
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/soglasie.pdf" target="_blank">Согласие на обработку персональных  данных</a>
+          <a class="name" href="../../storage/uploads/pravila-na-obrabotku-personalnyh-dannyh/soglasie-na-obrabotku-personalnyh-dannyh.pdf" target="_blank">Согласие на обработку персональных  данных</a>
         </div>
         <div class="list-item">
           <img class="icon" src="/img/pdf-icon.svg" alt="">
-          <a class="name" href="/img/soglasie_zakonogo_predstavitela.pdf" target="_blank">Согласие законного представителя на обработку персональных  данных</a>
+          <a class="name" href="../../storage/uploads/pravila-na-obrabotku-personalnyh-dannyh/soglasie_zakonogo_predstavitela.pdf" target="_blank">Согласие законного представителя на обработку персональных данных</a>
         </div>
       </div>
     </div>
